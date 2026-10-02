@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flowriya | Start a Project</title>
+
+    <!-- ================= GOOGLE FONTS ================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+    <!-- ================= FONT AWESOME ================= -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- ================= CUSTOM FONTS ================= -->
+
+    <style>
+
+        @font-face {
+            font-family: "Runethia";
+            src: url("./fonts/Runethia.otf") format("opentype");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "CormSC";
+            src: url("./fonts/CormorantSC-Medium.otf") format("opentype");
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "CastleDisplay";
+            src: url("./fonts/CastleDisplay.otf") format("opentype"),
+                 url("./fonts/CastleDisplay.ttf") format("truetype");
+            font-display: swap;
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #090605;
+            color: #f5eee5;
+            font-family: "Poppins", sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+
+            --bg: #090605;
+            --bg-soft: #100b09;
+            --dark: #0d0807;
+            --card: #130d0b;
+
+            --cream: #f5eee5;
+            --muted: #a99b8f;
+
+            --gold: #c9a27a;
+            --gold-light: #e2c49f;
+
+            --line: rgba(201, 162, 122, 0.18);
+
+            --script: "Runethia", cursive;
+            --serif: "CastleDisplay", "Cormorant Garamond", serif;
+
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+
+        /* =====================================================
+           SIDEBAR BUTTON
+        ===================================================== */
+
+        .sidebar-toggle {
+
+            position: fixed;
+
+            top: 25px;
+            left: 25px;
+
+            width: 52px;
+            height: 52px;
+
+            border: 1px solid var(--line);
+            border-radius: 50%;
+
+            background: rgba(13, 8, 7, 0.92);
+
+            backdrop-filter: blur(12px);
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 5px;
+
+            cursor: pointer;
+
+            z-index: 1200;
+
+            transition: 0.3s ease;
+        }
+
+        .sidebar-toggle:hover {
+
+            border-color: var(--gold);
+
+            transform: translateY(-2px);
+        }
+
+        .sidebar-toggle span {
+
+            width: 20px;
+            height: 1px;
+
+            background: var(--cream);
+
+            transition: 0.3s ease;
+        }
+
+
+        /* =====================================================
+           SIDEBAR OVERLAY
+        ===================================================== */
+
+        .sidebar-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.68);
+
+            backdrop-filter: blur(3px);
+
+            opacity: 0;
+            visibility: hidden;
+
+            z-index: 950;
+
+            transition: 0.35s ease;
+        }
+
+        body.sidebar-open .sidebar-overlay {
+
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        .sidebar {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 285px;
+            height: 100vh;
+
+            padding: 42px 30px;
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(201, 162, 122, 0.13),
+                    transparent 35%
+                ),
+                var(--dark);
+
+            border-right: 1px solid var(--line);
+
+            display: flex;
+            flex-direction: column;
+
+            transform: translateX(-100%);
+
+            transition: transform 0.4s ease;
+
+            z-index: 1100;
+
+            overflow-y: auto;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+
+        /* =====================================================
+           SIDEBAR CLOSE
+        ===================================================== */
+
+        .sidebar-close {
+
+            position: absolute;
+
+            top: 23px;
+            right: 23px;
+
+            width: 38px;
+            height: 38px;
+
+            border: 1px solid var(--line);
+            border-radius: 50%;
+
+            background: transparent;
+
+            color: var(--cream);
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+        .sidebar-close:hover {
+
+            color: var(--gold);
+
+            border-color: var(--gold);
+
+            transform: rotate(90deg);
+        }
+
+
+        /* =====================================================
+           SIDEBAR LOGO
+        ===================================================== */
+
+        .sidebar-logo {
+
+            width: 70px;
+            height: 70px;
+
+            margin-top: 25px;
+
+            border: 1px solid var(--gold);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+        }
+
+        .sidebar-logo::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 7px;
+
+            border: 1px solid rgba(201, 162, 122, 0.3);
+        }
+
+        .sidebar-logo span {
+
+            font-family: var(--serif);
+
+            font-size: 42px;
+
+            color: var(--gold-light);
+
+            z-index: 1;
+        }
+
+
+        /* =====================================================
+           SIDEBAR NAME
+        ===================================================== */
+
+        .sidebar-name {
+
+            margin-top: 22px;
+
+            font-family: "Runethia", cursive;
+
+            font-size: 40px;
+
+            font-weight: 500;
+
+            letter-spacing: 1px;
+        }
+
+        .sidebar-line {
+
+            width: 42px;
+            height: 1px;
+
+            background: var(--gold);
+
+            margin: 18px 0 28px;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .sidebar-nav {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+        }
+
+        .nav-link {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 14px 13px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            letter-spacing: 1.4px;
+
+            text-transform: uppercase;
+
+            border-left: 1px solid transparent;
+
+            transition: 0.3s ease;
+        }
+
+        .nav-link i {
+
+            width: 18px;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+
+            color: var(--gold-light);
+
+            border-left-color: var(--gold);
+
+            background: rgba(201, 162, 122, 0.06);
+
+            padding-left: 18px;
+        }
+
+
+        /* =====================================================
+           SIDEBAR BOTTOM
+        ===================================================== */
+
+        .sidebar-bottom {
+
+            margin-top: auto;
+
+            padding-top: 35px;
+        }
+
+        .sidebar-bottom p {
+
+            color: #766b63;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .sidebar-social {
+
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 18px;
+        }
+
+        .sidebar-social a {
+
+            width: 35px;
+            height: 35px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            transition: 0.3s ease;
+        }
+
+        .sidebar-social a:hover {
+
+            color: var(--gold-light);
+
+            border-color: var(--gold);
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           MAIN
+        ===================================================== */
+
+        main {
+
+            min-height: 100vh;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        main::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            top: -250px;
+            right: -220px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(201, 162, 122, 0.09),
+                    transparent 68%
+                );
+
+            pointer-events: none;
+        }
+
+        main::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            bottom: -250px;
+            left: -220px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(201, 162, 122, 0.06),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           CONTACT SECTION
+        ===================================================== */
+
+        .contact-page {
+
+            min-height: 100vh;
+
+            padding: 115px 7% 80px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            position: relative;
+        }
+
+        .contact-wrap {
+
+            width: 100%;
+
+            max-width: 1180px;
+
+            display: grid;
+
+            grid-template-columns: 0.9fr 1.1fr;
+
+            gap: 90px;
+
+            align-items: center;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+           LEFT CONTENT
+        ===================================================== */
+
+        .contact-label {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            color: var(--gold);
+
+            font-size: 9px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        .contact-label::before {
+
+            content: "";
+
+            width: 38px;
+            height: 1px;
+
+            background: var(--gold);
+        }
+
+        .contact-left h1 {
+
+            font-family: var(--serif);
+
+            font-size: clamp(55px, 7vw, 90px);
+
+            font-weight: 400;
+
+            line-height: 0.88;
+
+            letter-spacing: -2px;
+        }
+
+        .contact-left h1 em {
+
+            display: block;
+
+            font-family: var(--script);
+
+            font-style: normal;
+
+            font-weight: 400;
+
+            font-size: 0.9em;
+
+            color: var(--gold-light);
+
+            margin-top: 8px;
+
+            transform: rotate(-3deg);
+        }
+
+        .contact-description {
+
+            max-width: 450px;
+
+            margin-top: 30px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 2;
+        }
+
+
+        /* =====================================================
+           CONTACT INFO
+        ===================================================== */
+
+        .contact-details {
+
+            margin-top: 42px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid var(--line);
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+        }
+
+        .detail {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+        .detail-icon {
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--line);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: var(--gold);
+
+            font-size: 13px;
+        }
+
+        .detail-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 3px;
+        }
+
+        .detail-text span {
+
+            color: #71655d;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .detail-text strong {
+
+            color: var(--cream);
+
+            font-family: var(--serif);
+
+            font-size: 18px;
+
+            font-weight: 500;
+        }
+
+
+        /* =====================================================
+           FORM CARD
+        ===================================================== */
+
+        .form-card {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(201, 162, 122, 0.07),
+                    rgba(19, 13, 11, 0.95)
+                );
+
+            border: 1px solid var(--line);
+
+            padding: 42px;
+
+            position: relative;
+
+            box-shadow:
+                0 30px 70px rgba(0, 0, 0, 0.35);
+        }
+
+        .form-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 14px;
+            right: 14px;
+
+            width: 32px;
+            height: 32px;
+
+            border-top: 1px solid var(--gold);
+
+            border-right: 1px solid var(--gold);
+
+            opacity: 0.6;
+        }
+
+        .form-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: 14px;
+            left: 14px;
+
+            width: 32px;
+            height: 32px;
+
+            border-bottom: 1px solid var(--gold);
+
+            border-left: 1px solid var(--gold);
+
+            opacity: 0.6;
+        }
+
+
+        /* =====================================================
+           FORM HEADING
+        ===================================================== */
+
+        .form-heading {
+
+            margin-bottom: 30px;
+        }
+
+        .form-heading span {
+
+            color: var(--gold);
+
+            font-size: 8px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .form-heading h2 {
+
+            margin-top: 8px;
+
+            font-family: var(--serif);
+
+            font-size: 40px;
+
+            font-weight: 500;
+        }
+
+        .form-heading p {
+
+            margin-top: 8px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+        .input-group {
+
+            margin-bottom: 19px;
+        }
+
+        .input-group label {
+
+            display: block;
+
+            color: #9b8c80;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 9px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+
+            width: 100%;
+
+            border: 1px solid rgba(201, 162, 122, 0.17);
+
+            background: rgba(9, 6, 5, 0.65);
+
+            color: var(--cream);
+
+            padding: 14px 15px;
+
+            border-radius: 0;
+
+            outline: none;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 11px;
+
+            transition: 0.3s ease;
+        }
+
+        .input-group input::placeholder,
+        .input-group textarea::placeholder {
+
+            color: #655b55;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+
+            border-color: var(--gold);
+
+            background: rgba(201, 162, 122, 0.035);
+        }
+
+        .input-group select {
+
+            cursor: pointer;
+        }
+
+        .input-group select option {
+
+            background: #130d0b;
+
+            color: var(--cream);
+        }
+
+        .input-group textarea {
+
+            min-height: 120px;
+
+            resize: vertical;
+        }
+
+
+        /* =====================================================
+           SEND BUTTON
+        ===================================================== */
+
+        .send-btn {
+
+            width: 100%;
+
+            min-height: 52px;
+
+            border: none;
+
+            background: var(--gold);
+
+            color: #160e0a;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            font-family: var(--serif);
+
+            font-size: 13px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+            margin-top: 4px;
+        }
+
+        .send-btn:hover {
+
+            background: var(--gold-light);
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 35px rgba(201, 162, 122, 0.15);
+        }
+
+        .send-btn:disabled {
+
+            opacity: 0.7;
+
+            cursor: wait;
+
+            transform: none;
+        }
+
+        .send-btn i {
+
+            font-size: 10px;
+
+            transition: 0.3s ease;
+        }
+
+        .send-btn:hover i {
+
+            transform: translateX(4px);
+        }
+
+        .form-note {
+
+            text-align: center;
+
+            color: #625852;
+
+            font-size: 8px;
+
+            line-height: 1.7;
+
+            margin-top: 12px;
+        }
+
+
+        /* =====================================================
+           SUCCESS MESSAGE
+        ===================================================== */
+
+        .success-message {
+
+            display: none;
+
+            width: 100%;
+
+            max-width: 600px;
+
+            margin: 0 auto;
+
+            padding: 55px 35px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(201, 162, 122, 0.07),
+                    rgba(19, 13, 11, 0.97)
+                );
+
+            border: 1px solid var(--line);
+
+            position: relative;
+
+            box-shadow:
+                0 30px 70px rgba(0, 0, 0, 0.35);
+
+            animation: successFade 0.6s ease forwards;
+        }
+
+        .success-message.show {
+
+            display: block;
+        }
+
+        .success-message::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 14px;
+            right: 14px;
+
+            width: 32px;
+            height: 32px;
+
+            border-top: 1px solid var(--gold);
+
+            border-right: 1px solid var(--gold);
+
+            opacity: 0.6;
+        }
+
+        .success-message::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: 14px;
+            left: 14px;
+
+            width: 32px;
+            height: 32px;
+
+            border-bottom: 1px solid var(--gold);
+
+            border-left: 1px solid var(--gold);
+
+            opacity: 0.6;
+        }
+
+        .success-icon {
+
+            width: 68px;
+            height: 68px;
+
+            margin: 0 auto 25px;
+
+            border: 1px solid var(--gold);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: var(--gold-light);
+
+            font-size: 25px;
+
+            box-shadow:
+                0 0 25px rgba(201, 162, 122, 0.08);
+        }
+
+        .success-message > span {
+
+            display: block;
+
+            font-family: var(--script);
+
+            color: var(--gold);
+
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+        .success-message h2 {
+
+            color: var(--cream);
+
+            font-family: var(--serif);
+
+            font-size: 32px;
+
+            font-weight: 400;
+
+            margin-bottom: 15px;
+        }
+
+        .success-message p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.9;
+
+            max-width: 430px;
+
+            margin: 0 auto 30px;
+        }
+
+        .success-btn {
+
+            border: 1px solid var(--gold);
+
+            background: transparent;
+
+            color: var(--gold-light);
+
+            padding: 13px 22px;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+        .success-btn:hover {
+
+            background: var(--gold);
+
+            color: var(--dark);
+        }
+
+
+        @keyframes successFade {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(15px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            min-height: 80px;
+
+            padding: 25px 7%;
+
+            border-top: 1px solid var(--line);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            color: #71655d;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+        }
+
+        footer span {
+
+            color: var(--gold);
+        }
+
+
+        /* =====================================================
+           TABLETS
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .contact-wrap {
+
+                display: grid;
+
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+
+                width: 100%;
+
+                max-width: 750px;
+            }
+
+            .contact-left {
+
+                display: block;
+
+                width: 100%;
+            }
+
+            .form-card {
+
+                display: block;
+
+                width: 100%;
+
+                visibility: visible;
+
+                opacity: 1;
+            }
+
+            .contact-description {
+
+                font-size: 14px;
+
+                line-height: 1.9;
+            }
+
+            .detail-text span {
+
+                font-size: 10px;
+            }
+
+            .detail-text strong {
+
+                font-size: 19px;
+            }
+
+            .form-heading span {
+
+                font-size: 10px;
+            }
+
+            .form-heading p {
+
+                font-size: 12px;
+
+                line-height: 1.8;
+            }
+
+            .input-group label {
+
+                font-size: 10px;
+            }
+
+            .input-group input,
+            .input-group select,
+            .input-group textarea {
+
+                font-size: 13px;
+            }
+
+            .form-note {
+
+                font-size: 10px;
+
+                line-height: 1.8;
+            }
+
+            footer {
+
+                font-size: 10px;
+            }
+
+            .success-message {
+
+                max-width: 750px;
+            }
+        }
+
+
+        /* =====================================================
+           PHONES
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .contact-page {
+
+                display: block;
+
+                width: 100%;
+
+                padding: 100px 18px 50px;
+            }
+
+            .contact-wrap {
+
+                display: flex;
+
+                flex-direction: column;
+
+                width: 100%;
+
+                gap: 45px;
+            }
+
+            .contact-left {
+
+                display: block;
+
+                width: 100%;
+            }
+
+            .form-card {
+
+                display: block;
+
+                width: 100%;
+
+                padding: 28px 18px;
+
+                visibility: visible;
+
+                opacity: 1;
+            }
+
+            .form-row {
+
+                display: flex;
+
+                flex-direction: column;
+
+                width: 100%;
+
+                gap: 0;
+            }
+
+            .input-group {
+
+                display: block;
+
+                width: 100%;
+            }
+
+            .input-group input,
+            .input-group select,
+            .input-group textarea {
+
+                display: block;
+
+                width: 100%;
+            }
+
+            .input-group input,
+            .input-group select {
+
+                min-height: 50px;
+            }
+
+            .input-group textarea {
+
+                min-height: 130px;
+            }
+
+            .send-btn {
+
+                display: flex;
+
+                width: 100%;
+            }
+
+            .detail-text strong {
+
+                font-size: 17px;
+            }
+
+            .success-message {
+
+                width: 100%;
+
+                padding: 45px 20px;
+            }
+
+            .success-message h2 {
+
+                font-size: 25px;
+            }
+
+            .success-message p {
+
+                font-size: 12px;
+            }
+        }
+
+
+        @media (max-width: 380px) {
+
+            .contact-page {
+
+                padding-left: 14px;
+
+                padding-right: 14px;
+            }
+
+            .form-card {
+
+                padding: 25px 15px;
+            }
+
+            .success-message {
+
+                padding: 40px 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR TOGGLE
+    ===================================================== -->
+
+    <button
+        class="sidebar-toggle"
+        id="sidebarToggle"
+        aria-label="Open menu"
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+    ===================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ===================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <button
+            class="sidebar-close"
+            id="sidebarClose"
+            aria-label="Close menu"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <div class="sidebar-logo">
+            <span>F</span>
+        </div>
+
+
+        <div class="sidebar-name">
+            Flowriya
+        </div>
+
+
+        <div class="sidebar-line"></div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+
+            <a
+                href="index.html#about"
+                class="nav-link"
+            >
+                <i class="fa-regular fa-user"></i>
+                About
+            </a>
+
+
+            <a
+                href="index.html#skills"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-code"></i>
+                Skills
+            </a>
+
+
+            <a
+                href="index.html#projects"
+                class="nav-link"
+            >
+                <i class="fa-solid fa-layer-group"></i>
+                Projects
+            </a>
+
+
+            <a
+                href="order.html"
+                class="nav-link active"
+            >
+                <i class="fa-regular fa-envelope"></i>
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <p>
+                Frontend Developer
+            </p>
+
+
+            <div class="sidebar-social">
+
+                <a
+                    href="#"
+                    aria-label="GitHub"
+                >
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+
+                <a
+                    href="#"
+                    aria-label="LinkedIn"
+                >
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+
+                <a
+                    href="order.html"
+                    aria-label="Contact"
+                >
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
+
+    <main>
+
+        <section class="contact-page">
+
+            <div class="contact-wrap">
+
+
+                <!-- =================================================
+                     LEFT CONTENT
+                ================================================= -->
+
+                <div class="contact-left">
+
+                    <div class="contact-label">
+                        Start a Project
+                    </div>
+
+
+                    <h1>
+
+                        Let's Create
+
+                        <em>
+                            together.
+                        </em>
+
+                    </h1>
+
+
+                    <p class="contact-description">
+
+                        Have a website idea in mind?
+                        Tell me about your project and let's
+                        turn your idea into a clean, modern
+                        and responsive web experience.
+
+                    </p>
+
+
+                    <div class="contact-details">
+
+
+                        <div class="detail">
+
+                            <div class="detail-icon">
+
+                                <i class="fa-solid fa-code"></i>
+
+                            </div>
+
+
+                            <div class="detail-text">
+
+                                <span>
+                                    Specialization
+                                </span>
+
+                                <strong>
+                                    Frontend Development
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-icon">
+
+                                <i class="fa-solid fa-laptop-code"></i>
+
+                            </div>
+
+
+                            <div class="detail-text">
+
+                                <span>
+                                    Technologies
+                                </span>
+
+                                <strong>
+                                    HTML · CSS · JavaScript
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FORM CARD
+                ================================================= -->
+
+                <div class="form-card" id="formCard">
+
+
+                    <div class="form-heading">
+
+                        <span>
+                            Client Inquiry
+                        </span>
+
+                        <h2>
+                            Tell Me About It
+                        </h2>
+
+                        <p>
+                            Share a few details about your project below.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         WEB3FORMS FORM
+                    ================================================= -->
+
+                    <form
+                        id="projectForm"
+                        onsubmit="submitForm(event)"
+                    >
+
+                        <!-- DO NOT CHANGE THIS ACCESS KEY -->
+
+                        <input
+                            type="hidden"
+                            name="access_key"
+                            value="567b6541-4571-490f-beba-f72cc9e97a1e"
+                        >
+
+
+                        <input
+                            type="hidden"
+                            name="subject"
+                            value="New Flowriya Project Inquiry"
+                        >
+
+
+                        <!-- NAME + EMAIL -->
+
+                        <div class="form-row">
+
+                            <div class="input-group">
+
+                                <label for="name">
+                                    Your Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Enter your name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="input-group">
+
+                                <label for="email">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="your@email.com"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- PROJECT + BUDGET -->
+
+                        <div class="form-row">
+
+                            <div class="input-group">
+
+                                <label for="project">
+                                    Project Type
+                                </label>
+
+                                <select
+                                    id="project"
+                                    name="project"
+                                    required
+                                >
+
+                                    <option
+                                        value=""
+                                        selected
+                                        disabled
+                                    >
+                                        Select project type
+                                    </option>
+
+                                    <option value="Portfolio Website">
+                                        Portfolio Website
+                                    </option>
+
+                                    <option value="Business Website">
+                                        Business Website
+                                    </option>
+
+                                    <option value="E-Commerce Website">
+                                        E-Commerce Website
+                                    </option>
+
+                                    <option value="Landing Page">
+                                        Landing Page
+                                    </option>
+
+                                    <option value="Restaurant Website">
+                                        Restaurant Website
+                                    </option>
+
+                                    <option value="Personal Website">
+                                        Personal Website
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="input-group">
+
+                                <label for="budget">
+                                    Budget
+                                </label>
+
+                                <select
+                                    id="budget"
+                                    name="budget"
+                                >
+
+                                    <option
+                                        value=""
+                                        selected
+                                        disabled
+                                    >
+                                        Select budget
+                                    </option>
+
+                                    <option value="Under $100">
+                                        Under $100
+                                    </option>
+
+                                    <option value="$100 - $250">
+                                        $100 - $250
+                                    </option>
+
+                                    <option value="$250 - $500">
+                                        $250 - $500
+                                    </option>
+
+                                    <option value="$500+">
+                                        $500+
+                                    </option>
+
+                                    <option value="Let's Discuss">
+                                        Let's Discuss
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- MESSAGE -->
+
+                        <div class="input-group">
+
+                            <label for="message">
+                                Project Details
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Tell me about your website, design, pages, features..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+
+                        <!-- SEND BUTTON -->
+
+                        <button
+                            type="submit"
+                            class="send-btn"
+                            id="sendButton"
+                        >
+
+                            Send Inquiry
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+
+                        <p class="form-note">
+                            Your inquiry will be sent securely.
+                        </p>
+
+                    </form>
+
+                </div>
+
+
+                <!-- =================================================
+                     SUCCESS MESSAGE
+                ================================================= -->
+
+                <div
+                    id="successMessage"
+                    class="success-message"
+                >
+
+                    <div class="success-icon">
+
+                        <i class="fa-solid fa-check"></i>
+
+                    </div>
+
+
+                    <span>
+                        Thank You
+                    </span>
+
+
+                    <h2>
+                        Message Sent Successfully
+                    </h2>
+
+
+                    <p>
+                        Your project inquiry has been received.
+                        I'll review your message and get back to you soon.
+                    </p>
+
+
+                    <button
+                        type="button"
+                        onclick="resetForm()"
+                        class="success-btn"
+                    >
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                        Send Another Message
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <span>
+            © 2026 Flowriya
+        </span>
+
+        <span>
+            Crafted with HTML · CSS · JavaScript
+        </span>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        const sidebar =
+            document.getElementById("sidebar");
+
+        const sidebarToggle =
+            document.getElementById("sidebarToggle");
+
+        const sidebarClose =
+            document.getElementById("sidebarClose");
+
+        const sidebarOverlay =
+            document.getElementById("sidebarOverlay");
+
+
+        function openSidebar() {
+
+            sidebar.classList.add("open");
+
+            document.body.classList.add("sidebar-open");
+
+        }
+
+
+        function closeSidebar() {
+
+            sidebar.classList.remove("open");
+
+            document.body.classList.remove("sidebar-open");
+
+        }
+
+
+        sidebarToggle.addEventListener(
+            "click",
+            openSidebar
+        );
+
+
+        sidebarClose.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+
+        sidebarOverlay.addEventListener(
+            "click",
+            closeSidebar
+        );
+
+
+        document
+            .querySelectorAll(".nav-link")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    closeSidebar
+                );
+
+            });
+
+
+
+        /* =====================================================
+           WEB3FORMS SUBMISSION
+        ===================================================== */
+
+        async function submitForm(event) {
+
+            event.preventDefault();
+
+
+            const form =
+                document.getElementById("projectForm");
+
+            const formCard =
+                document.getElementById("formCard");
+
+            const successMessage =
+                document.getElementById("successMessage");
+
+            const sendButton =
+                document.getElementById("sendButton");
+
+
+            const formData =
+                new FormData(form);
+
+
+            sendButton.disabled = true;
+
+
+            sendButton.innerHTML = `
+                Sending...
+                <i class="fa-solid fa-spinner fa-spin"></i>
+            `;
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        "https://api.web3forms.com/submit",
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (result.success) {
+
+                    form.reset();
+
+                    formCard.style.display = "none";
+
+                    successMessage.classList.add("show");
+
+                } else {
+
+                    alert(
+                        result.message ||
+                        "Something went wrong. Please try again."
+                    );
+
+
+                    sendButton.disabled = false;
+
+
+                    sendButton.innerHTML = `
+                        Send Inquiry
+                        <i class="fa-solid fa-arrow-right"></i>
+                    `;
+                }
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                alert(
+                    "Unable to send your message. Please try again."
+                );
+
+
+                sendButton.disabled = false;
+
+
+                sendButton.innerHTML = `
+                    Send Inquiry
+                    <i class="fa-solid fa-arrow-right"></i>
+                `;
+            }
+
+        }
+
+
+
+        function resetForm() {
+
+            const formCard =
+                document.getElementById("formCard");
+
+            const successMessage =
+                document.getElementById("successMessage");
+
+
+            successMessage.classList.remove("show");
+
+            formCard.style.display = "block";
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+    </script>
+
+
+</body>
+</html>
