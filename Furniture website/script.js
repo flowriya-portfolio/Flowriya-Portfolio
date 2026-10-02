@@ -1,8 +1,3 @@
-/* =====================================================
-   NOVA INTERIORS
-   COMPLETE JAVASCRIPT
-===================================================== */
-
 /* ================= MOBILE MENU ================= */
 
 const menuBtn = document.querySelector("#menu-btn");

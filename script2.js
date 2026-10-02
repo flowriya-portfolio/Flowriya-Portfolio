@@ -1,8 +1,3 @@
-/* =========================================================
-   FLOWRIYA — PORTFOLIO JAVASCRIPT
-   MATCHING index.html + style2.css
-========================================================= */
-
 /* ================= SIDEBAR ================= */
 
 const sidebar = document.getElementById("sidebar");
