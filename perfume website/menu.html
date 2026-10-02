@@ -1,0 +1,1245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ÉLANÉ — Shop All Perfumes</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #c9a227;
+            --dark-gold: #9a7920;
+            --soft-gold: #e7d7a3;
+            --light-gold: #f7f1dc;
+            --cream: #fbf9f2;
+            --white: #ffffff;
+            --dark: #292722;
+            --muted: #827c70;
+            --border: #e6dec8;
+            --sidebar: #211d16;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 270px;
+            height: 100vh;
+            background: var(--sidebar);
+            color: white;
+            padding: 35px 25px;
+            z-index: 1000;
+            transition: left .35s ease;
+        }
+
+        .sidebar.close {
+            left: -270px;
+        }
+
+        .logo {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 38px;
+            letter-spacing: 4px;
+            text-align: center;
+            color: white;
+            margin-bottom: 55px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+
+        /* SIDEBAR CLOSE BUTTON */
+
+        .sidebar-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(255,255,255,.15);
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            font-size: 17px;
+            transition: .3s;
+        }
+
+        .sidebar-close:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin: 7px 0;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 16px;
+            color: #ddd8ca;
+            font-size: 14px;
+            letter-spacing: .5px;
+            transition: .3s;
+        }
+
+        .sidebar a i {
+            width: 20px;
+            color: var(--gold);
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: rgba(201, 162, 39, .12);
+            color: white;
+        }
+
+        .sidebar-bottom {
+            position: absolute;
+            bottom: 35px;
+            left: 25px;
+            right: 25px;
+        }
+
+        .sidebar-bottom a {
+            border-top: 1px solid rgba(255,255,255,.1);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main-content {
+            margin-left: 270px;
+            min-height: 100vh;
+            padding: 0 0 80px;
+            transition: margin-left .35s ease;
+        }
+
+        .main-content.full {
+            margin-left: 0;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .topbar {
+            height: 82px;
+            background: rgba(255,255,255,.96);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            position: sticky;
+            top: 0;
+            z-index: 500;
+        }
+
+
+        /* MENU BUTTON */
+
+        .menu-btn {
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--dark);
+            cursor: pointer;
+            font-size: 18px;
+            transition: .3s;
+        }
+
+        .menu-btn:hover {
+            background: var(--dark);
+            color: white;
+        }
+
+
+        .top-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 29px;
+            letter-spacing: 3px;
+        }
+
+
+        .top-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .top-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--border);
+            background: white;
+            cursor: pointer;
+            position: relative;
+            transition: .3s;
+        }
+
+        .top-icon:hover {
+            background: var(--light-gold);
+        }
+
+        .top-icon i {
+            color: var(--dark-gold);
+        }
+
+
+        .count {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            min-width: 19px;
+            height: 19px;
+            padding: 0 4px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: white;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        .menu-heading {
+            padding: 70px 20px 45px;
+            text-align: center;
+        }
+
+        .small-heading {
+            color: var(--dark-gold);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+        }
+
+        .menu-heading h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(45px, 6vw, 75px);
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .menu-heading p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 12px auto 0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+
+        .product-card {
+            background: white;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: .35s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 45px rgba(80,65,25,.14);
+        }
+
+
+        .product-image {
+            height: 330px;
+            background: linear-gradient(
+                145deg,
+                #fff,
+                #f8f1df,
+                #eee4c8
+            );
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: .5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.04);
+        }
+
+
+        /* WISHLIST */
+
+        .wishlist-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(120,95,25,.18);
+            background: rgba(255,255,255,.92);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2;
+            transition: .3s;
+        }
+
+        .wishlist-btn:hover {
+            transform: scale(1.08);
+        }
+
+        .wishlist-btn i {
+            color: var(--dark-gold);
+        }
+
+        .wishlist-btn.active i {
+            color: var(--gold);
+        }
+
+
+        /* PRODUCT INFO */
+
+        .product-info {
+            padding: 22px 20px 24px;
+        }
+
+        .product-category {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #a78936;
+            margin-bottom: 8px;
+        }
+
+        .product-info h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 25px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .product-info p {
+            color: #8f8879;
+            font-size: 12px;
+            line-height: 1.6;
+            min-height: 38px;
+        }
+
+
+        .product-bottom {
+            border-top: 1px solid #ebe4d0;
+            margin-top: 18px;
+            padding-top: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .price {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-gold);
+        }
+
+
+        /* ADD TO BAG */
+
+        .add-cart {
+            border: none;
+            background: var(--dark);
+            color: white;
+            padding: 11px 17px;
+            cursor: pointer;
+            font-size: 11px;
+            letter-spacing: 1px;
+            transition: .3s;
+        }
+
+        .add-cart:hover {
+            background: var(--gold);
+        }
+
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #292722;
+            color: white;
+            padding: 15px 22px;
+            font-size: 13px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: .35s;
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1200px) {
+
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 900px) {
+
+            .sidebar {
+                left: -270px;
+            }
+
+            .sidebar.open {
+                left: 0;
+            }
+
+            .sidebar.close {
+                left: -270px;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .main-content.full {
+                margin-left: 0;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .topbar {
+                padding: 0 15px;
+            }
+
+            .top-title {
+                font-size: 21px;
+                letter-spacing: 2px;
+            }
+
+            .top-actions {
+                gap: 7px;
+            }
+
+            .top-icon,
+            .menu-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .menu-heading {
+                padding: 50px 15px 35px;
+            }
+
+            .menu-heading h1 {
+                font-size: 43px;
+            }
+
+            .menu-heading p {
+                font-size: 13px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                padding: 0 12px;
+            }
+
+            .product-image {
+                height: 360px;
+            }
+
+            .product-info {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <button class="sidebar-close" id="sidebarClose">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <div class="logo">
+            ÉLANÉ<span>.</span>
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a href="menu.html" class="active">
+                    <i class="fa-solid fa-spray-can-sparkles"></i>
+                    Perfumes
+                </a>
+            </li>
+
+
+            <li>
+                <a href="wishlist.html">
+                    <i class="fa-regular fa-heart"></i>
+                    Wishlist
+                </a>
+            </li>
+
+
+            <li>
+                <a href="order.html">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    Cart
+                </a>
+            </li>
+
+
+            <li>
+                <a href="index.html#about">
+                    <i class="fa-regular fa-circle-user"></i>
+                    About
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="settings.html">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <main class="main-content" id="mainContent">
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+
+            <button class="menu-btn" id="menuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <div class="top-title">
+                SHOP PERFUMES
+            </div>
+
+
+            <div class="top-actions">
+
+
+                <button
+                    class="top-icon"
+                    onclick="window.location.href='wishlist.html'"
+                >
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span
+                        class="count"
+                        id="wishlistCount"
+                    >
+                        0
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="top-icon"
+                    onclick="window.location.href='order.html'"
+                >
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    <span
+                        class="count"
+                        id="cartCount"
+                    >
+                        0
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </header>
+
+
+
+        <!-- HEADING -->
+
+        <section class="menu-heading">
+
+            <div class="small-heading">
+                The ÉLANÉ Collection
+            </div>
+
+            <h1>
+                Find Your Signature Scent
+            </h1>
+
+            <p>
+                Discover refined fragrances created for moments,
+                memories and every expression of you.
+            </p>
+
+        </section>
+
+
+
+        <!-- PRODUCTS -->
+
+        <section
+            class="products-grid"
+            id="productsGrid"
+        >
+        </section>
+
+
+    </main>
+
+
+
+    <!-- TOAST -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+
+    <script>
+
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        const menuBtn =
+            document.querySelector("#menuBtn");
+
+        const sidebar =
+            document.querySelector("#sidebar");
+
+        const sidebarClose =
+            document.querySelector("#sidebarClose");
+
+        const mainContent =
+            document.querySelector("#mainContent");
+
+
+        /* OPEN SIDEBAR */
+
+        menuBtn.addEventListener("click", () => {
+
+            sidebar.classList.remove("close");
+
+            sidebar.classList.add("open");
+
+            mainContent.classList.remove("full");
+
+        });
+
+
+        /* CLOSE SIDEBAR */
+
+        sidebarClose.addEventListener("click", () => {
+
+            sidebar.classList.remove("open");
+
+            sidebar.classList.add("close");
+
+            mainContent.classList.add("full");
+
+        });
+
+
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        const products = [
+
+            {
+                id: 1,
+                name: "Élané Rose",
+                category: "For Her",
+                price: 4500,
+                image: "images/img 1.jpg",
+                description:
+                    "Soft florals with an elegant feminine finish."
+            },
+
+            {
+                id: 2,
+                name: "Élané Noir",
+                category: "For Him",
+                price: 5200,
+                image: "images/img 10.jpg",
+                description:
+                    "Deep woody notes with a sophisticated character."
+            },
+
+            {
+                id: 3,
+                name: "Velvet Bloom",
+                category: "For Her",
+                price: 4800,
+                image: "images/img 3.jpg",
+                description:
+                    "A graceful blend of petals and warm musk."
+            },
+
+            {
+                id: 4,
+                name: "Royal Oud",
+                category: "For Him",
+                price: 6500,
+                image: "images/img 11.jpg",
+                description:
+                    "Rich oud surrounded by warm luxurious notes."
+            },
+
+            {
+                id: 5,
+                name: "Golden Mist",
+                category: "Unisex",
+                price: 5600,
+                image: "images/img 15.jpg",
+                description:
+                    "A luminous fragrance with a modern character."
+            },
+
+            {
+                id: 6,
+                name: "Pure Élané",
+                category: "For Her",
+                price: 4300,
+                image: "images/img 5.jpg",
+                description:
+                    "Clean floral notes with a soft elegant finish."
+            },
+
+            {
+                id: 7,
+                name: "Midnight Oud",
+                category: "For Her",
+                price: 6900,
+                image: "images/img 7.jpg",
+                description:
+                    "Mysterious oud and sensual woody accords."
+            },
+
+            {
+                id: 8,
+                name: "Pearl Essence",
+                category: "For Her",
+                price: 5100,
+                image: "images/img 8.jpg",
+                description:
+                    "Delicate sweetness with sophisticated florals."
+            },
+
+            {
+                id: 9,
+                name: "Élané Gold",
+                category: "Unisex",
+                price: 7200,
+                image: "images/img 9.jpg",
+                description:
+                    "A rich golden fragrance made to stand out."
+            },
+
+            {
+                id: 10,
+                name: "Noir Intense",
+                category: "For Him",
+                price: 5800,
+                image: "images/img 10.jpg",
+                description:
+                    "Bold spices blended with dark woods."
+            },
+
+            {
+                id: 11,
+                name: "Blush",
+                category: "For Her",
+                price: 4600,
+                image: "images/img 4.jpg",
+                description:
+                    "Romantic florals with a smooth modern touch."
+            },
+
+            {
+                id: 12,
+                name: "Imperial",
+                category: "For Him",
+                price: 7600,
+                image: "images/img 12.jpg",
+                description:
+                    "Powerful woody notes with a luxurious finish."
+            },
+
+            {
+                id: 13,
+                name: "Moonlight",
+                category: "Unisex",
+                price: 5500,
+                image: "images/img 13.jpg",
+                description:
+                    "Soft musk and elegant notes for every occasion."
+            },
+
+            {
+                id: 14,
+                name: "Élané Femme",
+                category: "For Him",
+                price: 6200,
+                image: "images/img 14.jpg",
+                description:
+                    "A sophisticated floral signature for her."
+            },
+
+            {
+                id: 15,
+                name: "Élané Homme",
+                category: "For Him",
+                price: 6700,
+                image: "images/img 15.jpg",
+                description:
+                    "A confident masculine fragrance with depth."
+            }
+
+        ];
+
+
+
+        const productsGrid =
+            document.querySelector("#productsGrid");
+
+
+
+        /* =========================
+           LOCAL STORAGE
+        ========================= */
+
+        function getArray(key) {
+
+            try {
+
+                const data =
+                    JSON.parse(localStorage.getItem(key));
+
+                return Array.isArray(data)
+                    ? data
+                    : [];
+
+            } catch {
+
+                return [];
+
+            }
+
+        }
+
+
+
+        let cartData =
+            getArray("elaneCart");
+
+        let wishlistData =
+            getArray("elaneWishlist");
+
+
+
+        /* =========================
+           RENDER PRODUCTS
+        ========================= */
+
+        function renderProducts() {
+
+            productsGrid.innerHTML = "";
+
+
+            products.forEach(product => {
+
+
+                const isWishlisted =
+                    wishlistData.includes(product.id);
+
+
+                productsGrid.innerHTML += `
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+
+                            <img
+                                src="${product.image}"
+                                alt="${product.name}"
+                            >
+
+
+                            <button
+                                class="wishlist-btn ${isWishlisted ? "active" : ""}"
+                                onclick="toggleWishlist(${product.id}, this)"
+                            >
+
+                                <i class="${isWishlisted ? "fa-solid" : "fa-regular"} fa-heart"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="product-info">
+
+                            <div class="product-category">
+                                ${product.category}
+                            </div>
+
+
+                            <h3>
+                                ${product.name}
+                            </h3>
+
+
+                            <p>
+                                ${product.description}
+                            </p>
+
+
+                            <div class="product-bottom">
+
+                                <span class="price">
+                                    Rs. ${product.price.toLocaleString()}
+                                </span>
+
+
+                                <button
+                                    class="add-cart"
+                                    onclick="addToCart(${product.id})"
+                                >
+                                    ADD TO BAG
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                `;
+
+            });
+
+        }
+
+
+
+        /* =========================
+           CART
+        ========================= */
+
+        function addToCart(id) {
+
+
+            const product =
+                products.find(item => item.id === id);
+
+
+            const alreadyAdded =
+                cartData.find(item => item.id === id);
+
+
+            if (alreadyAdded) {
+
+                showToast(
+                    "This perfume is already in your bag."
+                );
+
+                return;
+
+            }
+
+
+            cartData.push({
+
+                id: product.id,
+
+                name: product.name,
+
+                price: product.price,
+
+                image: product.image,
+
+                quantity: 1
+
+            });
+
+
+            localStorage.setItem(
+                "elaneCart",
+                JSON.stringify(cartData)
+            );
+
+
+            updateCounts();
+
+
+            showToast(
+                `${product.name} added to your bag.`
+            );
+
+        }
+
+
+
+        /* =========================
+           WISHLIST
+        ========================= */
+
+        function toggleWishlist(id, button) {
+
+
+            if (wishlistData.includes(id)) {
+
+
+                wishlistData =
+                    wishlistData.filter(
+                        item => item !== id
+                    );
+
+
+                button.classList.remove("active");
+
+
+                button.innerHTML =
+                    '<i class="fa-regular fa-heart"></i>';
+
+
+                showToast(
+                    "Removed from wishlist."
+                );
+
+
+            } else {
+
+
+                wishlistData.push(id);
+
+
+                button.classList.add("active");
+
+
+                button.innerHTML =
+                    '<i class="fa-solid fa-heart"></i>';
+
+
+                showToast(
+                    "Added to wishlist."
+                );
+
+            }
+
+
+            localStorage.setItem(
+                "elaneWishlist",
+                JSON.stringify(wishlistData)
+            );
+
+
+            updateCounts();
+
+        }
+
+
+
+        /* =========================
+           COUNTS
+        ========================= */
+
+        function updateCounts() {
+
+
+            document.querySelector("#cartCount")
+                .textContent =
+                cartData.length;
+
+
+            document.querySelector("#wishlistCount")
+                .textContent =
+                wishlistData.length;
+
+        }
+
+
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        function showToast(message) {
+
+
+            const toast =
+                document.querySelector("#toast");
+
+
+            toast.textContent =
+                message;
+
+
+            toast.classList.add("show");
+
+
+            setTimeout(() => {
+
+                toast.classList.remove("show");
+
+            }, 2200);
+
+        }
+
+
+
+        /* =========================
+           START
+        ========================= */
+
+        renderProducts();
+
+        updateCounts();
+
+
+    </script>
+
+</body>
+</html>
+```

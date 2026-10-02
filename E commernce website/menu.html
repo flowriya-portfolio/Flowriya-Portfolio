@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LUXORA — Shop Collection</title>
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- ================= INLINE SHOP CSS ================= -->
+
+    <style>
+
+        /* ================= SHOP HEADER ================= */
+           body {
+    font-size: 16px;
+}
+
+/* Normal text */
+p,
+span,
+li,
+label {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Navigation */
+.nav-links a,
+.sidebar a {
+    font-size: 15px;
+}
+
+/* Header */
+.logo {
+    font-size: 25px;
+}
+
+.header-icon {
+    font-size: 17px;
+}
+
+/* Buttons */
+button,
+.btn,
+.btn-shop,
+.btn-buy,
+.add-cart,
+.filter-btn {
+    font-size: 14px;
+}
+
+/* Product cards */
+.product-name,
+.product-info h3 {
+    font-size: 17px;
+}
+
+.product-description,
+.product-info p {
+    font-size: 14px;
+}
+
+.product-price {
+    font-size: 16px;
+}
+
+/* Section headings */
+.section-title {
+    font-size: 38px;
+}
+
+.section-subtitle {
+    font-size: 16px;
+}
+
+/* Hero */
+.hero-content h1,
+.home-hero h1 {
+    font-size: 56px;
+}
+
+.hero-content p,
+.home-hero p {
+    font-size: 17px;
+}
+
+/* Cart */
+.cart h2 {
+    font-size: 28px;
+}
+
+.cart-item h4 {
+    font-size: 15px;
+}
+
+.cart-item p {
+    font-size: 14px;
+}
+
+.cart-total span {
+    font-size: 15px;
+}
+
+.cart-total strong {
+    font-size: 20px;
+}
+
+/* Order page */
+.order-form label {
+    font-size: 14px;
+}
+
+.order-form input,
+.order-form select,
+.order-form textarea {
+    font-size: 15px;
+}
+
+.summary-box > span {
+    font-size: 13px;
+}
+
+.summary-box h2 {
+    font-size: 30px;
+}
+
+.summary-item h4 {
+    font-size: 15px;
+}
+
+.summary-item p {
+    font-size: 14px;
+}
+
+.summary-price {
+    font-size: 15px;
+}
+
+.total-box span {
+    font-size: 15px;
+}
+
+.total-box strong {
+    font-size: 21px;
+}
+
+.secure-note p {
+    font-size: 13px;
+}
+
+/* Footer */
+.footer p,
+.footer a {
+    font-size: 14px;
+}
+        .shop-header {
+            background: #344021;
+            color: #ffffff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .shop-header p {
+            color: #b7c19c;
+            letter-spacing: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .shop-header h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 52px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .shop-header h1 em {
+            color: #b7c19c;
+            font-style: italic;
+        }
+
+        .shop-header span {
+            display: block;
+            margin-top: 15px;
+            color: #dfe2d8;
+            font-size: 14px;
+        }
+
+
+        /* ================= SHOP SECTION ================= */
+
+        .shop-section {
+            padding: 70px 6%;
+            background: #f8f7f3;
+        }
+
+
+        /* ================= FILTERS ================= */
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            background: #ffffff;
+            color: #344021;
+            border: 1px solid #dddcd4;
+            padding: 11px 22px;
+            cursor: pointer;
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            transition: 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: #4f5d32;
+            color: #ffffff;
+            border-color: #4f5d32;
+        }
+
+        .filter-btn.active {
+            background: #344021;
+            color: #ffffff;
+            border-color: #344021;
+        }
+
+
+        /* ================= PRODUCTS GRID ================= */
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 35px 22px;
+        }
+
+
+        /* ================= PRODUCT CARD ================= */
+
+        .product {
+            background: #ffffff;
+            border: 1px solid #dddcd4;
+            overflow: hidden;
+            transition: 0.35s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 40px rgba(52, 64, 33, 0.12);
+        }
+
+
+        /* ================= PRODUCT IMAGE ================= */
+
+        .product-image {
+            height: 330px;
+            position: relative;
+            overflow: hidden;
+            background: #eeeeea;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: 0.5s ease;
+        }
+
+        .product:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+
+        /* ================= PRODUCT TAG ================= */
+
+        .product-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 3;
+
+            background: #344021;
+            color: #ffffff;
+
+            padding: 6px 10px;
+
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+        }
+
+
+        /* ================= WISHLIST ================= */
+
+        .wishlist {
+            position: absolute;
+            top: 13px;
+            right: 13px;
+            z-index: 3;
+
+            width: 40px;
+            height: 40px;
+
+            border: 1px solid #e0ded5;
+            border-radius: 50%;
+
+            background: #ffffff;
+            color: #344021;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+        .wishlist:hover {
+            background: #4f5d32;
+            color: #ffffff;
+            border-color: #4f5d32;
+        }
+
+        .wishlist.liked {
+            background: #4f5d32;
+            color: #ffffff;
+            border-color: #4f5d32;
+        }
+
+
+        /* ================= PRODUCT INFO ================= */
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            display: block;
+
+            color: #77786e;
+
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 7px;
+        }
+
+        .product-info h3 {
+            font-family: "Playfair Display", serif;
+
+            color: #344021;
+
+            font-size: 20px;
+            line-height: 1.3;
+
+            margin: 0 0 9px;
+        }
+
+        .product-info p {
+            color: #77786e;
+
+            font-size: 12px;
+            line-height: 1.7;
+
+            min-height: 41px;
+
+            margin: 0 0 18px;
+        }
+
+
+        /* ================= PRODUCT BOTTOM ================= */
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .product-price {
+            color: #4f5d32;
+
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .add-cart {
+            border: none;
+
+            background: #344021;
+            color: #ffffff;
+
+            padding: 11px 16px;
+
+            cursor: pointer;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+
+            transition: 0.3s ease;
+        }
+
+        .add-cart:hover {
+            background: #4f5d32;
+            transform: translateY(-2px);
+        }
+
+
+        /* ================= EMPTY SEARCH ================= */
+
+        .empty-cart {
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+            color: #77786e;
+        }
+
+        .empty-cart i {
+            font-size: 35px;
+            color: #4f5d32;
+            margin-bottom: 15px;
+        }
+
+        .empty-cart h3 {
+            font-family: "Playfair Display", serif;
+
+            color: #344021;
+
+            font-size: 25px;
+
+            margin: 0 0 8px;
+        }
+
+        .empty-cart p {
+            font-size: 13px;
+        }
+
+
+        /* ================= MENU FOOTER ================= */
+
+        .menu-footer {
+            background: #344021;
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .menu-footer h2 {
+            font-family: "Playfair Display", serif;
+
+            letter-spacing: 5px;
+
+            margin: 0 0 10px;
+        }
+
+        .menu-footer p {
+            color: #cdd2c4;
+            font-size: 13px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1100px) {
+
+            .products-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            .shop-header {
+                padding: 65px 20px;
+            }
+
+            .shop-header h1 {
+                font-size: 42px;
+            }
+
+            .shop-section {
+                padding: 55px 5%;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 25px 16px;
+            }
+
+            .product-image {
+                height: 300px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .shop-header h1 {
+                font-size: 36px;
+            }
+
+            .shop-header span {
+                font-size: 13px;
+            }
+
+            .filters {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 9px 15px;
+                font-size: 11px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .product-image {
+                height: 250px;
+            }
+
+            .product-info {
+                padding: 15px;
+            }
+
+            .product-info h3 {
+                font-size: 17px;
+            }
+
+            .product-info p {
+                font-size: 11px;
+            }
+
+            .product-bottom {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .add-cart {
+                width: 100%;
+            }
+
+        }
+
+
+        @media (max-width: 430px) {
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 350px;
+            }
+
+            .product-bottom {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .add-cart {
+                width: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="overlay" id="overlay"></div>
+
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-top">
+
+        <a href="index.html" class="sidebar-logo">
+
+            <span>L</span>
+
+            <div>
+                <h2>LUXORA</h2>
+                <small>LUXURY COLLECTION</small>
+            </div>
+
+        </a>
+
+
+        <button
+            class="close-sidebar"
+            id="closeSidebar"
+            type="button"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+
+    <p class="nav-title">
+        MAIN MENU
+    </p>
+
+
+    <nav>
+
+        <a href="index.html" class="nav-link">
+
+            <i class="fa-solid fa-house"></i>
+
+            Home
+
+        </a>
+
+
+        <a href="menu.html" class="nav-link active">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            Shop
+
+        </a>
+
+
+        <a
+            href="index.html#categories"
+            class="nav-link"
+        >
+
+            <i class="fa-solid fa-layer-group"></i>
+
+            Categories
+
+        </a>
+
+
+        <a href="menu.html" class="nav-link">
+
+            <i class="fa-solid fa-sparkles"></i>
+
+            New Arrivals
+
+        </a>
+
+
+        <a href="menu.html" class="nav-link">
+
+            <i class="fa-solid fa-tag"></i>
+
+            Sale
+
+        </a>
+
+    </nav>
+
+
+    <p class="nav-title second-title">
+        YOUR SPACE
+    </p>
+
+
+    <nav>
+
+        <a href="wishlist.html" class="nav-link">
+
+            <i class="fa-regular fa-heart"></i>
+
+            Wishlist
+
+            <span
+                id="sideWishlistCount"
+                class="side-count"
+            >
+                0
+            </span>
+
+        </a>
+
+
+        <button
+            class="nav-link side-cart-button"
+            id="sideCartBtn"
+            type="button"
+        >
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            Cart
+
+            <span
+                id="sideCartCount"
+                class="side-count"
+            >
+                0
+            </span>
+
+        </button>
+
+
+    
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <strong>LUXORA</strong>
+
+        <br>
+
+        Timeless pieces.
+        Thoughtfully curated.
+
+    </div>
+
+</aside>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+
+    <div class="header-left">
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            type="button"
+        >
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            LUXORA
+        </a>
+
+    </div>
+
+
+    <div class="header-actions">
+
+
+        <!-- SEARCH -->
+
+        <div
+            class="search-box"
+            id="searchBox"
+        >
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+            >
+
+
+            <button
+                id="searchBtn"
+                type="button"
+            >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+
+            <button
+                id="clearSearch"
+                type="button"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- WISHLIST -->
+
+        <a
+            href="wishlist.html"
+            class="header-icon"
+            id="headerWishlist"
+        >
+
+            <i class="fa-regular fa-heart"></i>
+
+            <span id="wishlistCount">
+                0
+            </span>
+
+        </a>
+
+
+        <!-- BAG -->
+
+        <button
+            class="header-icon"
+            id="cartBtn"
+            type="button"
+        >
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <span id="cartCount">
+                0
+            </span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= SHOP HERO ================= -->
+
+<section class="shop-header">
+
+    <p>
+        LUXORA COLLECTION
+    </p>
+
+
+    <h1>
+        Our <em>Collection</em>
+    </h1>
+
+
+    <span>
+        Discover timeless pieces selected for your everyday elegance.
+    </span>
+
+</section>
+
+
+<!-- ================= SHOP ================= -->
+
+<main class="shop-section">
+
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <button
+            class="filter-btn active"
+            data-category="All"
+            type="button"
+        >
+            All
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Fashion"
+            type="button"
+        >
+            Fashion
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Watches"
+            type="button"
+        >
+            Watches
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Accessories"
+            type="button"
+        >
+            Accessories
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Shoes"
+            type="button"
+        >
+            Shoes
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Bags"
+            type="button"
+        >
+            Bags
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-category="Beauty"
+            type="button"
+        >
+            Beauty
+        </button>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <div
+        class="products-grid"
+        id="productsGrid"
+    ></div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="menu-footer">
+
+    <h2>
+        LUXORA
+    </h2>
+
+    <p>
+        Timeless style. Modern luxury.
+    </p>
+
+</footer>
+
+
+<!-- ================= CART ================= -->
+
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+></div>
+
+
+<aside
+    class="cart"
+    id="cart"
+>
+
+
+    <div class="cart-header">
+
+        <div>
+
+            <span>
+                YOUR SELECTION
+            </span>
+
+            <h2>
+                Your <em>Bag</em>
+            </h2>
+
+        </div>
+
+
+        <button
+            id="closeCart"
+            type="button"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-content"
+        id="cartContent"
+    ></div>
+
+
+    <div class="cart-bottom">
+
+
+        <div class="cart-total">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="cartTotal">
+                $0
+            </strong>
+
+        </div>
+
+
+        <button
+            class="btn-buy"
+            id="checkoutBtn"
+            type="button"
+        >
+            Checkout
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= TOAST ================= -->
+
+<div
+    class="toast"
+    id="toast"
+>
+
+    <i class="fa-solid fa-check"></i>
+
+    <span id="toastMessage"></span>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>

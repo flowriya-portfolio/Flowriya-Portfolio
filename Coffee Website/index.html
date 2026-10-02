@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bean & Brew | Coffee House</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <a href="index.html" class="sidebar-logo">
+                <i class="fa-solid fa-mug-hot"></i>
+                Bean<span>&</span>Brew
+            </a>
+
+            <button id="sidebar-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <p class="sidebar-tagline">
+            Fresh coffee. Good moments.
+        </p>
+
+
+        <ul class="sidebar-links">
+
+            <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="menu.html">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <span>Coffee Collection</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#about">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Our Heritage</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#contact">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Concierge</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="#" id="sidebar-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>My Cart</span>
+                    <b id="sidebar-cart-count">0</b>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="order.html">
+                    <i class="fa-solid fa-box"></i>
+                    <span>My Orders</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="settings.html">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="sidebar-bottom">
+
+            <i class="fa-solid fa-mug-hot"></i>
+
+            <p>
+                Made with love & freshly roasted beans.
+            </p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- SIDEBAR OVERLAY -->
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+
+                <i class="fa-solid fa-mug-hot"></i>
+
+                Bean<span>&</span>Brew
+
+            </a>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="menu.html">
+                        The Coffee Collection
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#about">
+                        Our Heritage
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#contact">
+                        Concierge
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <div class="nav-icons">
+
+                <button id="cart-btn">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span id="cart-count">0</span>
+
+                </button>
+
+
+                <button id="menu-btn">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HOME ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                WELCOME TO BEAN & BREW
+            </p>
+
+
+            <h1>
+                Good Coffee.<br>
+                Good <span>Day.</span>
+            </h1>
+
+
+            <p class="hero-text">
+                Freshly roasted beans, delicious coffee and
+                cozy moments made just for you.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#menu" class="main-btn">
+                    Explore Menu
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+
+                <a href="#about" class="second-btn">
+                    Our Story
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+    <img
+        src="https://images.unsplash.com/photo-1511081692775-05d0f180a065?auto=format&fit=crop&w=900&q=85"
+        alt="Coffee">
+</div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+        <div class="feature">
+
+            <i class="fa-solid fa-mug-hot"></i>
+
+            <div>
+
+                <h3>
+                    Fresh Coffee
+                </h3>
+
+                <p>
+                    Freshly brewed every day.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <i class="fa-solid fa-seedling"></i>
+
+            <div>
+
+                <h3>
+                    Quality Beans
+                </h3>
+
+                <p>
+                    Premium roasted coffee beans.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <i class="fa-solid fa-heart"></i>
+
+            <div>
+
+                <h3>
+                    Made With Love
+                </h3>
+
+                <p>
+                    Every cup made with care.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=85"
+                alt="Coffee shop">
+
+        </div>
+
+
+        <div class="about-content">
+
+            <p class="small-title">
+                OUR STORY
+            </p>
+
+
+            <h2>
+                More Than Just<br>
+                <span>Coffee.</span>
+            </h2>
+
+
+            <p>
+                Bean & Brew started with one simple idea:
+                create a place where people can enjoy amazing
+                coffee and feel completely at home.
+            </p>
+
+
+            <p>
+                From carefully selected beans to every cup we
+                serve, we believe good coffee should always
+                bring people together.
+            </p>
+
+
+            <a href="menu.html" class="main-btn">
+                Discover Our Coffee
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MENU ================= -->
+
+    <section class="menu-section" id="menu">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                OUR MENU
+            </p>
+
+
+            <h2>
+                Choose Your <span>Favorite.</span>
+            </h2>
+
+
+            <p>
+                From classic espresso to creamy favorites,
+                there's something for every coffee lover.
+            </p>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="search-input"
+                placeholder="Search coffee...">
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div class="products" id="products">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/img 1.jpg"
+                        alt="Heart Cappuccino">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="category">
+                        HOT COFFEE
+                    </span>
+
+
+                    <h3>
+                        Heart Cappuccino
+                    </h3>
+
+
+                    <p>
+                        Smooth espresso topped with creamy foam
+                        and a beautiful heart design.
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            $4.50
+                        </strong>
+
+
+                        <button
+                            class="add-cart"
+                            data-name="Heart Cappuccino"
+                            data-price="4.50"
+                            data-image="images/img 1.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/img 2.jpg"
+                        alt="Classic Coffee">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="category">
+                        CLASSIC COFFEE
+                    </span>
+
+
+                    <h3>
+                        Classic Coffee
+                    </h3>
+
+
+                    <p>
+                        A warm and freshly brewed coffee served
+                        in a classic cup.
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            $4.00
+                        </strong>
+
+
+                        <button
+                            class="add-cart"
+                            data-name="Classic Coffee"
+                            data-price="4.00"
+                            data-image="images/img 2.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/img 3.jpg"
+                        alt="Vanilla Cream Coffee">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="category">
+                        VANILLA CREAM COFFEE
+                    </span>
+
+
+                    <h3>
+                        Vanilla Cream Coffee
+                    </h3>
+
+
+                    <p>
+                        Rich coffee topped with a smooth layer
+                        of delicious creamy foam.
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            $3.50
+                        </strong>
+
+
+                        <button
+                            class="add-cart"
+                            data-name="Vanilla Cream Coffee"
+                            data-price="3.50"
+                            data-image="images/img 3.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/img 4.jpg"
+                        alt="Purple Velvet Cup">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="category">
+                        SPECIAL COFFEE
+                    </span>
+
+
+                    <h3>
+                        Purple Velvet Cup
+                    </h3>
+
+
+                    <p>
+                        A soft and delicious purple cup paired
+                        with a creamy coffee treat.
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            $5.00
+                        </strong>
+
+
+                        <button
+                            class="add-cart"
+                            data-name="Purple Velvet Cup"
+                            data-price="5.00"
+                            data-image="images/img 4.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/img 5.jpg"
+                        alt="Black Coffee">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="category">
+                        HOT COFFEE
+                    </span>
+
+
+                    <h3>
+                        Black Coffee
+                    </h3>
+
+
+                    <p>
+                        Freshly brewed coffee with a rich aroma
+                        and warm, comforting flavor.
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            $4.50
+                        </strong>
+
+
+                        <button
+                            class="add-cart"
+                            data-name="Black Coffee"
+                            data-price="4.50"
+                            data-image="images/img 5.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 6 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/img 6.jpg"
+                        alt="Fresh Chocolate Cake">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <span class="category">
+                        DESSERT
+                    </span>
+
+
+                    <h3>
+                        Fresh Chocolate Cake
+                    </h3>
+
+
+                    <p>
+                        A delicious sweet treat, perfect to enjoy
+                        with your favorite coffee.
+                    </p>
+
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            $2.50
+                        </strong>
+
+
+                        <button
+                            class="add-cart"
+                            data-name="Fresh Chocolate Cake"
+                            data-price="2.50"
+                            data-image="images/img 6.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SPECIAL ================= -->
+
+    <section class="special">
+
+        <div>
+
+            <p class="small-title">
+                TODAY'S SPECIAL
+            </p>
+
+
+            <h2>
+                Buy 2 Coffees & Get 1 Dessert Free
+            </h2>
+
+
+            <p>
+                Make your coffee break even better.
+            </p>
+
+
+            <a href="menu.html" class="main-btn">
+                Order Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                GET IN TOUCH
+            </p>
+
+
+            <h2>
+                Visit Our <span>Coffee House.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <div>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <h3>
+                    Location
+                </h3>
+
+                <p>
+                    Hyderabad, Pakistan
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-clock"></i>
+
+                <h3>
+                    Opening Hours
+                </h3>
+
+                <p>
+                    8:00 AM — 10:00 PM
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-phone"></i>
+
+                <h3>
+                    Call Us
+                </h3>
+
+                <p>
+                    +92 300 1234567
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+
+            <i class="fa-solid fa-mug-hot"></i>
+
+            Bean<span>&</span>Brew
+
+        </div>
+
+
+        <p>
+            Fresh coffee. Good moments.
+        </p>
+
+
+        <div class="socials">
+
+            <i class="fa-brands fa-instagram"></i>
+
+            <i class="fa-brands fa-facebook"></i>
+
+            <i class="fa-brands fa-x-twitter"></i>
+
+        </div>
+
+
+        <p class="copyright">
+            © 2026 Bean & Brew. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= CART ================= -->
+
+    <div class="cart">
+
+        <div class="cart-header">
+
+            <h2>
+                Your Cart
+            </h2>
+
+
+            <button id="cart-close">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="cart-content" id="cart-content">
+            <!-- JS cart items -->
+        </div>
+
+
+        <div class="cart-bottom">
+
+            <div class="total">
+
+                <span>
+                    Total:
+                </span>
+
+                <strong id="cart-total">
+                    $0.00
+                </strong>
+
+            </div>
+
+
+            <button id="checkout-btn">
+                Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= BEAN CURSOR ================= -->
+
+    <div id="bean-cursor"></div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>

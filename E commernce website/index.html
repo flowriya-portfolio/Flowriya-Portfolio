@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LUXORA — Luxury Collection</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-top">
+
+        <a href="index.html" class="sidebar-logo">
+            <span>L</span>
+
+            <div>
+                <h2>LUXORA</h2>
+                <small>LUXURY COLLECTION</small>
+            </div>
+        </a>
+
+        <button class="close-sidebar" id="closeSidebar">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+    <p class="nav-title">MAIN MENU</p>
+
+    <nav>
+
+        <a href="index.html" class="nav-link active">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="menu.html" class="nav-link">
+            <i class="fa-solid fa-bag-shopping"></i>
+            Shop
+        </a>
+
+        <a href="index.html#categories" class="nav-link">
+            <i class="fa-solid fa-layer-group"></i>
+            Categories
+        </a>
+
+        <a href="menu.html" class="nav-link">
+            <i class="fa-solid fa-sparkles"></i>
+            New Arrivals
+        </a>
+
+        <a href="menu.html" class="nav-link">
+            <i class="fa-solid fa-tag"></i>
+            Sale
+        </a>
+
+    </nav>
+
+    <p class="nav-title second-title">YOUR SPACE</p>
+
+    <nav>
+
+        <a href="wishlist.html" class="nav-link">
+            <i class="fa-regular fa-heart"></i>
+            Wishlist
+        </a>
+
+        <a href="menu.html" class="nav-link">
+            <i class="fa-solid fa-bag-shopping"></i>
+            Cart
+        </a>
+
+    
+    </nav>
+
+    <div class="sidebar-bottom">
+        <strong>LUXORA</strong>
+        <br>
+        Timeless pieces.
+        Thoughtfully curated.
+    </div>
+
+</aside>
+
+<header class="header">
+
+    <div class="header-left">
+
+        <button class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <a href="index.html" class="logo">LUXORA</a>
+
+    </div>
+
+    <div class="header-actions">
+
+        <!-- SEARCH -->
+        <div class="search-box" id="searchBox">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+            >
+
+            <button id="searchBtn" type="button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <button id="clearSearch" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <!-- WISHLIST -->
+        <a href="wishlist.html"
+           class="header-icon"
+           id="headerWishlist">
+
+            <i class="fa-regular fa-heart"></i>
+
+            <span id="wishlistCount">0</span>
+
+        </a>
+
+        <!-- BAG -->
+        <button
+            class="header-icon"
+            id="cartBtn"
+            type="button">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <span id="cartCount">0</span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="home-hero">
+
+    <div class="home-hero-content">
+
+        <span>WELCOME TO LUXORA</span>
+
+        <h1>
+            Luxury that
+            <em>feels timeless.</em>
+        </h1>
+
+        <p>
+            Discover carefully curated fashion, watches
+            and accessories created for your everyday elegance.
+        </p>
+
+        <a href="menu.html" class="primary-btn">
+            Shop Collection
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories" id="categories">
+
+    <div class="home-heading">
+
+        <span>EXPLORE LUXORA</span>
+
+        <h2>
+            Shop by <em>Category</em>
+        </h2>
+
+        <p>
+            Discover our signature collections,
+            selected with a modern luxury aesthetic.
+        </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+        <!-- CARD 1 -->
+
+        <article class="category-card">
+
+            <img src="images/img 8.jpg" alt="Fashion">
+
+            <div class="category-overlay"></div>
+
+            <div class="category-content">
+
+                <span>01</span>
+
+                <h3>Fashion</h3>
+
+                <p>
+                    Elegant pieces for your signature style.
+                </p>
+
+                <a href="menu.html">
+                    Shop Now
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- CARD 2 -->
+
+        <article class="category-card">
+
+            <img src="images/img 6.jpg" alt="Watches">
+
+            <div class="category-overlay"></div>
+
+            <div class="category-content">
+
+                <span>02</span>
+
+                <h3>Watches</h3>
+
+                <p>
+                    Timeless watches with refined details.
+                </p>
+
+                <a href="menu.html">
+                    Shop Now
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- CARD 3 -->
+
+        <article class="category-card">
+
+            <img src="images/img 19.jpg" alt="Accessories">
+
+            <div class="category-overlay"></div>
+
+            <div class="category-content">
+
+                <span>03</span>
+
+                <h3>Accessories</h3>
+
+                <p>
+                    Finishing touches that complete your look.
+                </p>
+
+                <a href="menu.html">
+                    Shop Now
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STORY ================= -->
+
+<section class="story" id="our-story">
+
+    <div class="story-image">
+        <img src="images/story.jpg" alt="LUXORA">
+    </div>
+
+    <div class="story-content">
+
+        <span>THE LUXORA STORY</span>
+
+        <h2>
+            Simple.
+            <em>Elegant.</em>
+            Timeless.
+        </h2>
+
+        <p>
+            LUXORA brings together modern fashion and
+            timeless luxury in one carefully curated collection.
+        </p>
+
+        <a href="menu.html" class="outline-btn">
+            Discover Collection
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-grid">
+
+        <div class="footer-brand">
+
+            <h2>LUXORA</h2>
+
+            <p>
+                Modern luxury, timeless style.
+                Carefully curated pieces made
+                for your everyday elegance.
+            </p>
+
+            <div class="social-icons">
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-pinterest-p"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>SHOP</h3>
+
+            <a href="menu.html">All Products</a>
+            <a href="menu.html">New Arrivals</a>
+            <a href="menu.html">Accessories</a>
+            <a href="menu.html">Watches</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>ABOUT</h3>
+
+            <a href="#our-story">Our Story</a>
+            <a href="#">Contact</a>
+            <a href="#">Shipping</a>
+            <a href="#">Returns</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>HELP</h3>
+
+            <a href="#">FAQ</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Support</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 LUXORA. All rights reserved.
+        </span>
+
+        <span>
+            Crafted with elegance.
+        </span>
+
+    </div>
+
+</footer>
+<!-- ================= CART ================= -->
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<aside class="cart" id="cart">
+
+    <div class="cart-header">
+
+        <div>
+            <span>YOUR SELECTION</span>
+            <h2>Your <em>Bag</em></h2>
+        </div>
+
+        <button id="closeCart" type="button">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+
+    <div class="cart-content" id="cartContent">
+    </div>
+
+
+    <div class="cart-bottom">
+
+        <div class="cart-total">
+
+            <span>Total</span>
+
+            <strong id="cartTotal">
+                $0
+            </strong>
+
+        </div>
+
+             <a href="order.html">
+
+                 <button
+                     class="btn-buy"
+                     id="checkoutBtn"
+                     type="button"
+                 >
+                     Checkout
+                 </button>
+             </a>
+
+    </div>
+
+</aside>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>ÉLANÉ — Luxury Perfumes</title>
+
+  <!-- GOOGLE FONTS -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- FONT AWESOME -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <!-- CSS -->
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body data-page="home">
+
+
+  <!-- =================================================
+       SIDEBAR
+  ================================================== -->
+
+  <aside class="sidebar" id="sidebar">
+
+    <button
+      class="close-sidebar"
+      id="closeSidebar"
+      aria-label="Close menu"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+
+    <div class="sidebar-brand">
+
+      <div class="logo-symbol">
+        É
+      </div>
+
+      <div>
+        <h2>ÉLANÉ</h2>
+
+        <small>
+          PARFUMS
+        </small>
+      </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+      <span class="nav-title">
+        EXPLORE
+      </span>
+
+
+      <a
+        href="index.html"
+        class="nav-link active"
+      >
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+          Home
+        </span>
+      </a>
+
+
+      <a
+        href="menu.html"
+        class="nav-link"
+      >
+        <i class="fa-solid fa-bars"></i>
+
+        <span>
+          Menu
+        </span>
+      </a>
+
+
+      <a
+        href="order.html"
+        class="nav-link"
+      >
+        <i class="fa-solid fa-box"></i>
+
+        <span>
+          My Orders
+        </span>
+      </a>
+
+
+      <a
+        href="index.html#shop"
+        class="nav-link"
+      >
+        <i class="fa-solid fa-bag-shopping"></i>
+
+        <span>
+          Shop All
+        </span>
+      </a>
+
+
+      <a
+        href="menu.html?category=women"
+        class="nav-link"
+      >
+        <i class="fa-solid fa-venus"></i>
+
+        <span>
+          Women
+        </span>
+      </a>
+
+
+      <a
+        href="menu.html?category=men"
+        class="nav-link"
+      >
+        <i class="fa-solid fa-mars"></i>
+
+        <span>
+          Men
+        </span>
+      </a>
+
+
+
+      <a
+        href="menu.html?wishlist=true"
+        class="nav-link"
+      >
+
+        <i class="fa-regular fa-heart"></i>
+
+        <span>
+          Wishlist
+        </span>
+        
+        
+        <b
+        class="side-count"
+        id="wishlistCount"
+        >
+          0
+        </b>
+
+      </a>
+
+        <a
+          href="settings.html"
+          class="nav-link"
+        >
+  
+  
+          <span>
+            Settings
+          </span>
+          </a>
+
+
+      <button
+        class="nav-link story-link"
+        id="storyBtn"
+      >
+
+        <i class="fa-solid fa-sparkles"></i>
+
+        <span>
+          Our Story
+        </span>
+
+      </button>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <div class="sidebar-divider"></div>
+
+      <a
+        href="settings.html"
+        class="nav-link"
+      >
+
+        <i class="fa-solid fa-gear"></i>
+
+        <span>
+          Settings
+        </span>
+
+      </a>
+
+    </div>
+
+  </aside>
+
+
+  <!-- SIDEBAR OVERLAY -->
+
+  <div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+  ></div>
+
+
+
+  <!-- =================================================
+       MAIN
+  ================================================== -->
+
+  <main class="main-content">
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+      <button
+        class="menu-btn"
+        id="openSidebar"
+        aria-label="Open menu"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+
+      <a
+        href="index.html"
+        class="logo"
+      >
+        ÉLANÉ
+      </a>
+
+
+      <div class="header-actions">
+
+        <button
+          class="header-icon"
+          id="searchBtn"
+          aria-label="Search"
+        >
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+
+        <a
+          href="menu.html?wishlist=true"
+          class="header-icon"
+          aria-label="Wishlist"
+        >
+
+          <i class="fa-regular fa-heart"></i>
+
+          <span
+            class="header-count"
+            id="wishlistHeaderCount"
+          >
+            0
+          </span>
+
+        </a>
+
+
+        <button
+          class="header-icon cart-button"
+          id="cartBtn"
+          aria-label="Shopping bag"
+        >
+
+          <i class="fa-solid fa-bag-shopping"></i>
+
+          <span
+            class="header-count"
+            id="cartCount"
+          >
+            0
+          </span>
+
+        </button>
+
+      </div>
+
+    </header>
+
+
+
+    <!-- SEARCH -->
+
+    <div
+      class="search-wrapper"
+      id="searchBox"
+    >
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search your favourite perfume..."
+        autocomplete="off"
+      >
+
+      <button
+        id="clearSearch"
+        aria-label="Clear search"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+    </div>
+
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+   <section class="hero">
+
+    <img
+        src="images/hero.jpg"
+        alt="ÉLANÉ Luxury Perfume"
+        class="hero-bg"
+    >
+
+    <div class="hero-content">
+
+        <span class="hero-small">
+            THE ART OF FRAGRANCE
+        </span>
+
+        <h1>
+            Your Signature
+            <em>Scents.</em>
+        </h1>
+
+        <p class="hero-description">
+            Discover exquisite fragrances crafted
+            to become a part of your story.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="menu.html" class="primary-btn">
+                Shop Collection
+            </a>
+
+            <button class="secondary-btn" id="storyBtn2">
+                Our Story
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+    <!-- =================================================
+         FEATURES
+    ================================================== -->
+
+    <section class="feature-strip">
+
+      <div class="feature">
+
+        <i class="fa-solid fa-gem"></i>
+
+        <div>
+
+          <strong>
+            Refined Quality
+          </strong>
+
+          <span>
+            Carefully selected fragrances
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="feature">
+
+        <i class="fa-solid fa-box-open"></i>
+
+        <div>
+
+          <strong>
+            Elegant Packaging
+          </strong>
+
+          <span>
+            Designed for every detail
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="feature">
+
+        <i class="fa-solid fa-truck"></i>
+
+        <div>
+
+          <strong>
+            Fast Delivery
+          </strong>
+
+          <span>
+            Delivered with care
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="feature">
+
+        <i class="fa-solid fa-heart"></i>
+
+        <div>
+
+          <strong>
+            Made With Love
+          </strong>
+
+          <span>
+            Fragrances worth remembering
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         FEATURED PRODUCTS
+    ================================================== -->
+
+    <section
+      class="products-section"
+      id="shop"
+    >
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            DISCOVER
+          </span>
+
+          <h2>
+            Featured Fragrances
+          </h2>
+
+        </div>
+
+
+        <a
+          href="menu.html"
+          class="view-all"
+        >
+
+          View All
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+      </div>
+
+
+      <!-- FILTERS -->
+
+      <div class="filter-row">
+
+        <button
+          class="filter active"
+          data-category="all"
+        >
+          All
+        </button>
+
+        <button
+          class="filter"
+          data-category="women"
+        >
+          Women
+        </button>
+
+        <button
+          class="filter"
+          data-category="men"
+        >
+          Men
+        </button>
+
+        <button
+          class="filter"
+          data-category="unisex"
+        >
+          Unisex
+        </button>
+
+      </div>
+
+
+      <!-- PRODUCTS -->
+
+      <div
+        class="products-grid"
+        id="products"
+      ></div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         BRAND STORY
+    ================================================== -->
+
+    <section class="brand-section">
+
+
+      <div class="brand-image">
+
+        <img
+          src="images/brand.jpg"
+          alt="ÉLANÉ fragrance"
+        >
+
+      </div>
+
+
+      <div class="brand-content">
+
+        <span>
+          THE ÉLANÉ PHILOSOPHY
+        </span>
+
+        <h2>
+          Luxury is not
+          <em>loud.</em>
+        </h2>
+
+        <p>
+          ÉLANÉ was created around one simple idea:
+          fragrance should feel personal.
+
+          Every scent is designed to become part
+          of your identity, your memories and
+          your everyday moments.
+        </p>
+
+
+        <button
+          class="outline-btn"
+          id="storyBtn3"
+        >
+
+          Discover Our Story
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CATEGORIES
+    ================================================== -->
+
+    <section class="category-section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span>
+            FIND YOUR SCENT
+          </span>
+
+          <h2>
+            Shop By Category
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="category-grid">
+
+
+        <!-- WOMEN -->
+
+        <a
+          href="menu.html?category=women"
+          class="category-card"
+        >
+
+          <img
+            src="images/img 4.jpg"
+            alt="Women's perfumes"
+          >
+
+          <div class="category-overlay">
+
+            <span>
+              FOR HER
+            </span>
+
+            <h3>
+              Women
+            </h3>
+
+            <small>
+              Explore fragrances
+              <i class="fa-solid fa-arrow-right"></i>
+            </small>
+
+          </div>
+
+        </a>
+
+
+        <!-- MEN -->
+
+        <a
+          href="menu.html?category=men"
+          class="category-card"
+        >
+
+          <img
+            src="images/img 14.jpg"
+            alt="Men's perfumes"
+          >
+
+          <div class="category-overlay">
+
+            <span>
+              FOR HIM
+            </span>
+
+            <h3>
+              Men
+            </h3>
+
+            <small>
+              Explore fragrances
+              <i class="fa-solid fa-arrow-right"></i>
+            </small>
+
+          </div>
+
+        </a>
+
+
+        <!-- UNISEX -->
+
+        <a
+          href="menu.html?category=unisex"
+          class="category-card"
+        >
+
+          <img
+            src="images/img 15.jpg"
+            alt="Unisex perfumes"
+          >
+
+          <div class="category-overlay">
+
+            <span>
+              FOR EVERYONE
+            </span>
+
+            <h3>
+              Unisex
+            </h3>
+
+            <small>
+              Explore fragrances
+              <i class="fa-solid fa-arrow-right"></i>
+            </small>
+
+          </div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         NEWSLETTER
+    ================================================== -->
+
+    <section class="newsletter">
+
+      <div>
+
+        <span>
+          JOIN ÉLANÉ
+        </span>
+
+        <h2>
+          Stay close to the
+          <em>world of scent.</em>
+        </h2>
+
+        <p>
+          Receive fragrance news, new arrivals
+          and exclusive ÉLANÉ updates.
+        </p>
+
+      </div>
+
+
+      <form class="newsletter-form">
+
+        <input
+          type="email"
+          placeholder="Your email address"
+          required
+        >
+
+        <button type="submit">
+
+          Subscribe
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+      </form>
+
+    </section>
+
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="footer">
+
+      <div class="footer-brand">
+
+        <h2>
+          ÉLANÉ
+        </h2>
+
+        <p>
+          Modern fragrance.
+          Timeless identity.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <div>
+
+          <h4>
+            SHOP
+          </h4>
+
+          <a href="menu.html">
+            Shop All
+          </a>
+
+          <a href="menu.html?category=women">
+            Women
+          </a>
+
+          <a href="menu.html?category=men">
+            Men
+          </a>
+
+          <a href="menu.html?category=unisex">
+            Unisex
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <h4>
+            ACCOUNT
+          </h4>
+
+          <a href="menu.html?wishlist=true">
+            Wishlist
+          </a>
+
+          <a href="order.html">
+            My Orders
+          </a>
+
+          <a href="settings.html">
+            Settings
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <h4>
+            FOLLOW
+          </h4>
+
+          <a href="#">
+            Instagram
+          </a>
+
+          <a href="#">
+            Pinterest
+          </a>
+
+          <a href="#">
+            Facebook
+          </a>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+
+    <div class="copyright">
+      © 2026 ÉLANÉ Parfums.
+      All rights reserved.
+    </div>
+
+  </main>
+
+
+
+  <!-- =================================================
+       CART OVERLAY
+  ================================================== -->
+
+  <div
+    class="cart-overlay"
+    id="cartOverlay"
+  ></div>
+
+
+  <!-- CART -->
+
+  <aside
+    class="cart"
+    id="cart"
+  >
+
+    <div class="cart-header">
+
+      <div>
+
+        <span>
+          YOUR BAG
+        </span>
+
+        <h2>
+          Shopping Bag
+        </h2>
+
+      </div>
+
+
+      <button
+        id="closeCart"
+        aria-label="Close cart"
+      >
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+    </div>
+
+
+    <div
+      class="cart-items"
+      id="cartItems"
+    ></div>
+
+
+    <div class="cart-footer">
+
+      <div class="cart-total-row">
+
+        <span>
+          Total
+        </span>
+
+        <strong>
+          $<span id="cartTotal">0</span>
+        </strong>
+
+      </div>
+
+
+
+<a href="order.html" class="buy-btn" id="buyBtn">
+    Place Order
+    <i class="fa-solid fa-arrow-right"></i>
+</a>
+
+
+
+  </aside>
+
+
+
+  <!-- =================================================
+       STORY MODAL
+  ================================================== -->
+
+  <div
+    class="story-modal"
+    id="storyModal"
+  >
+
+    <div class="story-modal-box">
+
+      <button
+        id="closeStory"
+        class="close-story"
+      >
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
+
+      <span>
+        OUR STORY
+      </span>
+
+
+      <h2>
+        The art behind
+        <em>ÉLANÉ.</em>
+      </h2>
+
+
+      <p>
+        ÉLANÉ is inspired by the belief that
+        fragrance is more than a scent.
+
+        It is a feeling, a memory and a
+        quiet expression of who you are.
+      </p>
+
+
+      <p>
+        Our collection brings together elegant,
+        modern fragrances designed for women,
+        men and everyone who believes that
+        personal style begins with the smallest
+        details.
+      </p>
+
+
+      <strong>
+        Wear your identity.
+      </strong>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- TOAST -->
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
+
+  <!-- JAVASCRIPT -->
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

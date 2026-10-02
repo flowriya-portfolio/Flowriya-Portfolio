@@ -1,0 +1,1753 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ================= BASIC META ================= -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NOIRÉ KITCHEN</title>
+
+
+    <!-- ================= GOOGLE FONTS ================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        /* ==================================================
+           GLOBAL STYLES
+        ================================================== */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:#080808;
+            color:#f5f2eb;
+            font-family:"DM Sans",sans-serif;
+        }
+
+        a{
+            color:inherit;
+            text-decoration:none;
+        }
+
+
+        /* ==================================================
+           COLOR VARIABLES
+        ================================================== */
+
+        :root{
+            --black:#080808;
+            --dark:#101010;
+            --gold:#F2A900;
+            --light:#f5f2eb;
+            --gray:#99958e;
+            --border:#292723;
+        }
+
+
+        /* ==================================================
+           HEADING FONTS
+        ================================================== */
+
+        .logo,
+        .heading,
+        .hero h1,
+        .food-info h3,
+        .quote-text{
+            font-family:"Playfair Display",serif;
+        }
+
+
+        /* ==================================================
+           NAVBAR
+        ================================================== */
+
+        .navbar{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            z-index:100;
+
+            padding:22px 7%;
+
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+
+            background:rgba(8,8,8,.85);
+            backdrop-filter:blur(15px);
+
+            border-bottom:1px solid rgba(255,255,255,.06);
+        }
+
+
+        /* Logo */
+
+        .logo{
+            font-size:23px;
+            letter-spacing:2px;
+        }
+
+        .logo span{
+            color:var(--gold);
+            font-size:10px;
+            letter-spacing:4px;
+        }
+
+
+        /* Navigation links */
+
+        .nav-links{
+            display:flex;
+            gap:30px;
+            list-style:none;
+        }
+
+        .nav-links a{
+            font-size:13px;
+            color:#c7c3bb;
+            transition:.3s;
+        }
+
+        .nav-links a:hover{
+            color:var(--gold);
+        }
+
+
+        /* Book a Table button */
+
+        .nav-btn{
+            padding:13px 24px;
+
+            border:1px solid var(--gold);
+            border-radius:10px;
+
+            color:var(--gold);
+
+            font-size:12px;
+            text-transform:uppercase;
+            letter-spacing:1px;
+
+            transition:all .3s ease;
+        }
+
+        .nav-btn:hover{
+            background:var(--gold);
+            color:#080808;
+
+            transform:translateY(-3px);
+
+            box-shadow:0 10px 25px rgba(201,164,92,.25);
+        }
+
+
+        /* Mobile menu icon */
+
+        .menu-icon{
+            display:none;
+            font-size:25px;
+            cursor:pointer;
+        }
+
+
+        /* ==================================================
+           HERO SECTION
+        ================================================== */
+
+        .hero{
+            min-height:100vh;
+
+            padding:140px 8% 80px;
+
+            display:grid;
+            grid-template-columns:1fr 1fr;
+
+            align-items:center;
+
+            gap:70px;
+
+            background:
+            radial-gradient(
+                circle at 80% 45%,
+                #302717 0%,
+                transparent 32%
+            ),
+            #080808;
+        }
+
+
+        /* Small gold heading */
+
+        .small-title{
+            color:var(--gold);
+
+            font-size:11px;
+            letter-spacing:4px;
+
+            margin-bottom:20px;
+        }
+
+
+        /* Main hero heading */
+
+        .hero h1{
+            font-size:clamp(55px,7vw,95px);
+
+            line-height:1.02;
+
+            font-weight:500;
+        }
+
+        .hero h1 em{
+            color:var(--gold);
+        }
+
+
+        /* Hero description */
+
+        .hero-text{
+            color:var(--gray);
+
+            max-width:520px;
+
+            margin:28px 0;
+
+            line-height:1.8;
+        }
+
+
+        /* Hero buttons */
+
+        .buttons{
+            display:flex;
+            gap:15px;
+        }
+
+        .btn{
+            display:inline-block;
+
+            padding:14px 25px;
+
+            font-size:12px;
+            font-weight:600;
+
+            text-transform:uppercase;
+            letter-spacing:1.2px;
+
+            border-radius:10px;
+
+            border:1px solid transparent;
+
+            transition:all .3s ease;
+
+            cursor:pointer;
+        }
+
+
+        /* Gold button */
+
+        .gold-btn{
+            background:var(--gold);
+            color:#080808;
+        }
+
+        .gold-btn:hover{
+            background:#e0c27d;
+
+            transform:translateY(-3px);
+
+            box-shadow:0 10px 25px rgba(201,164,92,.25);
+        }
+
+
+        /* Outline button */
+
+        .outline-btn{
+            border:1px solid #555;
+            color:#f5f2eb;
+        }
+
+        .outline-btn:hover{
+            border-color:var(--gold);
+            color:var(--gold);
+
+            transform:translateY(-3px);
+        }
+
+
+        /* Hero image */
+
+        .hero-image{
+            height:560px;
+
+            background:
+            linear-gradient(
+                transparent 45%,
+                rgba(0,0,0,.8)
+            ),
+            url("images/home img.jpg");
+
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+
+            border:1px solid #3b3529;
+
+            box-shadow:0 30px 80px #000;
+
+            display:flex;
+            align-items:end;
+
+            padding:30px;
+
+            transition:.4s ease;
+
+            cursor:pointer;
+        }
+
+        .hero-image:hover{
+            transform:scale(.95);
+        }
+
+
+        /* Hero image text */
+
+        .hero-image-content{
+            position:relative;
+        }
+
+        .hero-image-content span{
+            color:#aaa;
+            font-size:12px;
+        }
+
+        .hero-image-content h3{
+            font-family:"Playfair Display",serif;
+
+            font-size:30px;
+
+            margin:5px 0;
+        }
+
+        .hero-image-content p{
+            color:#aaa;
+            font-size:12px;
+        }
+
+
+        /* ==================================================
+           GENERAL SECTIONS
+        ================================================== */
+
+        section{
+            padding:110px 8%;
+        }
+
+
+        /* ==================================================
+           ABOUT SECTION
+        ================================================== */
+
+        .about{
+            display:grid;
+
+            grid-template-columns:1fr 1fr;
+
+            gap:80px;
+
+            border-top:1px solid var(--border);
+        }
+
+        .heading{
+            font-size:60px;
+
+            font-weight:500;
+
+            line-height:1.1;
+        }
+
+        .heading em{
+            color:var(--gold);
+        }
+
+        .about-text{
+            color:var(--gray);
+
+            line-height:1.9;
+
+            max-width:550px;
+        }
+
+        .about-text p+p{
+            margin-top:20px;
+        }
+
+
+        /* ==================================================
+           MENU SECTION
+        ================================================== */
+
+        .menu-header{
+            display:flex;
+
+            align-items:end;
+
+            justify-content:space-between;
+
+            margin-bottom:45px;
+        }
+
+
+        /* Filter buttons */
+
+        .filters{
+            display:flex;
+            gap:8px;
+        }
+
+        .filter{
+            padding:10px 20px;
+
+            border:1px solid #555;
+
+            background:transparent;
+
+            color:#aaa;
+
+            border-radius:10px;
+
+            cursor:pointer;
+
+            transition:.3s;
+        }
+
+        .filter:hover{
+            border-color:var(--gold);
+            color:var(--gold);
+        }
+
+        .filter.active{
+            background:var(--gold);
+
+            color:#080808;
+
+            border-color:var(--gold);
+        }
+
+
+        /* Food grid */
+
+        .food-grid{
+            display:grid;
+
+            grid-template-columns:repeat(3,1fr);
+
+            gap:25px;
+        }
+
+
+        /* Food card */
+
+        .food-link{
+            display:block;
+        }
+
+        .food-card{
+            background:var(--dark);
+
+            border:1px solid var(--border);
+
+            border-radius:18px;
+
+            overflow:hidden;
+
+            box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+            transition:.35s;
+        }
+
+        .food-card:hover{
+            transform:translateY(-8px);
+
+            border-color:#655333;
+        }
+
+
+        /* Food image */
+
+        .food-img{
+            height:280px;
+
+            background-size:cover;
+            background-position:center;
+        }
+
+
+        /* Food images */
+
+        .food1{
+            background-image:url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=85");
+        }
+
+        .food2{
+            background-image:url("https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=85");
+        }
+
+        .food3{
+            background-image:url("https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85");
+        }
+
+        .food4{
+            background-image:url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=85");
+        }
+
+        .food5{
+            background-image:url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85");
+        }
+
+        .food6{
+            background-image:url("https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=85");
+        }
+
+
+        /* Food information */
+
+        .food-info{
+            padding:20px;
+
+            display:flex;
+
+            justify-content:space-between;
+
+            gap:15px;
+        }
+
+        .food-info h3{
+            font-size:21px;
+
+            font-weight:500;
+        }
+
+        .food-info p{
+            color:#888;
+
+            font-size:12px;
+
+            margin-top:5px;
+        }
+
+
+        /* Food price */
+
+        .price{
+            color:var(--gold);
+
+            background:rgba(201,164,92,.12);
+
+            border:1px solid rgba(201,164,92,.35);
+
+            padding:7px 13px;
+
+            border-radius:20px;
+
+            height:fit-content;
+
+            white-space:nowrap;
+        }
+
+
+        /* ==================================================
+           QUOTE SECTION
+        ================================================== */
+
+        .quote{
+            text-align:center;
+
+            background:#0d0d0d;
+
+            border-top:1px solid var(--border);
+
+            border-bottom:1px solid var(--border);
+        }
+
+        .quote-text{
+            font-size:clamp(42px,6vw,75px);
+
+            line-height:1.1;
+        }
+
+        .quote-text em{
+            color:var(--gold);
+        }
+
+
+        /* ==================================================
+           RESERVATION SECTION
+        ================================================== */
+
+        .reservation{
+            display:grid;
+
+            grid-template-columns:1fr 1fr;
+
+            gap:80px;
+        }
+
+        .reservation-form{
+            display:grid;
+
+            gap:14px;
+        }
+
+
+        /* Form inputs */
+
+        input,
+        select{
+            width:100%;
+
+            padding:16px;
+
+            background:#111;
+
+            color:white;
+
+            border:1px solid var(--border);
+
+            outline:none;
+
+            font-family:inherit;
+        }
+
+        input:focus,
+        select:focus{
+            border-color:var(--gold);
+        }
+
+
+        /* Two-column form row */
+
+        .form-row{
+            display:grid;
+
+            grid-template-columns:1fr 1fr;
+
+            gap:14px;
+        }
+
+        .message{
+            color:var(--gold);
+
+            font-size:13px;
+        }
+
+
+        /* ==================================================
+           GALLERY SECTION
+        ================================================== */
+
+        .gallery{
+            background:#080808;
+        }
+
+        .gallery-grid{
+            display:grid;
+
+            grid-template-columns:1.3fr .7fr .7fr;
+
+            grid-template-rows:250px 250px;
+
+            gap:12px;
+        }
+
+        .gallery-img{
+            background-size:cover;
+
+            background-position:center;
+
+            border-radius:14px;
+        }
+
+
+        /* Gallery images */
+
+        .gallery1{
+            grid-row:span 2;
+
+            background-image:url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=85");
+        }
+
+        .gallery2{
+            background-image:url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=85");
+        }
+
+        .gallery3{
+            background-image:url("https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=700&q=85");
+        }
+
+        .gallery4{
+            grid-column:2/4;
+
+            background-image:url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85");
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        footer{
+            padding:65px 8% 25px;
+
+            background:#050505;
+
+            border-top:1px solid var(--border);
+        }
+
+        .footer-grid{
+            display:grid;
+
+            grid-template-columns:2fr 1fr 1fr 1fr;
+
+            gap:40px;
+        }
+
+        .footer-grid h4{
+            color:var(--gold);
+
+            font-size:11px;
+
+            letter-spacing:2px;
+
+            margin-bottom:12px;
+        }
+
+        .footer-grid p{
+            color:#888;
+
+            font-size:13px;
+
+            line-height:1.8;
+        }
+
+        .footer-bottom{
+            margin-top:55px;
+
+            padding-top:20px;
+
+            border-top:1px solid var(--border);
+
+            display:flex;
+
+            justify-content:space-between;
+
+            color:#666;
+
+            font-size:11px;
+        }
+
+
+        /* ==================================================
+           TABLET RESPONSIVE
+        ================================================== */
+
+        @media(max-width:900px){
+
+            /* Mobile navigation */
+
+            .nav-links{
+                display:none;
+
+                position:absolute;
+
+                top:78px;
+                left:0;
+
+                width:100%;
+
+                padding:25px;
+
+                background:#090909;
+
+                flex-direction:column;
+
+                border-bottom:1px solid var(--border);
+            }
+
+            .nav-links.show{
+                display:flex;
+            }
+
+            .menu-icon{
+                display:block;
+            }
+
+            .nav-btn{
+                display:none;
+            }
+
+
+            /* Hero */
+
+            .hero{
+                grid-template-columns:1fr;
+            }
+
+            .hero-image{
+                height:450px;
+            }
+
+
+            /* About + Reservation */
+
+            .about,
+            .reservation{
+                grid-template-columns:1fr;
+            }
+
+
+            /* Food cards */
+
+            .food-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+
+            /* Footer */
+
+            .footer-grid{
+                grid-template-columns:1fr 1fr;
+            }
+        }
+
+
+        /* ==================================================
+           MOBILE RESPONSIVE
+        ================================================== */
+
+        @media(max-width:600px){
+
+            .navbar{
+                padding:20px 5%;
+            }
+
+            section{
+                padding:75px 5%;
+            }
+
+            .hero{
+                padding:130px 5% 70px;
+            }
+
+            .hero h1{
+                font-size:55px;
+            }
+
+
+            /* Hero buttons */
+
+            .buttons{
+                flex-direction:column;
+
+                align-items:flex-start;
+            }
+
+
+            /* Section headings */
+
+            .heading{
+                font-size:45px;
+            }
+
+
+            /* Food cards */
+
+            .food-grid{
+                grid-template-columns:1fr;
+            }
+
+
+            /* Menu filters */
+
+            .menu-header{
+                flex-direction:column;
+
+                align-items:start;
+
+                gap:25px;
+            }
+
+            .filters{
+                flex-wrap:wrap;
+            }
+
+
+            /* Reservation form */
+
+            .form-row{
+                grid-template-columns:1fr;
+            }
+
+
+            /* Gallery */
+
+            .gallery-grid{
+                grid-template-columns:1fr 1fr;
+
+                grid-template-rows:200px 200px;
+            }
+
+            .gallery1{
+                grid-row:auto;
+            }
+
+            .gallery4{
+                grid-column:auto;
+            }
+
+
+            /* Footer */
+
+            .footer-grid{
+                grid-template-columns:1fr;
+            }
+
+            .footer-bottom{
+                flex-direction:column;
+
+                gap:10px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         NAVBAR
+    ================================================== -->
+
+    <header class="navbar">
+
+        <!-- Website logo -->
+
+        <a href="#home" class="logo">
+            NOIRÉ <span>KITCHEN</span>
+        </a>
+
+
+        <!-- Mobile menu icon -->
+
+        <div class="menu-icon" id="menuIcon">
+            ☰
+        </div>
+
+
+        <!-- Navigation links -->
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+            <li>
+                <a href="index.html#about">Our Story</a>
+            </li>
+
+            <li>
+                <a href="menu.html">The Menu</a>
+            </li>
+
+            <li>
+                <a href="index.html#gallery">Experience</a>
+            </li>
+
+            <li>
+                <a href="order.html">Reservations</a>
+            </li>
+
+        </ul>
+
+
+        <!-- Reservation button -->
+
+        <a href="order.html" class="nav-btn">
+            Book a Table
+        </a>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         HERO SECTION
+    ================================================== -->
+
+    <section class="hero" id="home">
+
+        <!-- Hero text -->
+
+        <div>
+
+            <p class="small-title">
+                FINE DINING · MODERN FLAVOURS
+            </p>
+
+            <h1>
+                A taste of
+                <em>luxury</em>
+                in every bite.
+            </h1>
+
+            <p class="hero-text">
+                An intimate dining experience where bold flavours,
+                beautiful ingredients and modern culinary craft meet.
+            </p>
+
+
+            <!-- Hero buttons -->
+
+            <div class="buttons">
+
+                <a href="menu.html" class="btn gold-btn">
+                    Explore Menu
+                </a>
+
+                <a href="#reservation" class="btn outline-btn">
+                    Reserve a Table
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Hero image -->
+
+        <div class="hero-image">
+
+            <div class="hero-image-content">
+
+                <span>
+                    TONIGHT'S SIGNATURE
+                </span>
+
+                <h3>
+                    NOIRÉ STEAK
+                </h3>
+
+                <p>
+                    Truffle jus · roasted garlic · fresh herbs
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         ABOUT SECTION
+    ================================================== -->
+
+    <section class="about" id="about">
+
+        <div>
+
+            <p class="small-title">
+                THE NOIRÉ EXPERIENCE
+            </p>
+
+            <h2 class="heading">
+                Where food becomes
+                <em>an occasion.</em>
+            </h2>
+
+        </div>
+
+
+        <div class="about-text">
+
+            <p>
+                NOIRÉ KITCHEN is a modern restaurant built around
+                memorable food, warm hospitality and an atmosphere
+                that feels effortlessly refined.
+            </p>
+
+            <p>
+                From our open-fire steaks to handmade pasta and
+                signature desserts, every plate is prepared with
+                attention to detail.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         MENU SECTION
+    ================================================== -->
+
+    <section id="menu">
+
+        <!-- Menu heading + filters -->
+
+        <div class="menu-header">
+
+            <div>
+
+                <p class="small-title">
+                    CURATED MENU
+                </p>
+
+                <h2 class="heading">
+                    Our <em>signatures.</em>
+                </h2>
+
+            </div>
+
+
+            <!-- Category filters -->
+
+            <div class="filters">
+
+                <button class="filter active" data-filter="all">
+                    All
+                </button>
+
+                <button class="filter" data-filter="main">
+                    Mains
+                </button>
+
+                <button class="filter" data-filter="pizza">
+                    Pizza
+                </button>
+
+                <button class="filter" data-filter="dessert">
+                    Dessert
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Food cards -->
+
+        <div class="food-grid">
+
+
+            <!-- Food Card 1 -->
+
+            <a href="menu.html" class="food-link">
+
+                <article class="food-card" data-category="main">
+
+                    <div class="food-img food1"></div>
+
+                    <div class="food-info">
+
+                        <div>
+
+                            <h3>
+                                Noiré Steak
+                            </h3>
+
+                            <p>
+                                Charred beef, truffle jus & herbs
+                            </p>
+
+                        </div>
+
+                        <strong class="price">
+                            $42
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            </a>
+
+
+
+            <!-- Food Card 2 -->
+
+            <a href="menu.html" class="food-link">
+
+                <article class="food-card" data-category="pizza">
+
+                    <div class="food-img food2"></div>
+
+                    <div class="food-info">
+
+                        <div>
+
+                            <h3>
+                                Black Truffle Pizza
+                            </h3>
+
+                            <p>
+                                Wild mushroom, truffle & parmesan
+                            </p>
+
+                        </div>
+
+                        <strong class="price">
+                            $24
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            </a>
+
+
+
+            <!-- Food Card 3 -->
+
+            <a href="menu.html" class="food-link">
+
+                <article class="food-card" data-category="main">
+
+                    <div class="food-img food3"></div>
+
+                    <div class="food-info">
+
+                        <div>
+
+                            <h3>
+                                Velvet Pasta
+                            </h3>
+
+                            <p>
+                                Silky cream, garlic & parmesan
+                            </p>
+
+                        </div>
+
+                        <strong class="price">
+                            $21
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            </a>
+
+
+
+            <!-- Food Card 4 -->
+
+            <a href="menu.html" class="food-link">
+
+                <article class="food-card" data-category="main">
+
+                    <div class="food-img food4"></div>
+
+                    <div class="food-info">
+
+                        <div>
+
+                            <h3>
+                                Noiré Burger
+                            </h3>
+
+                            <p>
+                                Wagyu beef, aged cheddar & truffle sauce
+                            </p>
+
+                        </div>
+
+                        <strong class="price">
+                            $19
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            </a>
+
+
+
+            <!-- Food Card 5 -->
+
+            <a href="menu.html" class="food-link">
+
+                <article class="food-card" data-category="dessert">
+
+                    <div class="food-img food5"></div>
+
+                    <div class="food-info">
+
+                        <div>
+
+                            <h3>
+                                Midnight Cake
+                            </h3>
+
+                            <p>
+                                Dark chocolate, vanilla cream & gold
+                            </p>
+
+                        </div>
+
+                        <strong class="price">
+                            $14
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            </a>
+
+
+
+            <!-- Food Card 6 -->
+
+            <a href="menu.html" class="food-link">
+
+                <article class="food-card" data-category="dessert">
+
+                    <div class="food-img food6"></div>
+
+                    <div class="food-info">
+
+                        <div>
+
+                            <h3>
+                                Golden Tiramisu
+                            </h3>
+
+                            <p>
+                                Espresso, mascarpone & cocoa
+                            </p>
+
+                        </div>
+
+                        <strong class="price">
+                            $12
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         QUOTE SECTION
+    ================================================== -->
+
+    <section class="quote">
+
+        <p class="small-title">
+            OUR PHILOSOPHY
+        </p>
+
+        <p class="quote-text">
+            Simple ingredients.<br>
+            <em>Exceptional moments.</em>
+        </p>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         RESERVATION SECTION
+    ================================================== -->
+
+    <section class="reservation" id="reservation">
+
+        <div>
+
+            <p class="small-title">
+                YOUR TABLE AWAITS
+            </p>
+
+            <h2 class="heading">
+                Make tonight
+                <em>unforgettable.</em>
+            </h2>
+
+        </div>
+
+
+        <!-- Reservation form -->
+
+        <form class="reservation-form" id="bookingForm">
+
+            <input
+                type="text"
+                placeholder="Your name"
+                required
+            >
+
+            <input
+                type="email"
+                placeholder="Email address"
+                required
+            >
+
+
+            <div class="form-row">
+
+                <input
+                    type="date"
+                    required
+                >
+
+                <select required>
+
+                    <option value="">
+                        Guests
+                    </option>
+
+                    <option>
+                        2 Guests
+                    </option>
+
+                    <option>
+                        3 Guests
+                    </option>
+
+                    <option>
+                        4 Guests
+                    </option>
+
+                    <option>
+                        5+ Guests
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn gold-btn"
+            >
+                Submit Now
+            </button>
+
+
+            <!-- Success message -->
+
+            <p class="message" id="message"></p>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         GALLERY SECTION
+    ================================================== -->
+
+    <section class="gallery" id="gallery">
+
+        <p class="small-title">
+            THE ATMOSPHERE
+        </p>
+
+        <h2 class="heading">
+            A little taste of <em>NOIRÉ.</em>
+        </h2>
+
+        <br><br>
+
+
+        <!-- Gallery images -->
+
+        <div class="gallery-grid">
+
+            <div class="gallery-img gallery1"></div>
+
+            <div class="gallery-img gallery2"></div>
+
+            <div class="gallery-img gallery3"></div>
+
+            <div class="gallery-img gallery4"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer id="contact">
+
+        <div class="footer-grid">
+
+
+            <!-- Footer logo -->
+
+            <div>
+
+                <a href="#home" class="logo">
+                    NOIRÉ <span>KITCHEN</span>
+                </a>
+
+                <p>
+                    Modern dining. Timeless moments.
+                </p>
+
+            </div>
+
+
+            <!-- Visit -->
+
+            <div>
+
+                <h4>
+                    VISIT
+                </h4>
+
+                <p>
+                    18 Noiré Avenue<br>
+                    Downtown
+                </p>
+
+            </div>
+
+
+            <!-- Opening hours -->
+
+            <div>
+
+                <h4>
+                    HOURS
+                </h4>
+
+                <p>
+                    Mon–Thu · 5–11 PM<br>
+                    Fri–Sun · 12–12 AM
+                </p>
+
+            </div>
+
+
+            <!-- Contact -->
+
+            <div>
+
+                <h4>
+                    CONTACT
+                </h4>
+
+                <p>
+                    hello@noirekitchen.com<br>
+                    +1 555 014 2040
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Footer bottom -->
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 NOIRÉ KITCHEN
+            </span>
+
+            <span>
+                Instagram · Facebook
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script>
+
+
+        /* ==================================================
+           MOBILE MENU
+        ================================================== */
+
+        const menuIcon =
+            document.querySelector("#menuIcon");
+
+        const navLinks =
+            document.querySelector("#navLinks");
+
+
+        // Open / close mobile navigation
+
+        menuIcon.addEventListener("click", () => {
+
+            navLinks.classList.toggle("show");
+
+        });
+
+
+        // Close navigation after clicking a link
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navLinks.classList.remove("show");
+
+                });
+
+            });
+
+
+
+        /* ==================================================
+           MENU FILTER
+        ================================================== */
+
+        const filters =
+            document.querySelectorAll(".filter");
+
+        const cards =
+            document.querySelectorAll(".food-card");
+
+
+        // Add click event to every filter button
+
+        filters.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+
+                // Remove active class from all buttons
+
+                filters.forEach(btn => {
+
+                    btn.classList.remove("active");
+
+                });
+
+
+                // Add active class to clicked button
+
+                button.classList.add("active");
+
+
+                // Get selected category
+
+                const category =
+                    button.dataset.filter;
+
+
+                // Show / hide food cards
+
+                cards.forEach(card => {
+
+                    if(
+                        category === "all" ||
+                        card.dataset.category === category
+                    ){
+
+                        card.style.display = "block";
+
+                    }else{
+
+                        card.style.display = "none";
+
+                    }
+
+                });
+
+            });
+
+        });
+
+
+
+        /* ==================================================
+           RESERVATION FORM
+        ================================================== */
+
+        const form =
+            document.querySelector("#bookingForm");
+
+        const message =
+            document.querySelector("#message");
+
+
+        // Show success message when form is submitted
+
+        form.addEventListener("submit", (e) => {
+
+            e.preventDefault();
+
+
+            message.textContent =
+                "Thank you! Your reservation request has been received.";
+
+
+            // Clear form fields
+
+            form.reset();
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+```

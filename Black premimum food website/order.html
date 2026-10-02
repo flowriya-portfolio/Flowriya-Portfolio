@@ -1,0 +1,1995 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ================= BASIC SETTINGS ================= -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NOIRÉ KITCHEN | Menu</title>
+
+
+    <!-- ================= FONT AWESOME ================= -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <!-- ================= GOOGLE FONTS ================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =================================================
+           GENERAL
+        ================================================= */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background:#080808;
+            color:#f5f2eb;
+            font-family:"DM Sans",sans-serif;
+        }
+
+        a{
+            text-decoration:none;
+            color:inherit;
+        }
+
+
+        /* =================================================
+           NAVBAR
+        ================================================= */
+
+        .navbar{
+            position:sticky;
+            top:0;
+            z-index:10;
+
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+
+            padding:22px 7%;
+
+            background:rgba(8,8,8,.9);
+
+            backdrop-filter:blur(15px);
+
+            border-bottom:1px solid #292723;
+        }
+
+
+        /* LOGO */
+
+        .logo{
+            font-family:"Cormorant Garamond",serif;
+            font-size:28px;
+            letter-spacing:3px;
+        }
+
+        .logo span{
+            display:block;
+
+            color:#F2A900;
+
+            font-family:"DM Sans",sans-serif;
+
+            font-size:9px;
+            letter-spacing:5px;
+
+            text-align:center;
+        }
+
+
+        /* NAV LINKS */
+
+        .links{
+            display:flex;
+            gap:30px;
+        }
+
+        .links a{
+            color:#aaa;
+            font-size:13px;
+            transition:.3s;
+        }
+
+        .links a:hover{
+            color:#F2A900;
+        }
+
+
+        /* RIGHT SIDE OF NAVBAR */
+
+        .nav-right{
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+
+
+        /* BOOK BUTTON */
+
+        .book{
+            padding:11px 20px;
+
+            border:1px solid #F2A900;
+
+            color:#F2A900;
+
+            border-radius:10px;
+
+            transition:.3s;
+        }
+
+        .book:hover{
+            background:#F2A900;
+            color:#080808;
+        }
+
+
+        /* =================================================
+           CART ICON
+        ================================================= */
+
+        .cart-icon{
+            position:relative;
+
+            background:transparent;
+
+            border:1px solid #F2A900;
+
+            color:#F2A900;
+
+            padding:10px 14px;
+
+            border-radius:10px;
+
+            cursor:pointer;
+
+            font-size:17px;
+        }
+
+        .cart-icon:hover{
+            background:#F2A900;
+            color:#080808;
+        }
+
+
+        /* NUMBER ON CART */
+
+        #cart-count{
+            position:absolute;
+
+            top:-8px;
+            right:-8px;
+
+            width:20px;
+            height:20px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            background:#F2A900;
+            color:#080808;
+
+            border-radius:50%;
+
+            font-size:11px;
+            font-weight:bold;
+        }
+
+
+        /* =================================================
+           HERO
+        ================================================= */
+
+        .menu-hero{
+            text-align:center;
+
+            padding:120px 20px 90px;
+
+            background:
+            radial-gradient(
+                circle,
+                #302717,
+                transparent 55%
+            );
+        }
+
+
+        /* SMALL GOLD TEXT */
+
+        .menu-hero > p:first-child{
+            color:#F2A900;
+
+            letter-spacing:5px;
+
+            font-size:11px;
+        }
+
+
+        /* MAIN HEADING */
+
+        .menu-hero h1{
+            font-family:"Cormorant Garamond",serif;
+
+            font-size:78px;
+
+            font-weight:500;
+
+            letter-spacing:2px;
+
+            margin:20px 0;
+        }
+
+
+        /* GOLD WORD */
+
+        .menu-hero h1 span,
+        .menu-title span{
+            color:#F2A900;
+        }
+
+
+        /* DESCRIPTION */
+
+        .description{
+            color:#888;
+
+            max-width:500px;
+
+            margin:auto;
+
+            line-height:1.8;
+        }
+
+
+        /* =================================================
+           MENU SECTION
+        ================================================= */
+
+        .menu-section{
+            padding:70px 8%;
+        }
+
+
+        /* MENU HEADING */
+
+        .menu-title{
+            text-align:center;
+
+            margin-bottom:50px;
+        }
+
+        .menu-title p{
+            color:#F2A900;
+
+            font-size:11px;
+
+            letter-spacing:4px;
+        }
+
+        .menu-title h2{
+            font-family:"Cormorant Garamond",serif;
+
+            font-size:52px;
+
+            font-weight:500;
+
+            margin-top:12px;
+        }
+
+
+        /* =================================================
+           MENU GRID
+        ================================================= */
+
+        .menu-grid{
+            display:grid;
+
+            grid-template-columns:repeat(3,1fr);
+
+            gap:28px;
+        }
+
+
+        /* =================================================
+           MENU CARD
+        ================================================= */
+
+        .menu-card{
+            background:#111;
+
+            border:1px solid #292723;
+
+            border-radius:20px;
+
+            overflow:hidden;
+
+            transition:.4s;
+        }
+
+        .menu-card:hover{
+            transform:translateY(-8px);
+
+            border-color:#75603b;
+
+            box-shadow:
+            0 20px 50px rgba(0,0,0,.5);
+        }
+
+
+        /* FOOD IMAGE */
+
+        .menu-card img{
+            width:100%;
+
+            height:280px;
+
+            object-fit:cover;
+
+            display:block;
+
+            transition:.5s;
+        }
+
+        .menu-card:hover img{
+            transform:scale(1.05);
+        }
+
+
+        /* CARD INFORMATION */
+
+        .info{
+            padding:20px;
+        }
+
+        .info h3{
+            font-family:"Cormorant Garamond",serif;
+
+            font-size:26px;
+
+            font-weight:600;
+        }
+
+        .info p{
+            color:#858585;
+
+            font-size:12px;
+
+            margin:7px 0 18px;
+
+            line-height:1.6;
+        }
+
+
+        /* PRICE */
+
+        .price{
+            display:inline-block;
+
+            color:#080808;
+
+            background:#F2A900;
+
+            padding:7px 18px;
+
+            border-radius:7px;
+
+            font-size:15px;
+
+            font-weight:600;
+        }
+
+
+        /* =================================================
+           ADD TO CART BUTTON
+        ================================================= */
+
+        .actions{
+            display:flex;
+
+            align-items:center;
+
+            gap:10px;
+
+            margin-top:15px;
+        }
+
+
+        .add-cart{
+            width:100%;
+
+            padding:12px;
+
+            background:#F2A900;
+
+            color:#080808;
+
+            border:none;
+
+            border-radius:10px;
+
+            font-family:"DM Sans",sans-serif;
+
+            font-size:12px;
+
+            font-weight:600;
+
+            cursor:pointer;
+
+            transition:.3s;
+        }
+
+        .add-cart:hover{
+            transform:translateY(-2px);
+
+            box-shadow:
+            0 8px 20px rgba(242,169,0,.2);
+        }
+
+
+        /* =================================================
+           CART PANEL
+        ================================================= */
+
+        .cart{
+            position:fixed;
+
+            top:0;
+
+            right:-420px;
+
+            width:400px;
+
+            height:100vh;
+
+            background:#111;
+
+            border-left:1px solid #292723;
+
+            z-index:100;
+
+            padding:25px;
+
+            display:flex;
+
+            flex-direction:column;
+
+            transition:.4s;
+        }
+
+
+        /* CART OPEN */
+
+        .cart.active{
+            right:0;
+        }
+
+
+        /* CART HEADER */
+
+        .cart-header{
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            padding-bottom:20px;
+
+            border-bottom:1px solid #292723;
+        }
+
+        .cart-header h2{
+            font-family:"Cormorant Garamond",serif;
+
+            font-size:30px;
+
+            font-weight:500;
+        }
+
+
+        /* CLOSE BUTTON */
+
+        #cart-close{
+            background:none;
+
+            border:none;
+
+            color:#F2A900;
+
+            font-size:30px;
+
+            cursor:pointer;
+        }
+
+
+        /* CART CONTENT */
+
+        .cart-content{
+            flex:1;
+
+            overflow-y:auto;
+
+            padding:20px 0;
+        }
+
+
+        /* =================================================
+           CART ITEM
+        ================================================= */
+
+        .cart-item{
+            display:flex;
+
+            gap:12px;
+
+            padding:15px 0;
+
+            border-bottom:1px solid #292723;
+        }
+
+
+        /* CART IMAGE */
+
+        .cart-item img{
+            width:70px;
+
+            height:70px;
+
+            object-fit:cover;
+
+            border-radius:10px;
+        }
+
+
+        /* CART ITEM INFORMATION */
+
+        .cart-item-info{
+            flex:1;
+        }
+
+        .cart-item-info h3{
+            font-family:"Cormorant Garamond",serif;
+
+            font-size:19px;
+        }
+
+        .cart-item-info p{
+            color:#F2A900;
+
+            font-size:13px;
+
+            margin-top:5px;
+        }
+
+
+        /* =================================================
+           QUANTITY
+        ================================================= */
+
+        .quantity{
+            display:flex;
+
+            align-items:center;
+
+            gap:8px;
+
+            margin-top:8px;
+        }
+
+
+        .quantity button{
+            width:25px;
+
+            height:25px;
+
+            background:#F2A900;
+
+            color:#080808;
+
+            border:none;
+
+            border-radius:5px;
+
+            cursor:pointer;
+        }
+
+
+        .quantity span{
+            font-size:13px;
+        }
+
+
+        /* =================================================
+           REMOVE ITEM
+        ================================================= */
+
+        .remove-item{
+            background:none;
+
+            border:none;
+
+            color:#888;
+
+            cursor:pointer;
+
+            font-size:18px;
+        }
+
+        .remove-item:hover{
+            color:#F2A900;
+        }
+
+
+        /* =================================================
+           CART BOTTOM
+        ================================================= */
+
+        .cart-bottom{
+            border-top:1px solid #292723;
+
+            padding-top:20px;
+        }
+
+
+        /* TOTAL */
+
+        .cart-total{
+            display:flex;
+
+            justify-content:space-between;
+
+            margin-bottom:18px;
+        }
+
+        .cart-total strong{
+            color:#F2A900;
+        }
+
+
+        /* CHECKOUT */
+
+        .checkout-btn{
+            width:100%;
+
+            padding:13px;
+
+            background:#F2A900;
+
+            color:#080808;
+
+            border:none;
+
+            border-radius:10px;
+
+            font-weight:600;
+
+            cursor:pointer;
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+        ================================================= */
+
+        @media(max-width:800px){
+
+            .links{
+                display:none;
+            }
+
+            .book{
+                display:none;
+            }
+
+            .menu-grid{
+                grid-template-columns:1fr 1fr;
+            }
+
+        }
+
+
+        @media(max-width:550px){
+
+            .menu-grid{
+                grid-template-columns:1fr;
+            }
+
+            .menu-hero h1{
+                font-size:50px;
+            }
+
+            .cart{
+                width:100%;
+
+                right:-100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         NAVBAR
+    ================================================= -->
+
+    <nav class="navbar">
+
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="logo">
+
+            NOIRÉ
+
+            <span>KITCHEN</span>
+
+        </a>
+
+
+        <!-- NAVIGATION LINKS -->
+
+        <div class="links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#about">
+                Our Story
+            </a>
+
+            <a href="menu.html">
+                The Menu
+            </a>
+
+            <a href="index.html#gallery">
+                Experience
+            </a>
+
+            <a href="order.html">
+                Reservations
+            </a>
+
+        </div>
+
+
+        <!-- CART + BOOK BUTTON -->
+
+        <div class="nav-right">
+
+
+            <!-- CART ICON -->
+
+            <button id="cart-icon" class="cart-icon">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span id="cart-count">
+                    0
+                </span>
+
+            </button>
+
+
+            <!-- BOOK TABLE -->
+
+            <a href="order.html" class="book">
+
+                Book a Table
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =================================================
+         HERO
+    ================================================= -->
+
+    <section class="menu-hero">
+
+
+        <p>
+            THE NOIRÉ EXPERIENCE
+        </p>
+
+
+        <h1>
+
+            Our <span>Menu</span>
+
+        </h1>
+
+
+        <p class="description">
+
+            Discover a carefully crafted selection of signature dishes,
+            rich flavors and unforgettable dining experiences.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         MENU SECTION
+    ================================================= -->
+
+    <section class="menu-section">
+
+
+        <!-- MENU HEADING -->
+
+        <div class="menu-title">
+
+            <p>
+                SIGNATURE SELECTION
+            </p>
+
+            <h2>
+
+                Crafted With <span>Passion</span>
+
+            </h2>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MENU GRID
+        ================================================= -->
+
+        <div class="menu-grid">
+
+
+
+            <!-- ================= CARD 1 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 1.jpg"
+                     alt="Signature BBQ">
+
+
+                <div class="info">
+
+                    <h3>
+                        Signature BBQ
+                    </h3>
+
+
+                    <p>
+                        Tender, perfectly grilled pieces marinated
+                        in aromatic spices and smoky BBQ flavors.
+                    </p>
+
+
+                    <span class="price">
+                        $42
+                    </span>
+
+
+                    <!-- ADD TO CART -->
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="Signature BBQ"
+                            data-price="42"
+                            data-image="images/img 1.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================= CARD 2 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 2.jpg"
+                     alt="Royal Biryani">
+
+
+                <div class="info">
+
+                    <h3>
+                        Royal Biryani
+                    </h3>
+
+
+                    <p>
+                        Fragrant basmati rice layered with tender
+                        seasoned meat and aromatic spices.
+                    </p>
+
+
+                    <span class="price">
+                        $30
+                    </span>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="Royal Biryani"
+                            data-price="30"
+                            data-image="images/img 2.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================= CARD 3 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 4.jpg"
+                     alt="French Fries">
+
+
+                <div class="info">
+
+                    <h3>
+                        French Fries
+                    </h3>
+
+
+                    <p>
+                        Golden crispy fries seasoned to perfection,
+                        with a crunchy outside and soft center.
+                    </p>
+
+
+                    <span class="price">
+                        $15
+                    </span>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="French Fries"
+                            data-price="15"
+                            data-image="images/img 4.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================= CARD 4 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 3.jpg"
+                     alt="Noiré Signature Burger">
+
+
+                <div class="info">
+
+                    <h3>
+                        Noiré Signature Burger
+                    </h3>
+
+
+                    <p>
+                        Juicy seasoned patty, melted cheese, crisp
+                        lettuce and signature sauce in a toasted bun.
+                    </p>
+
+
+                    <span class="price">
+                        $29
+                    </span>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="Noiré Signature Burger"
+                            data-price="29"
+                            data-image="images/img 3.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================= CARD 5 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 5.jpg"
+                     alt="Chicken Leg Pieces">
+
+
+                <div class="info">
+
+                    <h3>
+                        Chicken Leg Pieces
+                    </h3>
+
+
+                    <p>
+                        Tender, perfectly seasoned chicken leg pieces,
+                        cooked until juicy and flavorful.
+                    </p>
+
+
+                    <span class="price">
+                        $14
+                    </span>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="Chicken Leg Pieces"
+                            data-price="14"
+                            data-image="images/img 5.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================= CARD 6 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 6.jpg"
+                     alt="Spicy Noodles">
+
+
+                <div class="info">
+
+                    <h3>
+                        Spicy Noodles
+                    </h3>
+
+
+                    <p>
+                        Silky noodles tossed with fresh vegetables,
+                        aromatic herbs and a bold spicy sauce.
+                    </p>
+
+
+                    <span class="price">
+                        $12
+                    </span>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="Spicy Noodles"
+                            data-price="12"
+                            data-image="images/img 6.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================= CARD 7 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 7.jpg"
+                     alt="Chicken Classic Shawarma">
+
+
+                <div class="info">
+
+                    <h3>
+                        Chicken Classic Shawarma
+                    </h3>
+
+
+                    <p>
+                        Tender seasoned chicken wrapped in warm flatbread
+                        with fresh vegetables and creamy garlic sauce.
+                    </p>
+
+
+                    <span class="price">
+                        $28
+                    </span>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="Chicken Classic Shawarma"
+                            data-price="28"
+                            data-image="images/img 7.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================= CARD 8 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 9.jpg"
+                     alt="Chocolate Coffee">
+
+
+                <div class="info">
+
+                    <h3>
+                        Chocolate Coffee
+                    </h3>
+
+
+                    <p>
+                        Rich chocolate blended with smooth aromatic coffee,
+                        creating a luxurious and indulgent flavor.
+                    </p>
+
+
+                    <span class="price">
+                        $35
+                    </span>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="Chocolate Coffee"
+                            data-price="35"
+                            data-image="images/img 9.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================= CARD 9 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 10.jpg"
+                     alt="Strawberry Cake">
+
+
+                <div class="info">
+
+                    <h3>
+                        Strawberry Cake
+                    </h3>
+
+
+                    <p>
+                        Soft vanilla sponge layered with creamy frosting
+                        and fresh strawberries.
+                    </p>
+
+
+                    <span class="price">
+                        $78
+                    </span>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="Strawberry Cake"
+                            data-price="78"
+                            data-image="images/img 10.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================= CARD 10 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 8.jpg"
+                     alt="Smooth Chicken Pizza">
+
+
+                <div class="info">
+
+                    <h3>
+                        Smooth Chicken Pizza
+                    </h3>
+
+
+                    <p>
+                        A rich chicken pizza topped with creamy cheese,
+                        fresh ingredients and aromatic herbs.
+                    </p>
+
+
+                    <span class="price">
+                        $45
+                    </span>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="Smooth Chicken Pizza"
+                            data-price="45"
+                            data-image="images/img 8.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================= CARD 11 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 11.jpg"
+                     alt="Coca Cola Drink">
+
+
+                <div class="info">
+
+                    <h3>
+                        Coca Cola Drink
+                    </h3>
+
+
+                    <p>
+                        A chilled classic cola served refreshing and crisp
+                        alongside your favorite meal.
+                    </p>
+
+
+                    <span class="price">
+                        $25
+                    </span>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="Coca Cola Drink"
+                            data-price="25"
+                            data-image="images/img 11.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ================= CARD 12 ================= -->
+
+            <article class="menu-card">
+
+                <img src="images/img 12.jpg"
+                     alt="Rainbow Smoothie Magic">
+
+
+                <div class="info">
+
+                    <h3>
+                        Rainbow Smoothie Magic
+                    </h3>
+
+
+                    <p>
+                        A vibrant blend of fruity flavors, smooth textures
+                        and refreshing sweetness.
+                    </p>
+
+
+                    <span class="price">
+                        $70
+                    </span>
+
+
+                    <div class="actions">
+
+                        <button
+                            class="add-cart"
+                            data-name="Rainbow Smoothie Magic"
+                            data-price="70"
+                            data-image="images/img 12.jpg">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CART PANEL
+    ================================================= -->
+
+    <div class="cart">
+
+
+        <!-- CART HEADER -->
+
+        <div class="cart-header">
+
+            <h2>
+                Your Cart
+            </h2>
+
+            <button id="cart-close">
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- CART ITEMS WILL APPEAR HERE -->
+
+        <div
+            class="cart-content"
+            id="cart-content">
+
+        </div>
+
+
+        <!-- CART TOTAL + CHECKOUT -->
+
+        <div class="cart-bottom">
+
+
+            <div class="cart-total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="cart-total">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <button
+                class="checkout-btn"
+                id="checkout-btn">
+
+                Checkout
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         JAVASCRIPT
+         CART + LOCALSTORAGE
+    ================================================= -->
+
+    <script>
+
+
+        /* =================================================
+           GET SAVED CART FROM LOCALSTORAGE
+        ================================================= */
+
+        let cartItems =
+            JSON.parse(
+                localStorage.getItem("cartItems")
+            ) || [];
+
+
+        /* =================================================
+           SELECT HTML ELEMENTS
+        ================================================= */
+
+        const cartIcon =
+            document.querySelector("#cart-icon");
+
+        const cart =
+            document.querySelector(".cart");
+
+        const cartClose =
+            document.querySelector("#cart-close");
+
+        const cartContent =
+            document.querySelector("#cart-content");
+
+        const cartTotal =
+            document.querySelector("#cart-total");
+
+        const cartCount =
+            document.querySelector("#cart-count");
+
+        const addCartButtons =
+            document.querySelectorAll(".add-cart");
+
+        const checkoutButton =
+            document.querySelector("#checkout-btn");
+
+
+        /* =================================================
+           OPEN CART
+        ================================================= */
+
+        cartIcon.addEventListener("click", () => {
+
+            cart.classList.add("active");
+
+            showCart();
+
+        });
+
+
+        /* =================================================
+           CLOSE CART
+        ================================================= */
+
+        cartClose.addEventListener("click", () => {
+
+            cart.classList.remove("active");
+
+        });
+
+
+        /* =================================================
+           ADD ITEM TO CART
+        ================================================= */
+
+        addCartButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+
+                /* GET PRODUCT DATA */
+
+                const name =
+                    button.dataset.name;
+
+                const price =
+                    Number(button.dataset.price);
+
+                const image =
+                    button.dataset.image;
+
+
+                /* CHECK IF ITEM ALREADY EXISTS */
+
+                const existingItem =
+                    cartItems.find(
+                        item => item.name === name
+                    );
+
+
+                /* IF EXISTS, INCREASE QUANTITY */
+
+                if(existingItem){
+
+                    existingItem.quantity++;
+
+                }
+
+
+                /* IF NOT EXISTS, ADD NEW ITEM */
+
+                else{
+
+                    cartItems.push({
+
+                        name:name,
+
+                        price:price,
+
+                        image:image,
+
+                        quantity:1
+
+                    });
+
+                }
+
+
+                /* SAVE CART */
+
+                saveCart();
+
+
+                /* SHOW UPDATED CART */
+
+                showCart();
+
+
+                /* OPEN CART */
+
+                cart.classList.add("active");
+
+
+                /* CHANGE BUTTON TEXT */
+
+                button.textContent =
+                    "Added ✓";
+
+
+                setTimeout(() => {
+
+                    button.textContent =
+                        "Add to Cart";
+
+                },1000);
+
+            });
+
+        });
+
+
+        /* =================================================
+           SHOW CART ITEMS
+        ================================================= */
+
+        function showCart(){
+
+            /* CLEAR OLD CART */
+
+            cartContent.innerHTML = "";
+
+
+            /* CHECK EMPTY CART */
+
+            if(cartItems.length === 0){
+
+                cartContent.innerHTML = `
+
+                    <p style="
+                        color:#777;
+                        text-align:center;
+                        margin-top:30px;
+                    ">
+
+                        Your cart is empty.
+
+                    </p>
+
+                `;
+
+                cartTotal.textContent = "$0";
+
+                return;
+
+            }
+
+
+            /* CREATE EACH CART ITEM */
+
+            cartItems.forEach((item,index) => {
+
+
+                const cartItem =
+                    document.createElement("div");
+
+
+                cartItem.classList.add(
+                    "cart-item"
+                );
+
+
+                /* CART ITEM HTML */
+
+                cartItem.innerHTML = `
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
+
+
+                    <div class="cart-item-info">
+
+                        <h3>
+                            ${item.name}
+                        </h3>
+
+                        <p>
+                            $${item.price}
+                        </p>
+
+
+                        <div class="quantity">
+
+                            <button
+                                class="minus"
+                                data-index="${index}"
+                            >
+                                −
+                            </button>
+
+
+                            <span>
+                                ${item.quantity}
+                            </span>
+
+
+                            <button
+                                class="plus"
+                                data-index="${index}"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="remove-item"
+                        data-index="${index}"
+                        title="Remove item"
+                    >
+
+                        <i class="fa-solid fa-trash"></i>
+
+                    </button>
+
+                `;
+
+
+                /* ADD ITEM TO CART */
+
+                cartContent.appendChild(
+                    cartItem
+                );
+
+            });
+
+
+            /* UPDATE TOTAL */
+
+            updateTotal();
+
+
+            /* =================================================
+               PLUS BUTTON
+            ================================================= */
+
+            document
+            .querySelectorAll(".plus")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const index =
+                            button.dataset.index;
+
+
+                        cartItems[index].quantity++;
+
+
+                        saveCart();
+
+                        showCart();
+
+                    }
+                );
+
+            });
+
+
+            /* =================================================
+               MINUS BUTTON
+            ================================================= */
+
+            document
+            .querySelectorAll(".minus")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const index =
+                            button.dataset.index;
+
+
+                        if(
+                            cartItems[index].quantity > 1
+                        ){
+
+                            cartItems[index].quantity--;
+
+                        }
+
+                        else{
+
+                            cartItems.splice(
+                                index,
+                                1
+                            );
+
+                        }
+
+
+                        saveCart();
+
+                        showCart();
+
+                    }
+                );
+
+            });
+
+
+            /* =================================================
+               REMOVE BUTTON
+            ================================================= */
+
+            document
+            .querySelectorAll(".remove-item")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        const index =
+                            button.dataset.index;
+
+
+                        cartItems.splice(
+                            index,
+                            1
+                        );
+
+
+                        saveCart();
+
+                        showCart();
+
+                    }
+                );
+
+            });
+
+        }
+
+
+        /* =================================================
+           SAVE CART TO LOCALSTORAGE
+        ================================================= */
+
+        function saveCart(){
+
+            localStorage.setItem(
+                "cartItems",
+                JSON.stringify(cartItems)
+            );
+
+
+            updateCartCount();
+
+        }
+
+
+        /* =================================================
+           CALCULATE TOTAL
+        ================================================= */
+
+        function updateTotal(){
+
+            let total = 0;
+
+
+            cartItems.forEach(item => {
+
+                total +=
+                    item.price *
+                    item.quantity;
+
+            });
+
+
+            cartTotal.textContent =
+                "$" + total;
+
+        }
+
+
+        /* =================================================
+           UPDATE CART COUNT
+        ================================================= */
+
+        function updateCartCount(){
+
+            let count = 0;
+
+
+            cartItems.forEach(item => {
+
+                count += item.quantity;
+
+            });
+
+
+            cartCount.textContent =
+                count;
+
+        }
+
+
+        /* =================================================
+           CHECKOUT BUTTON
+        ================================================= */
+
+        checkoutButton.addEventListener("click", () => {
+
+            if(cartItems.length === 0){
+
+                alert("Your cart is empty.");
+
+                return;
+
+            }
+
+
+            alert(
+                "Thank you! Your order has been placed."
+            );
+
+        });
+
+
+        /* =================================================
+           INITIAL LOAD
+        ================================================= */
+
+        updateCartCount();
+
+        showCart();
+
+    </script>
+
+
+</body>
+
+</html>
+```

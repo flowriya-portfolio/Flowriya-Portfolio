@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bean & Brew | Place Your Order</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* ================= BODY ================= */
+
+        body {
+            background: #fffaf3;
+            color: #3b2418;
+            font-family: "DM Sans", sans-serif;
+            transition: 0.3s ease;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: #fffaf3;
+            border-bottom: 1px solid #eadfd2;
+            transition: 0.3s ease;
+        }
+
+
+        .navbar {
+            max-width: 1200px;
+            height: 80px;
+            margin: auto;
+
+            padding: 0 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .logo {
+            text-decoration: none;
+
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            font-weight: 700;
+
+            color: #6b3e24;
+        }
+
+
+        .logo span {
+            color: #b7834f;
+        }
+
+
+        .back-btn {
+            text-decoration: none;
+
+            color: #6b3e24;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        .back-btn:hover {
+            color: #a66a3f;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .order-hero {
+            text-align: center;
+
+            padding: 65px 20px 45px;
+        }
+
+
+        .small-title {
+            color: #a66a3f;
+
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+
+        .order-hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 48px;
+
+            margin: 10px 0;
+        }
+
+
+        .order-hero p {
+            color: #806f61;
+        }
+
+
+        /* ================= ORDER SECTION ================= */
+
+        .order-section {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 20px 30px 80px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 35px;
+        }
+
+
+        /* ================= ORDER BOX ================= */
+
+        .order-box {
+            background: white;
+
+            border: 1px solid #eadfd2;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            box-shadow: 0 8px 25px rgba(59, 36, 24, 0.05);
+
+            transition: 0.3s ease;
+        }
+
+
+        .order-box h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 26px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ================= FORM ================= */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            margin-bottom: 7px;
+        }
+
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+
+            width: 100%;
+
+            border: 1px solid #ddcdbd;
+
+            outline: none;
+
+            background: #fffaf3;
+
+            color: #3b2418;
+
+            padding: 13px;
+
+            border-radius: 8px;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #a66a3f;
+        }
+
+
+        .form-group textarea {
+            height: 100px;
+
+            resize: none;
+        }
+
+
+        /* ================= ORDER ITEMS ================= */
+
+        #order-items {
+            margin-bottom: 20px;
+        }
+
+
+        .order-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid #eee3d8;
+        }
+
+
+        .order-item img {
+            width: 65px;
+            height: 65px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+        }
+
+
+        .order-item-info {
+            flex: 1;
+        }
+
+
+        .order-item-info h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 16px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .order-item-info p {
+            color: #806f61;
+
+            font-size: 12px;
+        }
+
+
+        .item-price {
+            color: #6b3e24;
+
+            font-weight: 600;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= TOTAL ================= */
+
+        .order-total {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding-top: 20px;
+
+            margin-top: 10px;
+
+            border-top: 1px solid #ddcdbd;
+        }
+
+
+        .order-total span {
+            color: #806f61;
+        }
+
+
+        #order-total {
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            color: #6b3e24;
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        #place-order-btn {
+
+            width: 100%;
+
+            border: none;
+
+            background: #6b3e24;
+
+            color: white;
+
+            padding: 14px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 15px;
+
+            margin-top: 25px;
+
+            transition: 0.3s;
+        }
+
+
+        #place-order-btn:hover {
+            background: #a66a3f;
+        }
+
+
+        /* ================= EMPTY ================= */
+
+        .empty-order {
+            text-align: center;
+
+            padding: 40px 10px;
+
+            color: #806f61;
+        }
+
+
+        .empty-order i {
+            font-size: 40px;
+
+            color: #b7834f;
+
+            margin-bottom: 15px;
+        }
+
+
+        .empty-order a {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            color: #6b3e24;
+
+            font-weight: 600;
+        }
+
+
+        /* ================= SUCCESS ================= */
+
+        #success-message {
+            display: none;
+
+            text-align: center;
+
+            padding: 40px 20px;
+        }
+
+
+        #success-message i {
+            font-size: 55px;
+
+            color: #6b3e24;
+
+            margin-bottom: 15px;
+        }
+
+
+        #success-message h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+
+        #success-message p {
+            color: #806f61;
+
+            line-height: 1.6;
+        }
+
+
+        #success-message a {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            background: #6b3e24;
+
+            color: white;
+
+            padding: 12px 20px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+        }
+
+
+        /* ================================================= */
+        /* ================= DARK MODE ===================== */
+        /* ================================================= */
+
+
+        body.dark {
+            background: #211811;
+            color: #f8eee5;
+        }
+
+
+        /* HEADER */
+
+        body.dark header {
+            background: #211811;
+            border-color: #4a3527;
+        }
+
+
+        body.dark .navbar {
+            background: #211811;
+        }
+
+
+        body.dark .logo {
+            color: #f8eee5;
+        }
+
+
+        body.dark .logo span {
+            color: #c98a58;
+        }
+
+
+        body.dark .back-btn {
+            color: #d8c8ba;
+        }
+
+
+        body.dark .back-btn:hover {
+            color: #c98a58;
+        }
+
+
+        /* HERO */
+
+        body.dark .order-hero h1 {
+            color: #f8eee5;
+        }
+
+
+        body.dark .order-hero p {
+            color: #bca99a;
+        }
+
+
+        body.dark .small-title {
+            color: #c98a58;
+        }
+
+
+        /* ORDER BOX */
+
+        body.dark .order-box {
+            background: #2b1e16;
+            border-color: #4a3527;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+
+        body.dark .order-box h2 {
+            color: #f8eee5;
+        }
+
+
+        /* INPUTS */
+
+        body.dark .form-group input,
+        body.dark .form-group textarea,
+        body.dark .form-group select {
+
+            background: #211811;
+
+            color: #f8eee5;
+
+            border-color: #594131;
+        }
+
+
+        body.dark .form-group input::placeholder,
+        body.dark .form-group textarea::placeholder {
+            color: #9f8c7d;
+        }
+
+
+        body.dark .form-group input:focus,
+        body.dark .form-group textarea:focus,
+        body.dark .form-group select:focus {
+            border-color: #b7834f;
+        }
+
+
+        /* ORDER ITEMS */
+
+        body.dark .order-item {
+            border-color: #4a3527;
+        }
+
+
+        body.dark .order-item-info h3 {
+            color: #f8eee5;
+        }
+
+
+        body.dark .order-item-info p {
+            color: #bca99a;
+        }
+
+
+        body.dark .item-price {
+            color: #d19a68;
+        }
+
+
+        /* TOTAL */
+
+        body.dark .order-total {
+            border-color: #594131;
+        }
+
+
+        body.dark .order-total span {
+            color: #bca99a;
+        }
+
+
+        body.dark #order-total {
+            color: #e1b17e;
+        }
+
+
+        /* EMPTY */
+
+        body.dark .empty-order {
+            color: #bca99a;
+        }
+
+
+        body.dark .empty-order a {
+            color: #d19a68;
+        }
+
+
+        /* SUCCESS */
+
+        body.dark #success-message i {
+            color: #d19a68;
+        }
+
+
+        body.dark #success-message h2 {
+            color: #f8eee5;
+        }
+
+
+        body.dark #success-message p {
+            color: #bca99a;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 750px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+
+            .logo {
+                font-size: 23px;
+            }
+
+
+            .order-hero {
+                padding: 50px 20px 35px;
+            }
+
+
+            .order-hero h1 {
+                font-size: 38px;
+            }
+
+
+            .order-section {
+                grid-template-columns: 1fr;
+
+                padding: 20px 20px 60px;
+            }
+
+
+            .order-box {
+                padding: 22px;
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .navbar {
+                height: 70px;
+            }
+
+
+            .logo {
+                font-size: 20px;
+            }
+
+
+            .back-btn {
+                font-size: 12px;
+            }
+
+
+            .order-hero h1 {
+                font-size: 32px;
+            }
+
+
+            .order-hero p {
+                font-size: 13px;
+            }
+
+
+            .order-box h2 {
+                font-size: 23px;
+            }
+
+
+            .order-item img {
+                width: 55px;
+                height: 55px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+
+                Bean<span>&</span>Brew
+
+            </a>
+
+
+            <a href="menu.html" class="back-btn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Menu
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="order-hero">
+
+        <p class="small-title">
+            Bean & Brew
+        </p>
+
+
+        <h1>
+            Place Your Order
+        </h1>
+
+
+        <p>
+            Fresh coffee is just a few steps away.
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= ORDER SECTION ================= -->
+
+    <section class="order-section">
+
+
+        <!-- ================= CUSTOMER FORM ================= -->
+
+        <div class="order-box">
+
+            <h2>
+                Your Details
+            </h2>
+
+
+            <form id="order-form">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Delivery Address
+                    </label>
+
+
+                    <textarea
+                        id="address"
+                        placeholder="Enter your delivery address"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Payment Method
+                    </label>
+
+
+                    <select id="payment" required>
+
+                        <option value="">
+                            Select Payment Method
+                        </option>
+
+
+                        <option value="Cash on Delivery">
+                            Cash on Delivery
+                        </option>
+
+
+                        <option value="Card">
+                            Card
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    id="place-order-btn"
+                >
+
+                    Place Order
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- ================= ORDER SUMMARY ================= -->
+
+        <div class="order-box">
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div id="order-items"></div>
+
+
+            <div class="order-total">
+
+                <span>
+                    Total
+                </span>
+
+
+                <strong id="order-total">
+                    $0.00
+                </strong>
+
+            </div>
+
+
+
+            <!-- SUCCESS -->
+
+            <div id="success-message">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+
+                <h2>
+                    Order Placed!
+                </h2>
+
+
+                <p>
+                    Thank you for choosing Bean & Brew.
+                    Your order has been received successfully.
+                </p>
+
+
+                <a href="index.html">
+                    Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <script>
+
+
+        // ================= DARK MODE =================
+
+        if (localStorage.getItem("darkMode") === "true") {
+
+            document.body.classList.add("dark");
+
+        }
+
+
+
+        // ================= GET CART =================
+
+        let cartItems =
+            JSON.parse(localStorage.getItem("coffeeCart")) || [];
+
+
+
+        const orderItems =
+            document.querySelector("#order-items");
+
+
+        const orderTotal =
+            document.querySelector("#order-total");
+
+
+        const orderForm =
+            document.querySelector("#order-form");
+
+
+        const successMessage =
+            document.querySelector("#success-message");
+
+
+
+        // ================= SHOW ORDER =================
+
+        function showOrder() {
+
+            orderItems.innerHTML = "";
+
+            let total = 0;
+
+
+
+            if (cartItems.length === 0) {
+
+                orderItems.innerHTML = `
+
+                    <div class="empty-order">
+
+                        <i class="fa-solid fa-mug-hot"></i>
+
+                        <p>
+                            Your cart is empty.
+                        </p>
+
+                        <a href="menu.html">
+                            Go to Menu
+                        </a>
+
+                    </div>
+
+                `;
+
+
+                orderTotal.textContent = "$0.00";
+
+                return;
+
+            }
+
+
+
+            cartItems.forEach(function (item) {
+
+
+                const itemTotal =
+                    item.price * item.quantity;
+
+
+                total += itemTotal;
+
+
+
+                const orderItem =
+                    document.createElement("div");
+
+
+                orderItem.classList.add("order-item");
+
+
+
+                orderItem.innerHTML = `
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
+
+
+                    <div class="order-item-info">
+
+                        <h3>
+                            ${item.name}
+                        </h3>
+
+
+                        <p>
+                            Quantity: ${item.quantity}
+                        </p>
+
+                    </div>
+
+
+                    <span class="item-price">
+                        $${itemTotal.toFixed(2)}
+                    </span>
+
+                `;
+
+
+
+                orderItems.appendChild(orderItem);
+
+            });
+
+
+
+            orderTotal.textContent =
+                "$" + total.toFixed(2);
+
+        }
+
+
+
+        // ================= PLACE ORDER =================
+
+        orderForm.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+
+
+            if (cartItems.length === 0) {
+
+                alert("Your cart is empty!");
+
+                return;
+
+            }
+
+
+
+            alert("Your order has been placed successfully! ☕");
+
+
+
+            // CLEAR CART
+
+            localStorage.removeItem("coffeeCart");
+
+            cartItems = [];
+
+
+
+            // HIDE FORM
+
+            orderForm.style.display = "none";
+
+
+
+            // SHOW SUCCESS
+
+            successMessage.style.display = "block";
+
+
+
+            // UPDATE SUMMARY
+
+            orderItems.innerHTML = "";
+
+            orderTotal.textContent = "$0.00";
+
+        });
+
+
+
+        // ================= LOAD =================
+
+        showOrder();
+
+    </script>
+
+
+</body>
+
+</html>

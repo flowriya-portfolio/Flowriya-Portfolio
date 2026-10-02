@@ -1,0 +1,1444 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ÉLANÉ — Settings</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+<style>
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --bg: #fcfaf5;
+    --white: #ffffff;
+
+    --gold: #7d6517;
+    --dark-gold: #80630b;
+
+    --text: #292621;
+    --muted: #817b6c;
+    --line: #e7dfc8;
+
+    --black: #241f18;
+    --sidebar: #211d17;
+}
+
+
+/* ================= BODY ================= */
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+/* ================================================= */
+/* SIDEBAR */
+/* ================================================= */
+
+.sidebar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 270px;
+    height: 100vh;
+
+    padding: 38px 22px;
+
+    background: var(--sidebar);
+    color: white;
+
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: left 0.35s ease;
+}
+
+
+/* SIDEBAR CLOSED */
+
+.sidebar.closed {
+    left: -270px;
+}
+
+
+/* BRAND */
+
+.sidebar-brand {
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 0 10px 42px;
+}
+
+
+.logo-symbol {
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid rgba(255,255,255,0.45);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+}
+
+
+.sidebar-brand h2 {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 29px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+
+.sidebar-brand small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #c9b98b;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+
+/* NAV */
+
+.sidebar-nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.nav-title {
+
+    margin: 0 12px 14px;
+
+    color: #a9a18f;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+
+.nav-link {
+
+    width: 100%;
+
+    min-height: 52px;
+
+    padding: 0 15px;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #ded9ce;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    font-size: 16px;
+
+    transition: 0.25s ease;
+}
+
+
+.nav-link i {
+
+    width: 22px;
+
+    text-align: center;
+}
+
+
+.nav-link:hover {
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    transform: translateX(4px);
+}
+
+
+.nav-link.active {
+
+    background: var(--gold);
+
+    color: white;
+}
+
+
+.sidebar-bottom {
+
+    margin-top: auto;
+}
+
+
+.sidebar-divider {
+
+    height: 1px;
+
+    margin: 18px 10px;
+
+    background: rgba(255,255,255,0.12);
+}
+
+
+
+/* SIDEBAR CLOSE */
+
+.close-sidebar {
+
+    position: absolute;
+
+    top: 18px;
+    right: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 21px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* OVERLAY */
+
+.sidebar-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    z-index: 999;
+
+    transition: 0.3s ease;
+}
+
+
+.sidebar-overlay.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+
+/* ================================================= */
+/* MAIN */
+/* ================================================= */
+
+.main-content {
+
+    min-height: 100vh;
+
+    margin-left: 270px;
+
+    padding: 0 55px 70px;
+
+    transition: margin-left 0.35s ease;
+}
+
+
+/* WHEN SIDEBAR CLOSED */
+
+.main-content.full {
+
+    margin-left: 0;
+}
+
+
+
+/* ================================================= */
+/* HEADER */
+/* ================================================= */
+
+.header {
+
+    height: 90px;
+
+    border-bottom: 1px solid var(--line);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.logo {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 33px;
+
+    font-weight: 600;
+
+    letter-spacing: 6px;
+}
+
+
+
+/* OPEN BUTTON */
+
+.menu-btn {
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.menu-btn:hover {
+
+    color: var(--gold);
+}
+
+
+
+/* ================================================= */
+/* PAGE */
+/* ================================================= */
+
+.page {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding-top: 70px;
+}
+
+
+.page-header {
+
+    margin-bottom: 45px;
+}
+
+
+.page-header span {
+
+    color: var(--gold);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.page-header h1 {
+
+    margin-top: 12px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(55px, 7vw, 78px);
+
+    font-weight: 600;
+
+    line-height: 0.9;
+}
+
+
+.page-header p {
+
+    margin-top: 18px;
+
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+
+
+/* ================================================= */
+/* CARDS */
+/* ================================================= */
+
+.page-card {
+
+    margin-bottom: 22px;
+
+    padding: 32px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 14px;
+
+    background: var(--white);
+
+    box-shadow: 0 8px 25px rgba(70,55,20,0.04);
+}
+
+
+.page-card h2 {
+
+    margin-bottom: 8px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 34px;
+
+    font-weight: 600;
+}
+
+
+.setting-row {
+
+    min-height: 85px;
+
+    padding: 21px 0;
+
+    border-top: 1px solid var(--line);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.setting-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.setting-info strong {
+
+    font-size: 16px;
+}
+
+
+.setting-info small {
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+
+/* INPUT */
+
+.setting-row input[type="text"],
+.setting-row input[type="email"],
+.setting-row select {
+
+    width: 270px;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 7px;
+
+    outline: none;
+
+    background: white;
+
+    color: var(--text);
+}
+
+
+.setting-row input:focus,
+.setting-row select:focus {
+
+    border-color: var(--gold);
+
+    box-shadow: 0 0 0 3px rgba(125,101,23,0.10);
+}
+
+
+
+/* ================================================= */
+/* SWITCH */
+/* ================================================= */
+
+.switch {
+
+    position: relative;
+
+    width: 52px;
+
+    height: 29px;
+
+    flex-shrink: 0;
+}
+
+
+.switch input {
+
+    opacity: 0;
+
+    width: 0;
+    height: 0;
+}
+
+
+.slider {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #ddd7c8;
+
+    border-radius: 30px;
+
+    transition: 0.25s;
+}
+
+
+.slider::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 23px;
+    height: 23px;
+
+    left: 3px;
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.25s;
+}
+
+
+.switch input:checked + .slider {
+
+    background: var(--gold);
+}
+
+
+.switch input:checked + .slider::before {
+
+    transform: translateX(23px);
+}
+
+
+
+/* ================================================= */
+/* SAVE */
+/* ================================================= */
+
+.save-settings {
+
+    margin-top: 5px;
+
+    padding: 15px 27px;
+
+    border: 1px solid var(--gold);
+
+    border-radius: 7px;
+
+    background: var(--gold);
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+
+.save-settings:hover {
+
+    background: var(--black);
+
+    border-color: var(--black);
+
+    transform: translateY(-2px);
+}
+
+
+
+/* ================================================= */
+/* TOAST */
+/* ================================================= */
+
+.toast {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 30px;
+
+    transform: translate(-50%,80px);
+
+    padding: 14px 23px;
+
+    border-radius: 5px;
+
+    background: var(--black);
+
+    color: white;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s;
+
+    z-index: 2000;
+}
+
+
+.toast.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translate(-50%,0);
+}
+
+
+
+/* ================================================= */
+/* MOBILE */
+/* ================================================= */
+
+@media (max-width: 800px) {
+
+    .sidebar {
+
+        left: -270px;
+    }
+
+
+    .sidebar.open {
+
+        left: 0;
+    }
+
+
+    .main-content {
+
+        margin-left: 0;
+
+        padding: 0 25px 50px;
+    }
+
+
+    .main-content.full {
+
+        margin-left: 0;
+    }
+
+
+    .menu-btn {
+
+        display: flex;
+    }
+
+
+    .header {
+
+        height: 75px;
+    }
+
+
+    .logo {
+
+        font-size: 28px;
+    }
+
+
+    .page {
+
+        padding-top: 50px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .main-content {
+
+        padding: 0 16px 45px;
+    }
+
+
+    .page {
+
+        padding-top: 40px;
+    }
+
+
+    .page-header h1 {
+
+        font-size: 55px;
+    }
+
+
+    .page-card {
+
+        padding: 23px 18px;
+    }
+
+
+    .page-card h2 {
+
+        font-size: 29px;
+    }
+
+
+    .setting-row {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .setting-row input[type="text"],
+    .setting-row input[type="email"],
+    .setting-row select {
+
+        width: 100%;
+    }
+
+
+    .save-settings {
+
+        width: 100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================================================= -->
+<!-- SIDEBAR -->
+<!-- ================================================= -->
+
+<aside class="sidebar" id="sidebar">
+
+
+    <button
+        class="close-sidebar"
+        id="closeSidebar"
+    >
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+
+
+    <div class="sidebar-brand">
+
+        <div class="logo-symbol">
+            É
+        </div>
+
+        <div>
+
+            <h2>ÉLANÉ</h2>
+
+            <small>PARFUMS</small>
+
+        </div>
+
+    </div>
+
+
+
+    <nav class="sidebar-nav">
+
+        <span class="nav-title">
+            EXPLORE
+        </span>
+
+
+        <a href="index.html" class="nav-link">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Home</span>
+
+        </a>
+
+
+        <a href="menu.html" class="nav-link">
+
+            <i class="fa-solid fa-bars"></i>
+
+            <span>Menu</span>
+
+        </a>
+
+
+        <a href="order.html" class="nav-link">
+
+            <i class="fa-solid fa-box"></i>
+
+            <span>My Orders</span>
+
+        </a>
+
+
+        <a href="index.html#shop" class="nav-link">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <span>Shop All</span>
+
+        </a>
+
+    </nav>
+
+
+
+    <div class="sidebar-bottom">
+
+        <div class="sidebar-divider"></div>
+
+
+        <a
+            href="settings.html"
+            class="nav-link active"
+        >
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>Settings</span>
+
+        </a>
+
+    </div>
+
+
+</aside>
+
+
+
+<!-- OVERLAY -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
+
+
+
+<!-- ================================================= -->
+<!-- MAIN -->
+<!-- ================================================= -->
+
+<main class="main-content" id="mainContent">
+
+
+    <header class="header">
+
+
+        <!-- OPEN BUTTON -->
+
+        <button
+            class="menu-btn"
+            id="openSidebar"
+            aria-label="Open sidebar"
+        >
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+
+        <a href="index.html" class="logo">
+            ÉLANÉ
+        </a>
+
+
+    </header>
+
+
+
+    <!-- ================================================= -->
+    <!-- SETTINGS -->
+    <!-- ================================================= -->
+
+    <section class="page">
+
+
+        <div class="page-header">
+
+            <span>
+                ÉLANÉ ACCOUNT
+            </span>
+
+
+            <h1>
+                Settings
+            </h1>
+
+
+            <p>
+                Manage your account and preferences.
+            </p>
+
+        </div>
+
+
+
+        <!-- ACCOUNT -->
+
+        <div class="page-card">
+
+            <h2>
+                Account
+            </h2>
+
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <strong>
+                        Full Name
+                    </strong>
+
+                    <small>
+                        Your account name
+                    </small>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="settingName"
+                    placeholder="Enter your name"
+                >
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <strong>
+                        Email
+                    </strong>
+
+                    <small>
+                        Your email address
+                    </small>
+
+                </div>
+
+
+                <input
+                    type="email"
+                    id="settingEmail"
+                    placeholder="your@email.com"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PREFERENCES -->
+
+        <div class="page-card">
+
+            <h2>
+                Preferences
+            </h2>
+
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <strong>
+                        Currency
+                    </strong>
+
+                    <small>
+                        Choose your preferred currency
+                    </small>
+
+                </div>
+
+
+                <select id="currency">
+
+                    <option>USD — $</option>
+
+                    <option>PKR — Rs</option>
+
+                    <option>EUR — €</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <strong>
+                        Language
+                    </strong>
+
+                    <small>
+                        Website language
+                    </small>
+
+                </div>
+
+
+                <select id="language">
+
+                    <option>English</option>
+
+                    <option>Urdu</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- NOTIFICATIONS -->
+
+        <div class="page-card">
+
+            <h2>
+                Notifications
+            </h2>
+
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <strong>
+                        New Arrivals
+                    </strong>
+
+                    <small>
+                        Receive updates about new perfumes
+                    </small>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="newArrivals"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <strong>
+                        Special Offers
+                    </strong>
+
+                    <small>
+                        Receive exclusive offers
+                    </small>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="specialOffers"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SAVE -->
+
+        <button
+            class="save-settings"
+            id="saveSettings"
+        >
+
+            <i class="fa-solid fa-check"></i>
+
+            Save Changes
+
+        </button>
+
+
+    </section>
+
+</main>
+
+
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+
+<script>
+
+
+/* ================================================= */
+/* SIDEBAR */
+/* ================================================= */
+
+const sidebar =
+    document.querySelector("#sidebar");
+
+const openSidebar =
+    document.querySelector("#openSidebar");
+
+const closeSidebar =
+    document.querySelector("#closeSidebar");
+
+const sidebarOverlay =
+    document.querySelector("#sidebarOverlay");
+
+const mainContent =
+    document.querySelector("#mainContent");
+
+
+
+/* OPEN SIDEBAR */
+
+openSidebar.addEventListener("click", function () {
+
+    sidebar.classList.remove("closed");
+
+    sidebar.classList.add("open");
+
+    mainContent.classList.remove("full");
+
+    sidebarOverlay.classList.add("active");
+
+});
+
+
+
+/* CLOSE SIDEBAR */
+
+closeSidebar.addEventListener("click", function () {
+
+    sidebar.classList.remove("open");
+
+    sidebar.classList.add("closed");
+
+    mainContent.classList.add("full");
+
+    sidebarOverlay.classList.remove("active");
+
+});
+
+
+
+/* CLOSE BY CLICKING OUTSIDE */
+
+sidebarOverlay.addEventListener("click", function () {
+
+    sidebar.classList.remove("open");
+
+    sidebar.classList.add("closed");
+
+    mainContent.classList.add("full");
+
+    sidebarOverlay.classList.remove("active");
+
+});
+
+
+
+/* ================================================= */
+/* SAVE SETTINGS */
+/* ================================================= */
+
+const saveSettings =
+    document.querySelector("#saveSettings");
+
+const toast =
+    document.querySelector("#toast");
+
+
+
+saveSettings.addEventListener("click", function () {
+
+
+    const name =
+        document.querySelector("#settingName").value;
+
+
+    const email =
+        document.querySelector("#settingEmail").value;
+
+
+    const currency =
+        document.querySelector("#currency").value;
+
+
+    const language =
+        document.querySelector("#language").value;
+
+
+    const newArrivals =
+        document.querySelector("#newArrivals").checked;
+
+
+    const specialOffers =
+        document.querySelector("#specialOffers").checked;
+
+
+
+    const settings = {
+
+        name: name,
+
+        email: email,
+
+        currency: currency,
+
+        language: language,
+
+        newArrivals: newArrivals,
+
+        specialOffers: specialOffers
+
+    };
+
+
+
+    localStorage.setItem(
+        "elaneSettings",
+        JSON.stringify(settings)
+    );
+
+
+
+    toast.textContent =
+        "Settings saved successfully";
+
+
+    toast.classList.add("show");
+
+
+
+    setTimeout(function () {
+
+        toast.classList.remove("show");
+
+    }, 2500);
+
+});
+
+
+
+/* ================================================= */
+/* LOAD SETTINGS */
+/* ================================================= */
+
+const savedSettings =
+    JSON.parse(
+        localStorage.getItem("elaneSettings")
+    );
+
+
+if (savedSettings) {
+
+
+    document.querySelector("#settingName").value =
+        savedSettings.name || "";
+
+
+    document.querySelector("#settingEmail").value =
+        savedSettings.email || "";
+
+
+    document.querySelector("#currency").value =
+        savedSettings.currency || "USD — $";
+
+
+    document.querySelector("#language").value =
+        savedSettings.language || "English";
+
+
+    document.querySelector("#newArrivals").checked =
+        savedSettings.newArrivals ?? true;
+
+
+    document.querySelector("#specialOffers").checked =
+        savedSettings.specialOffers ?? false;
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+```

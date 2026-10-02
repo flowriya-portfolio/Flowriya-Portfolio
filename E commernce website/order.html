@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LUXORA — Place Order</title>
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        body {
+    font-size: 16px;
+}
+
+/* Normal text */
+p,
+span,
+li,
+label {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Navigation */
+.nav-links a,
+.sidebar a {
+    font-size: 15px;
+}
+
+/* Header */
+.logo {
+    font-size: 25px;
+}
+
+.header-icon {
+    font-size: 17px;
+}
+
+/* Buttons */
+button,
+.btn,
+.btn-shop,
+.btn-buy,
+.add-cart,
+.filter-btn {
+    font-size: 14px;
+}
+
+/* Product cards */
+.product-name,
+.product-info h3 {
+    font-size: 17px;
+}
+
+.product-description,
+.product-info p {
+    font-size: 14px;
+}
+
+.product-price {
+    font-size: 16px;
+}
+
+/* Section headings */
+.section-title {
+    font-size: 38px;
+}
+
+.section-subtitle {
+    font-size: 16px;
+}
+
+/* Hero */
+.hero-content h1,
+.home-hero h1 {
+    font-size: 56px;
+}
+
+.hero-content p,
+.home-hero p {
+    font-size: 17px;
+}
+
+/* Cart */
+.cart h2 {
+    font-size: 28px;
+}
+
+.cart-item h4 {
+    font-size: 15px;
+}
+
+.cart-item p {
+    font-size: 14px;
+}
+
+.cart-total span {
+    font-size: 15px;
+}
+
+.cart-total strong {
+    font-size: 20px;
+}
+
+/* Order page */
+.order-form label {
+    font-size: 14px;
+}
+
+.order-form input,
+.order-form select,
+.order-form textarea {
+    font-size: 15px;
+}
+
+.summary-box > span {
+    font-size: 13px;
+}
+
+.summary-box h2 {
+    font-size: 30px;
+}
+
+.summary-item h4 {
+    font-size: 15px;
+}
+
+.summary-item p {
+    font-size: 14px;
+}
+
+.summary-price {
+    font-size: 15px;
+}
+
+.total-box span {
+    font-size: 15px;
+}
+
+.total-box strong {
+    font-size: 21px;
+}
+
+.secure-note p {
+    font-size: 13px;
+}
+
+/* Footer */
+.footer p,
+.footer a {
+    font-size: 14px;
+}
+
+        /* ===============================
+           RESET
+        =============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --olive: #4f5d32;
+            --dark-olive: #344021;
+            --soft-olive: #6f7b4d;
+
+            --cream: #f8f7f3;
+            --white: #ffffff;
+            --black: #171812;
+            --text: #24281d;
+
+            --border: #dddcd4;
+            --muted: #77786e;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--cream);
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+
+        /* ===============================
+           HEADER
+        =============================== */
+
+        header {
+            height: 82px;
+            width: 100%;
+
+            background: var(--cream);
+            border-bottom: 1px solid var(--border);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 4px 20px rgba(52, 64, 33, 0.06);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .back-btn {
+            width: 44px;
+            height: 44px;
+
+            border: 1px solid var(--border);
+            background: var(--white);
+
+            color: var(--dark-olive);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--olive);
+            color: white;
+            border-color: var(--olive);
+        }
+
+        .logo {
+            position: absolute;
+
+            left: 50%;
+            transform: translateX(-50%);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 29px;
+            letter-spacing: 7px;
+
+            color: var(--dark-olive);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-icon {
+            width: 44px;
+            height: 44px;
+
+            border: 0;
+            border-radius: 50%;
+
+            background: transparent;
+
+            color: var(--text);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+
+            transition: 0.3s ease;
+        }
+
+        .header-icon:hover {
+            background: var(--olive);
+            color: white;
+        }
+
+
+        /* ===============================
+           PAGE HERO
+        =============================== */
+
+        .order-hero {
+            text-align: center;
+
+            padding: 75px 20px 55px;
+
+            background:
+                linear-gradient(
+                    rgba(52, 64, 33, 0.88),
+                    rgba(52, 64, 33, 0.88)
+                ),
+                url("images/hero.jpg") center/cover no-repeat;
+
+            color: white;
+        }
+
+        .order-hero span {
+            color: #b7c19c;
+
+            font-size: 11px;
+            letter-spacing: 4px;
+        }
+
+        .order-hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(45px, 7vw, 72px);
+
+            font-weight: 500;
+
+            margin: 15px 0;
+        }
+
+        .order-hero h1 em {
+            color: #b7c19c;
+        }
+
+        .order-hero p {
+            max-width: 550px;
+
+            margin: auto;
+
+            color: #e3e5db;
+
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+
+        /* ===============================
+           ORDER AREA
+        =============================== */
+
+        .order-section {
+            padding: 80px 7% 100px;
+        }
+
+        .order-wrapper {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1.5fr 0.9fr;
+
+            gap: 45px;
+        }
+
+
+        /* ===============================
+           FORM
+        =============================== */
+
+        .order-form-box {
+            background: var(--white);
+
+            border: 1px solid var(--border);
+
+            padding: 42px;
+
+            box-shadow: 0 15px 45px rgba(52, 64, 33, 0.07);
+        }
+
+        .section-title span {
+            color: var(--olive);
+
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 34px;
+
+            font-weight: 500;
+
+            margin: 8px 0 30px;
+        }
+
+        .section-title h2 em {
+            color: var(--olive);
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        .input-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .input-group label {
+            font-size: 12px;
+
+            font-weight: 600;
+
+            color: var(--text);
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border: 1px solid var(--border);
+
+            outline: none;
+
+            background: var(--cream);
+
+            color: var(--text);
+
+            font-size: 13px;
+
+            transition: 0.3s ease;
+        }
+
+        .input-group textarea {
+            height: 105px;
+
+            resize: vertical;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+
+            border-color: var(--olive);
+
+            background: white;
+
+            box-shadow: 0 0 0 3px rgba(79, 93, 50, 0.08);
+        }
+
+        .place-order-btn {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 16px 20px;
+
+            border: none;
+
+            background: var(--olive);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            letter-spacing: 1.5px;
+
+            transition: 0.3s ease;
+        }
+
+        .place-order-btn:hover {
+            background: var(--dark-olive);
+
+            transform: translateY(-2px);
+        }
+
+        .place-order-btn i {
+            margin-left: 8px;
+        }
+
+
+        /* ===============================
+           ORDER SUMMARY
+        =============================== */
+
+        .summary-box {
+            background: var(--dark-olive);
+
+            color: white;
+
+            padding: 38px;
+
+            height: fit-content;
+
+            position: sticky;
+
+            top: 105px;
+        }
+
+        .summary-box > span {
+            color: #b7c19c;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+        }
+
+        .summary-box h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 34px;
+
+            font-weight: 500;
+
+            margin: 8px 0 30px;
+        }
+
+        .summary-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .summary-image {
+            width: 65px;
+            height: 75px;
+
+            background: #6f7b4d;
+
+            overflow: hidden;
+        }
+
+        .summary-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .summary-details {
+            flex: 1;
+        }
+
+        .summary-details h4 {
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-bottom: 5px;
+        }
+
+        .summary-details p {
+            font-size: 11px;
+
+            color: #cfd4c2;
+        }
+
+        .summary-price {
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        .total-box {
+            margin-top: 25px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .total-box span {
+            color: #d3d7c8;
+
+            font-size: 13px;
+        }
+
+        .total-box strong {
+            font-family: "Playfair Display", serif;
+
+            font-size: 27px;
+
+            color: #b7c19c;
+        }
+
+        .secure-note {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 25px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255,255,255,0.15);
+
+            color: #cfd4c2;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+        .secure-note i {
+            color: #b7c19c;
+        }
+        /* ===============================
+   ORDER ITEMS SCROLL
+=============================== */
+
+.summary-scroll {
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.summary-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.summary-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.summary-scroll::-webkit-scrollbar-thumb {
+    background: #6f7b4d;
+    border-radius: 10px;
+}
+
+.summary-scroll::-webkit-scrollbar-thumb:hover {
+    background: #b7c19c;
+}
+
+
+        /* ===============================
+           SUCCESS MESSAGE
+        =============================== */
+
+        .success-message {
+            display: none;
+
+            max-width: 700px;
+
+            margin: 0 auto 80px;
+
+            padding: 45px 30px;
+
+            text-align: center;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            box-shadow: 0 15px 40px rgba(52,64,33,0.08);
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: var(--olive);
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+        }
+
+        .success-message h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 34px;
+
+            font-weight: 500;
+
+            margin-bottom: 10px;
+        }
+
+        .success-message p {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+        }
+
+        .continue-btn {
+            display: inline-flex;
+
+            align-items: center;
+            gap: 10px;
+
+            padding: 14px 25px;
+
+            background: var(--olive);
+
+            color: white;
+
+            font-size: 12px;
+
+            transition: 0.3s ease;
+        }
+
+        .continue-btn:hover {
+            background: var(--dark-olive);
+        }
+
+
+        /* ===============================
+           FOOTER
+        =============================== */
+
+        footer {
+            background: #20251a;
+
+            color: white;
+
+            padding: 55px 7% 25px;
+        }
+
+        .footer-main {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 60px;
+        }
+
+        .footer-brand h2 {
+            font-family: "Playfair Display", serif;
+
+            letter-spacing: 5px;
+
+            font-size: 25px;
+        }
+
+        .footer-brand p {
+            max-width: 330px;
+
+            margin-top: 15px;
+
+            color: #bfc4b2;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            display: flex;
+
+            gap: 70px;
+        }
+
+        .footer-links h4 {
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
+
+            color: #b7c19c;
+        }
+
+        .footer-links a {
+            display: block;
+
+            color: #c7cbbb;
+
+            font-size: 12px;
+
+            margin-bottom: 10px;
+
+            transition: 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1150px;
+
+            margin: 40px auto 0;
+
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255,255,255,0.12);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #909687;
+
+            font-size: 10px;
+        }
+
+
+        /* ===============================
+           MOBILE
+        =============================== */
+
+        @media (max-width: 800px) {
+
+            .order-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-box {
+                position: static;
+            }
+
+            .footer-main {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                gap: 45px;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                height: 72px;
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 21px;
+                letter-spacing: 4px;
+            }
+
+            .header-icon,
+            .back-btn {
+                width: 39px;
+                height: 39px;
+            }
+
+            .order-hero {
+                padding: 60px 20px 50px;
+            }
+
+            .order-hero h1 {
+                font-size: 48px;
+            }
+
+            .order-section {
+                padding: 55px 15px 70px;
+            }
+
+            .order-form-box {
+                padding: 25px 20px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .input-group.full {
+                grid-column: auto;
+            }
+
+            .summary-box {
+                padding: 28px 22px;
+            }
+
+            .footer-links {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .copyright {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="header-left">
+
+        <a href="menu.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+
+    </div>
+
+
+    <a href="index.html" class="logo">
+        LUXORA
+    </a>
+
+
+    <div class="header-right">
+
+        <a href="menu.html" class="header-icon">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="order-hero">
+
+    <span>THE LUXORA EXPERIENCE</span>
+
+    <h1>
+        Complete your
+        <em>order.</em>
+    </h1>
+
+    <p>
+        Almost yours. Enter your details below and
+        we'll prepare your Luxora order with care.
+    </p>
+
+</section>
+
+
+
+<!-- ================= ORDER SECTION ================= -->
+
+<section class="order-section">
+
+    <div class="order-wrapper">
+
+
+        <!-- ================= FORM ================= -->
+
+        <div class="order-form-box">
+
+            <div class="section-title">
+
+                <span>YOUR DETAILS</span>
+
+                <h2>
+                    Shipping <em>Information</em>
+                </h2>
+
+            </div>
+
+
+            <form id="orderForm">
+
+                <div class="form-grid">
+
+
+                    <div class="input-group">
+
+                        <label>
+                            First Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="firstName"
+                            placeholder="Enter your first name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Last Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="lastName"
+                            placeholder="Enter your last name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="your@email.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="+92 300 0000000"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group full">
+
+                        <label>
+                            Address
+                        </label>
+
+                        <input
+                            type="text"
+                            id="address"
+                            placeholder="House number, street and area"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            City
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            placeholder="Your city"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Postal Code
+                        </label>
+
+                        <input
+                            type="text"
+                            id="postalCode"
+                            placeholder="Postal code"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group full">
+
+                        <label>
+                            Payment Method
+                        </label>
+
+                        <select id="payment" required>
+
+                            <option value="">
+                                Select payment method
+                            </option>
+
+                            <option value="Cash on Delivery">
+                                Cash on Delivery
+                            </option>
+
+                            <option value="Bank Transfer">
+                                Bank Transfer
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group full">
+
+                        <label>
+                            Order Notes
+                        </label>
+
+                        <textarea
+                            id="notes"
+                            placeholder="Any special instructions? (Optional)"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="place-order-btn"
+                >
+
+                    Place Order
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+
+        <!-- ================= SUMMARY ================= -->
+
+<aside class="summary-box">
+
+    <span>ORDER SUMMARY</span>
+
+    <h2>
+        Your <em>Selection</em>
+    </h2>
+
+    <!-- CART ITEMS -->
+    <div class="summary-scroll">
+        <div id="orderItems"></div>
+    </div>
+
+    <!-- TOTAL -->
+    <div class="total-box">
+        <span>Total</span>
+        <strong id="orderTotal">$0</strong>
+    </div>
+
+    <!-- SECURITY -->
+    <div class="secure-note">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <p>
+            Your information is kept secure
+            and used only to process your order.
+        </p>
+
+    </div>
+
+</aside>
+
+</section>
+
+
+
+<!-- ================= SUCCESS ================= -->
+
+<div class="success-message" id="successMessage">
+
+    <div class="success-icon">
+
+        <i class="fa-solid fa-check"></i>
+
+    </div>
+
+    <h2>
+        Order <em>Confirmed!</em>
+    </h2>
+
+    <p>
+        Thank you for shopping with LUXORA.
+        Your order has been received and we'll
+        contact you shortly with the delivery details.
+    </p>
+
+    <a href="menu.html" class="continue-btn">
+
+        Continue Shopping
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</div>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-main">
+
+
+        <div class="footer-brand">
+
+            <h2>
+                LUXORA
+            </h2>
+
+            <p>
+                Modern luxury, timeless style.
+                Carefully curated pieces made
+                for your everyday elegance.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <div>
+
+                <h4>SHOP</h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="menu.html">
+                    All Products
+                </a>
+
+                <a href="menu.html">
+                    New Arrivals
+                </a>
+
+                <a href="menu.html">
+                    Sale
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>HELP</h4>
+
+                <a href="#">
+                    Contact
+                </a>
+
+                <a href="#">
+                    Shipping
+                </a>
+
+                <a href="#">
+                    Returns
+                </a>
+
+                <a href="#">
+                    FAQ
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        <span>
+            © 2026 LUXORA. All rights reserved.
+        </span>
+
+        <span>
+            Crafted with elegance.
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+<script>
+
+    /* ================= CART DATA ================= */
+
+    const cartData =
+        JSON.parse(localStorage.getItem("luxoraCart")) || [];
+
+    const orderItems =
+        document.querySelector("#orderItems");
+
+    const orderTotal =
+        document.querySelector("#orderTotal");
+
+
+    /* ================= SHOW ORDER ITEMS ================= */
+
+    let total = 0;
+
+
+    if (cartData.length === 0) {
+
+        orderItems.innerHTML = `
+            <p style="
+                color:#cfd4c2;
+                font-size:13px;
+                padding:20px 0;
+            ">
+                Your bag is empty.
+            </p>
+        `;
+
+    } else {
+
+        cartData.forEach(function(item) {
+
+            const itemTotal =
+                item.price * item.quantity;
+
+            total += itemTotal;
+
+
+            const summaryItem =
+                document.createElement("div");
+
+            summaryItem.className =
+                "summary-item";
+
+
+            summaryItem.innerHTML = `
+
+                <div class="summary-image">
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
+
+                </div>
+
+
+                <div class="summary-details">
+
+                    <h4>
+                        ${item.name}
+                    </h4>
+
+                    <p>
+                        Quantity: ${item.quantity}
+                    </p>
+
+                </div>
+
+
+                <div class="summary-price">
+                    $${itemTotal}
+                </div>
+
+            `;
+
+
+            orderItems.appendChild(summaryItem);
+
+        });
+
+    }
+
+
+    /* ================= TOTAL ================= */
+
+    orderTotal.textContent =
+        "$" + total;
+
+
+    /* ================= PLACE ORDER ================= */
+
+    const orderForm =
+        document.querySelector("#orderForm");
+
+    const successMessage =
+        document.querySelector("#successMessage");
+
+
+    orderForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            if (cartData.length === 0) {
+
+                alert("Your bag is empty.");
+
+                return;
+
+            }
+
+
+            orderForm.parentElement.style.display =
+                "none";
+
+
+            successMessage.classList.add("show");
+
+
+            /* Empty cart after successful order */
+
+            localStorage.removeItem("luxoraCart");
+
+
+            window.scrollTo({
+
+                top:
+                    successMessage.offsetTop - 80,
+
+                behavior: "smooth"
+
+            });
+
+        }
+    );
+
+</script>
+
+
+</body>
+</html>

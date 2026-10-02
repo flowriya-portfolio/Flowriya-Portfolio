@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Milky Mix | Blended Happiness</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --purple: #4b2bb5;
+            --deep: #28145f;
+            --dark: #160b38;
+
+            --pink: #ff6fa5;
+            --pink-dark: #e94f89;
+            --soft-pink: #ffe3ef;
+
+            --cream: #fff9fc;
+            --white: #ffffff;
+
+            --yellow: #ffc93c;
+
+            --text: #2a1a4d;
+            --muted: #746985;
+
+            --border: rgba(75, 43, 181, .12);
+
+            --shadow: 0 18px 45px rgba(43, 22, 104, .12);
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1150px, 90%);
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(255, 249, 252, .92);
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            height: 82px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+
+            border-radius: 15px;
+            overflow: hidden;
+
+            background: var(--soft-pink);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            font-family: "Bubblegum Sans", cursive;
+            font-size: 29px;
+            color: var(--purple);
+            line-height: 1;
+        }
+
+        .logo-text span {
+            color: var(--pink);
+        }
+
+
+        /* NAVIGATION */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--pink);
+        }
+
+
+        /* CART */
+
+        .cart-btn {
+            border: none;
+            background: var(--purple);
+            color: white;
+
+            width: 45px;
+            height: 45px;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: .3s;
+        }
+
+        .cart-btn:hover {
+            background: var(--pink);
+            transform: translateY(-2px);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -4px;
+
+            width: 20px;
+            height: 20px;
+
+            background: var(--pink);
+            color: white;
+
+            border-radius: 50%;
+
+            font-size: 11px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* MOBILE MENU BUTTON */
+
+        .menu-toggle {
+            display: none;
+
+            border: none;
+            background: none;
+
+            font-size: 24px;
+            color: var(--purple);
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            padding-top: 130px;
+            padding-bottom: 70px;
+
+            /* BLUE/PURPLE HERO BACKGROUND */
+            background: linear-gradient(
+                135deg,
+                #4b7cff,
+                #4b2bb5
+            );
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            min-height: calc(100vh - 150px);
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 60px;
+        }
+
+        .hero-small {
+            display: inline-block;
+
+            padding: 9px 17px;
+
+            border-radius: 30px;
+
+            background: white;
+            color: var(--purple);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-family: "Bubblegum Sans", cursive;
+
+            font-size: clamp(65px, 8vw, 105px);
+
+            line-height: .88;
+
+            color: white;
+
+            font-weight: 400;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--pink);
+        }
+
+        .hero-text {
+            margin-top: 24px;
+
+            max-width: 480px;
+
+            color: rgba(255,255,255,.88);
+
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            border: none;
+
+            padding: 14px 23px;
+
+            border-radius: 14px;
+
+            font-family: "Bubblegum Sans", cursive;
+            font-size: 17px;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--purple);
+        }
+
+        .btn-primary:hover {
+            background: var(--pink);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-light {
+            background: rgba(255,255,255,.15);
+            color: white;
+
+            border: 1px solid rgba(255,255,255,.5);
+        }
+
+        .btn-light:hover {
+            background: white;
+            color: var(--purple);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+
+        /* HERO IMAGE */
+
+        .hero-image-area {
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: min(500px, 100%);
+
+            border-radius: 35px;
+
+            box-shadow: 0 25px 60px rgba(20, 10, 70, .25);
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-circle {
+            position: absolute;
+
+            width: 440px;
+            height: 440px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.18);
+
+            z-index: 1;
+        }
+
+        .rating {
+            margin-top: 25px;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: white;
+
+            font-size: 14px;
+        }
+
+        .stars {
+            color: var(--yellow);
+        }
+
+
+        /* =====================================================
+           SECTION COMMON
+        ===================================================== */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading span {
+            color: var(--pink);
+            font-size: 14px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-heading h2 {
+            font-family: "Bubblegum Sans", cursive;
+
+            font-size: clamp(38px, 5vw, 58px);
+
+            color: var(--purple);
+
+            font-weight: 400;
+
+            margin-top: 5px;
+        }
+
+        .section-heading p {
+            max-width: 580px;
+            margin: 12px auto 0;
+
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           MENU
+        ===================================================== */
+
+        .menu {
+            background: white;
+        }
+
+        .products {
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr);
+
+            gap: 20px;
+        }
+
+        .product-card {
+            background: var(--cream);
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            transition: .3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow);
+        }
+
+        .product-image {
+            height: 210px;
+            overflow: hidden;
+
+            background: var(--soft-pink);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .4s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.06);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-family: "Bubblegum Sans", cursive;
+
+            font-size: 24px;
+
+            font-weight: 400;
+
+            color: var(--purple);
+
+            margin-bottom: 5px;
+        }
+
+        .product-info p {
+            font-size: 13px;
+            color: var(--muted);
+
+            margin-bottom: 16px;
+        }
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--pink-dark);
+        }
+
+        .add-cart {
+            border: none;
+
+            background: var(--purple);
+            color: white;
+
+            width: 38px;
+            height: 38px;
+
+            border-radius: 11px;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .add-cart:hover {
+            background: var(--pink);
+        }
+
+
+        /* =====================================================
+           COMBO OFFER
+        ===================================================== */
+
+        .combo {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--purple),
+                    var(--deep)
+                );
+
+            color: white;
+
+            border-radius: 30px;
+
+            padding: 55px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 40px;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .combo-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .combo small {
+            color: var(--soft-pink);
+            font-weight: 700;
+        }
+
+        .combo h2 {
+            font-family: "Bubblegum Sans", cursive;
+
+            font-size: clamp(40px, 5vw, 65px);
+
+            font-weight: 400;
+
+            line-height: 1;
+
+            margin: 8px 0 12px;
+        }
+
+        .combo p {
+            color: rgba(255,255,255,.75);
+            max-width: 500px;
+
+            line-height: 1.7;
+        }
+
+        .discount {
+            font-family: "Bubblegum Sans", cursive;
+
+            font-size: 65px;
+
+            color: var(--pink);
+
+            white-space: nowrap;
+        }
+
+
+        /* =====================================================
+           WHY US
+        ===================================================== */
+
+        .why {
+            background: var(--cream);
+        }
+
+        .why-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .why-card {
+            background: white;
+
+            padding: 28px;
+
+            border-radius: 22px;
+
+            border: 1px solid var(--border);
+
+            transition: .3s;
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .why-icon {
+            width: 64px;
+            height: 64px;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            background: var(--soft-pink);
+
+            margin-bottom: 18px;
+        }
+
+        .why-icon img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .why-card h3 {
+            font-family: "Bubblegum Sans", cursive;
+
+            font-size: 25px;
+
+            font-weight: 400;
+
+            color: var(--purple);
+
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           ORDER
+        ===================================================== */
+
+        .order {
+            background: white;
+        }
+
+        .order-box {
+            max-width: 850px;
+
+            margin: auto;
+
+            background: var(--cream);
+
+            border-radius: 28px;
+
+            padding: 45px;
+
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow);
+        }
+
+        .order-title {
+            font-family: "Bubblegum Sans", cursive;
+
+            text-align: center;
+
+            color: var(--purple);
+
+            font-size: 46px;
+
+            font-weight: 400;
+
+            margin-bottom: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 13px;
+
+            font-weight: 700;
+
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+
+            border: 1px solid var(--border);
+
+            background: white;
+
+            border-radius: 12px;
+
+            padding: 14px;
+
+            outline: none;
+
+            font-size: 14px;
+
+            color: var(--text);
+
+            transition: .3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--pink);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+
+            resize: vertical;
+        }
+
+        .order-submit {
+            width: 100%;
+
+            margin-top: 22px;
+        }
+
+
+        /* =====================================================
+           REVIEWS
+        ===================================================== */
+
+        .reviews {
+            background: var(--soft-pink);
+        }
+
+        .review-box {
+            max-width: 750px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .quote {
+            font-family: "Bubblegum Sans", cursive;
+
+            color: var(--purple);
+
+            font-size: clamp(25px, 4vw, 36px);
+
+            line-height: 1.3;
+        }
+
+        .review-name {
+            margin-top: 18px;
+
+            color: var(--pink-dark);
+
+            font-weight: 700;
+        }
+
+        .review-controls {
+            display: flex;
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 25px;
+        }
+
+        .review-controls button {
+            width: 42px;
+            height: 42px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: white;
+
+            color: var(--purple);
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .review-controls button:hover {
+            background: var(--purple);
+            color: white;
+        }
+
+
+        /* =====================================================
+           TOAST
+        ===================================================== */
+
+        .toast {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            background: var(--dark);
+
+            color: white;
+
+            padding: 15px 20px;
+
+            border-radius: 13px;
+
+            z-index: 2000;
+
+            transform: translateY(120px);
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition: .35s;
+
+            font-size: 14px;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: var(--dark);
+
+            color: white;
+
+            padding: 65px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 40px;
+
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+
+        .footer-brand .logo-text {
+            color: white;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,.65);
+
+            max-width: 350px;
+
+            line-height: 1.7;
+
+            margin-top: 18px;
+        }
+
+        .footer-title {
+            font-family: "Bubblegum Sans", cursive;
+
+            font-size: 24px;
+
+            font-weight: 400;
+
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,.65);
+
+            font-size: 14px;
+
+            transition: .3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--pink);
+        }
+
+        .socials {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .socials a {
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.1);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: .3s;
+        }
+
+        .socials a:hover {
+            background: var(--pink);
+        }
+
+        .footer-bottom {
+            text-align: center;
+
+            padding-top: 22px;
+
+            color: rgba(255,255,255,.45);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .products {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-content {
+                gap: 35px;
+            }
+
+            .hero-circle {
+                width: 350px;
+                height: 350px;
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                position: absolute;
+
+                top: 82px;
+                left: 0;
+
+                width: 100%;
+
+                background: white;
+
+                padding: 25px;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 20px;
+
+                border-bottom: 1px solid var(--border);
+
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav .cart-btn {
+                margin-left: auto;
+                margin-right: 15px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .hero-text {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .rating {
+                justify-content: center;
+            }
+
+            .hero-image-area {
+                margin-top: 25px;
+            }
+
+            .combo {
+                flex-direction: column;
+
+                text-align: center;
+
+                padding: 40px 25px;
+            }
+
+            .combo p {
+                margin: auto;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 75px 0;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .logo-text {
+                font-size: 25px;
+            }
+
+            .logo-icon {
+                width: 42px;
+                height: 42px;
+            }
+
+            .hero {
+                padding-top: 115px;
+            }
+
+            .hero h1 {
+                font-size: 70px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .hero-circle {
+                width: 290px;
+                height: 290px;
+            }
+
+            .products {
+                grid-template-columns: 1fr 1fr;
+                gap: 13px;
+            }
+
+            .product-image {
+                height: 175px;
+            }
+
+            .product-info {
+                padding: 15px;
+            }
+
+            .product-info h3 {
+                font-size: 21px;
+            }
+
+            .product-info p {
+                font-size: 12px;
+            }
+
+            .combo h2 {
+                font-size: 42px;
+            }
+
+            .discount {
+                font-size: 52px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 13px;
+            }
+
+            .why-card {
+                padding: 20px;
+            }
+
+            .why-card h3 {
+                font-size: 21px;
+            }
+
+            .why-card p {
+                font-size: 12px;
+            }
+
+            .order-box {
+                padding: 25px 18px;
+            }
+
+            .order-title {
+                font-size: 38px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+        }
+
+
+        @media (max-width: 420px) {
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 230px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            .hero-circle {
+                width: 250px;
+                height: 250px;
+            }
+
+            .combo {
+                border-radius: 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="container nav">
+
+        <a href="#home" class="logo">
+
+            <span class="logo-icon">
+                <img src="images/logo.png" alt="Milky Mix logo">
+            </span>
+
+            <span class="logo-text">
+                Milky <span>Mix</span>
+            </span>
+
+        </a>
+
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#offers">Offers</a>
+            <a href="#about">About</a>
+            <a href="#order">Order</a>
+            <a href="#reviews">Reviews</a>
+
+        </nav>
+
+
+        <button class="cart-btn" id="cartBtn">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <span class="cart-count" id="cartCount">0</span>
+
+        </button>
+
+
+        <button class="menu-toggle" id="menuToggle">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="container hero-content">
+
+        <div class="hero-text-content">
+
+            <span class="hero-small">
+                Freshly Blended · Always Delicious
+            </span>
+
+            <h1>
+                Milky
+                <span>Mix</span>
+            </h1>
+
+            <p class="hero-text">
+                Creamy, dreamy and freshly blended milkshakes
+                made with delicious flavours and a whole lot
+                of happiness.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#menu" class="btn btn-primary">
+                    Explore Menu
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="#order" class="btn btn-light">
+                    Order Now
+                </a>
+
+            </div>
+
+            <div class="rating">
+
+                <span class="stars">
+                    ★★★★★
+                </span>
+
+                <span>
+                    Loved by milkshake lovers
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image-area">
+
+            <div class="hero-circle"></div>
+
+            <img
+                src="images/hero.png"
+                alt="Milky Mix signature milkshake"
+                class="hero-image"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<section class="menu" id="menu">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>Our Menu</span>
+
+            <h2>Pick Your Favourite</h2>
+
+            <p>
+                Freshly blended milkshakes made for every mood.
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/img 1.jpg"
+                        alt="Strawberry milkshake"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Strawberry</h3>
+
+                    <p>
+                        Creamy strawberry goodness.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            $7.99
+                        </span>
+
+                        <button
+                            class="add-cart"
+                            data-name="Strawberry Milkshake"
+                        >
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/img 2.jpg"
+                        alt="Chocolate milkshake"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Chocolate</h3>
+
+                    <p>
+                        Rich chocolate creamy shake.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            $8.49
+                        </span>
+
+                        <button
+                            class="add-cart"
+                            data-name="Chocolate Milkshake"
+                        >
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/img 3.jpg"
+                        alt="Mango milkshake"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Mango</h3>
+
+                    <p>
+                        Sweet tropical mango blend.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            $7.49
+                        </span>
+
+                        <button
+                            class="add-cart"
+                            data-name="Mango Milkshake"
+                        >
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/img 4.jpg"
+                        alt="Oreo milkshake"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Oreo</h3>
+
+                    <p>
+                        Cookies, cream and happiness.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            $8.99
+                        </span>
+
+                        <button
+                            class="add-cart"
+                            data-name="Oreo Milkshake"
+                        >
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/img 5.png"
+                        alt="Pistachio milkshake"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Pistachio</h3>
+
+                    <p>
+                        Smooth nutty pistachio flavour.
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            $9.49
+                        </span>
+
+                        <button
+                            class="add-cart"
+                            data-name="Pistachio Milkshake"
+                        >
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OFFER
+===================================================== -->
+
+<section id="offers">
+
+    <div class="container">
+
+        <div class="combo">
+
+            <div class="combo-content">
+
+                <small>
+                    SPECIAL COMBO
+                </small>
+
+                <h2>
+                    Double The<br>
+                    Happiness
+                </h2>
+
+                <p>
+                    Grab two of your favourite milkshakes
+                    and enjoy a special combo price.
+                </p>
+
+                <br>
+
+                <a href="#order" class="btn btn-light">
+                    Get The Combo
+                </a>
+
+            </div>
+
+
+            <div class="discount">
+                20% OFF
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY US
+===================================================== -->
+
+<section class="why" id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>Why Milky Mix?</span>
+
+            <h2>Made With Good Things</h2>
+
+            <p>
+                Every shake is prepared with care,
+                fresh ingredients and lots of love.
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <img
+                        src="images/img 6.jpg"
+                        alt="Fresh real fruits"
+                    >
+
+                </div>
+
+                <h3>Real Fruit</h3>
+
+                <p>
+                    Fresh fruity flavours blended
+                    into every delicious shake.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <img
+                        src="images/fast.jpg"
+                        alt="Fast delivery"
+                    >
+
+                </div>
+
+                <h3>Fast Delivery</h3>
+
+                <p>
+                    Your favourite milkshake arrives
+                    fresh and ready to enjoy.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <img
+                        src="images/fresh.jpg"
+                        alt="Freshly blended milkshake"
+                    >
+
+                </div>
+
+                <h3>Fresh Blended</h3>
+
+                <p>
+                    Every order is blended fresh
+                    instead of sitting around.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <img
+                        src="images/milkshake.jpg"
+                        alt="Milkshake made with love"
+                    >
+
+                </div>
+
+                <h3>Made With Love</h3>
+
+                <p>
+                    Because the best milkshakes
+                    should always come with happiness.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ORDER
+===================================================== -->
+
+<section class="order" id="order">
+
+    <div class="container">
+
+        <div class="order-box">
+
+            <h2 class="order-title">
+                Place Your Order
+            </h2>
+
+            <form id="orderForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Your phone number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Flavour
+                        </label>
+
+                        <select id="flavour" required>
+
+                            <option value="">
+                                Select flavour
+                            </option>
+
+                            <option>Strawberry</option>
+                            <option>Chocolate</option>
+                            <option>Mango</option>
+                            <option>Oreo</option>
+                            <option>Pistachio</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Quantity
+                        </label>
+
+                        <input
+                            type="number"
+                            id="quantity"
+                            min="1"
+                            value="1"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Order Type
+                        </label>
+
+                        <select id="orderType" required>
+
+                            <option value="">
+                                Select order type
+                            </option>
+
+                            <option>Delivery</option>
+                            <option>Pickup</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Address
+                        </label>
+
+                        <textarea
+                            id="address"
+                            placeholder="Enter delivery address"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary order-submit"
+                >
+
+                    Place Order
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REVIEWS
+===================================================== -->
+
+<section class="reviews" id="reviews">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>Customer Love</span>
+
+            <h2>What People Say</h2>
+
+        </div>
+
+
+        <div class="review-box">
+
+            <div class="quote" id="reviewText">
+                "The chocolate milkshake was absolutely
+                creamy and delicious!"
+            </div>
+
+            <div class="review-name" id="reviewName">
+                — Zack
+            </div>
+
+
+            <div class="review-controls">
+
+                <button id="prevReview">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+
+                <button id="nextReview">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div class="toast" id="toast">
+    Added to your cart!
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <a href="#home" class="logo">
+
+                    <span class="logo-icon">
+
+                        <img
+                            src="images/logo.png"
+                            alt="Milky Mix logo"
+                        >
+
+                    </span>
+
+                    <span class="logo-text">
+                        Milky <span>Mix</span>
+                    </span>
+
+                </a>
+
+
+                <p>
+                    Creamy, dreamy milkshakes made
+                    to bring a little more happiness
+                    to your day.
+                </p>
+
+
+                <div class="socials">
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div>
+
+                <h3 class="footer-title">
+                    Quick Links
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="#home">Home</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#offers">Offers</a>
+                    <a href="#order">Order</a>
+
+                </div>
+
+            </div>
+
+
+
+            <div>
+
+                <h3 class="footer-title">
+                    Opening Hours
+                </h3>
+
+                <div class="footer-links">
+
+                    <span>
+                        Monday — Friday
+                    </span>
+
+                    <span>
+                        11:00 AM — 10:00 PM
+                    </span>
+
+                    <span>
+                        Saturday — Sunday
+                    </span>
+
+                    <span>
+                        12:00 PM — 11:00 PM
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Milky Mix. All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    /* =========================================
+       MOBILE MENU
+    ========================================= */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+
+        navLinks.classList.toggle("active");
+
+    });
+
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("active");
+
+        });
+
+    });
+
+
+
+    /* =========================================
+       CART
+    ========================================= */
+
+    let cartCount = 0;
+
+    const cartBtn = document.getElementById("cartBtn");
+    const cartCountElement = document.getElementById("cartCount");
+
+    const toast = document.getElementById("toast");
+
+
+    function showToast(message) {
+
+        toast.textContent = message;
+
+        toast.classList.add("show");
+
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2200);
+
+    }
+
+
+    document.querySelectorAll(".add-cart").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            cartCount++;
+
+            cartCountElement.textContent = cartCount;
+
+            const productName = button.dataset.name;
+
+            showToast(productName + " added to cart!");
+
+        });
+
+    });
+
+
+    cartBtn.addEventListener("click", () => {
+
+        showToast(
+            cartCount === 0
+                ? "Your cart is empty!"
+                : `You have ${cartCount} item(s) in your cart.`
+        );
+
+    });
+
+
+
+    /* =========================================
+       ORDER FORM
+    ========================================= */
+
+    const orderForm = document.getElementById("orderForm");
+
+    orderForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+
+        showToast(
+            `Thank you ${name}! Your order has been received.`
+        );
+
+        orderForm.reset();
+
+    });
+
+
+
+    /* =========================================
+       REVIEWS
+    ========================================= */
+
+    const reviews = [
+
+        {
+            text:
+                "The chocolate milkshake was absolutely creamy and delicious!",
+            name:
+                "— Zack"
+        },
+
+        {
+            text:
+                "Milky Mix has become my favourite place for sweet treats!",
+            name:
+                "— Diana"
+        },
+
+        {
+            text:
+                "The strawberry shake was fresh, cold and perfect!",
+            name:
+                "— Emy"
+        }
+
+    ];
+
+
+    let reviewIndex = 0;
+
+
+    const reviewText = document.getElementById("reviewText");
+    const reviewName = document.getElementById("reviewName");
+
+
+    function showReview(index) {
+
+        reviewText.textContent =
+            `"${reviews[index].text}"`;
+
+        reviewName.textContent =
+            reviews[index].name;
+
+    }
+
+
+    document.getElementById("nextReview")
+        .addEventListener("click", () => {
+
+            reviewIndex++;
+
+            if (reviewIndex >= reviews.length) {
+                reviewIndex = 0;
+            }
+
+            showReview(reviewIndex);
+
+        });
+
+
+    document.getElementById("prevReview")
+        .addEventListener("click", () => {
+
+            reviewIndex--;
+
+            if (reviewIndex < 0) {
+                reviewIndex = reviews.length - 1;
+            }
+
+            showReview(reviewIndex);
+
+        });
+
+</script>
+
+</body>
+</html>

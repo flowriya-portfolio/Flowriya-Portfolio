@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bean & Brew | Settings</title>
+
+
+    <!-- GOOGLE FONT -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #fffaf3;
+            color: #3b2418;
+            transition: 0.3s ease;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: #fffaf3;
+            border-bottom: 1px solid #eadfd2;
+            transition: 0.3s ease;
+        }
+
+
+        .navbar {
+            max-width: 1100px;
+            height: 80px;
+            margin: auto;
+
+            padding: 0 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .logo {
+            text-decoration: none;
+
+            color: #3b2418;
+
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+
+        .logo i {
+            color: #9b5b2e;
+            margin-right: 5px;
+        }
+
+
+        .logo span {
+            color: #b8753c;
+        }
+
+
+        .back-btn {
+            text-decoration: none;
+
+            color: #6b3e24;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            transition: 0.3s;
+        }
+
+
+        .back-btn:hover {
+            color: #a66a3f;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        .settings-container {
+            max-width: 850px;
+
+            margin: 65px auto;
+
+            padding: 0 20px;
+        }
+
+
+        /* ================= HEADING ================= */
+
+        .settings-heading {
+            text-align: center;
+
+            margin-bottom: 40px;
+        }
+
+
+        .settings-heading p {
+            color: #b8753c;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            font-weight: 700;
+        }
+
+
+        .settings-heading h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 45px;
+
+            margin: 8px 0;
+        }
+
+
+        .settings-heading span {
+            color: #8b6b57;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= CARD ================= */
+
+        .settings-card {
+            background: white;
+
+            border: 1px solid #eadfd2;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 8px 25px rgba(70, 40, 20, 0.06);
+
+            transition: 0.3s ease;
+        }
+
+
+        /* ================= CARD HEADING ================= */
+
+        .card-heading {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding-bottom: 20px;
+
+            border-bottom: 1px solid #eadfd2;
+        }
+
+
+        .heading-icon {
+            width: 45px;
+            height: 45px;
+
+            background: #f2e3d3;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            color: #8b512c;
+
+            font-size: 18px;
+        }
+
+
+        .card-heading h2 {
+            font-size: 18px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .card-heading p {
+            color: #8b6b57;
+
+            font-size: 12px;
+        }
+
+
+        /* ================= SETTING ROW ================= */
+
+        .setting-row {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding-top: 22px;
+        }
+
+
+        .setting-info {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+
+        .setting-info > i {
+            width: 30px;
+
+            color: #9b5b2e;
+
+            font-size: 17px;
+        }
+
+
+        .setting-info h3 {
+            font-size: 15px;
+
+            margin-bottom: 4px;
+        }
+
+
+        .setting-info p {
+            color: #8b6b57;
+
+            font-size: 12px;
+        }
+
+
+        /* ================= TOGGLE ================= */
+
+        .switch {
+            position: relative;
+
+            width: 48px;
+            height: 25px;
+        }
+
+
+        .switch input {
+            display: none;
+        }
+
+
+        .slider {
+            position: absolute;
+
+            inset: 0;
+
+            background: #d8c8ba;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .slider::before {
+            content: "";
+
+            position: absolute;
+
+            width: 19px;
+            height: 19px;
+
+            left: 3px;
+            top: 3px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            transition: 0.3s;
+        }
+
+
+        .switch input:checked + .slider {
+            background: #8b512c;
+        }
+
+
+        .switch input:checked + .slider::before {
+            transform: translateX(23px);
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        .action-btn {
+            border: none;
+
+            background: #6b3e24;
+
+            color: white;
+
+            padding: 9px 18px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .action-btn:hover {
+            background: #8b512c;
+        }
+
+
+        /* ================= RESET ================= */
+
+        .reset-btn {
+            display: block;
+
+            margin: 35px auto 0;
+
+            border: 1px solid #d7c4b3;
+
+            background: transparent;
+
+            color: #6b3e24;
+
+            padding: 12px 22px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .reset-btn:hover {
+            background: #ead8c5;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            color: #8b6b57;
+
+            font-size: 12px;
+        }
+
+
+        /* ================================================= */
+        /* ================= DARK MODE ===================== */
+        /* ================================================= */
+
+        body.dark {
+            background: #211811;
+
+            color: #f8eee5;
+        }
+
+
+        body.dark header {
+            background: #211811;
+
+            border-color: #4a3527;
+        }
+
+
+        body.dark .logo {
+            color: #f8eee5;
+        }
+
+
+        body.dark .logo span {
+            color: #c98a58;
+        }
+
+
+        body.dark .back-btn {
+            color: #d8c8ba;
+        }
+
+
+        body.dark .back-btn:hover {
+            color: #c98a58;
+        }
+
+
+        body.dark .settings-heading span {
+            color: #bca99a;
+        }
+
+
+        body.dark .settings-card {
+            background: #2b1e16;
+
+            border-color: #4a3527;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+
+        body.dark .card-heading {
+            border-color: #4a3527;
+        }
+
+
+        body.dark .card-heading p {
+            color: #bca99a;
+        }
+
+
+        body.dark .setting-info p {
+            color: #bca99a;
+        }
+
+
+        body.dark .heading-icon {
+            background: #3b291e;
+
+            color: #d19a68;
+        }
+
+
+        body.dark .reset-btn {
+            color: #e4c6ac;
+
+            border-color: #654936;
+        }
+
+
+        body.dark .reset-btn:hover {
+            background: #3b291e;
+        }
+
+
+        body.dark footer {
+            color: #bca99a;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                height: 70px;
+            }
+
+
+            .logo {
+                font-size: 21px;
+            }
+
+
+            .back-btn {
+                font-size: 12px;
+            }
+
+
+            .settings-container {
+                margin: 45px auto;
+            }
+
+
+            .settings-heading h1 {
+                font-size: 36px;
+            }
+
+
+            .settings-card {
+                padding: 20px;
+            }
+
+
+            .setting-info p {
+                max-width: 190px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+
+                <i class="fa-solid fa-mug-hot"></i>
+
+                Bean<span>&</span>Brew
+
+            </a>
+
+
+            <a href="index.html" class="back-btn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Home
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= SETTINGS ================= -->
+
+    <main class="settings-container">
+
+
+        <div class="settings-heading">
+
+            <p>BEAN & BREW</p>
+
+            <h1>Settings</h1>
+
+            <span>
+                Customize your coffee experience.
+            </span>
+
+        </div>
+
+
+
+        <!-- ================= APPEARANCE ================= -->
+
+        <section class="settings-card">
+
+            <div class="card-heading">
+
+                <div class="heading-icon">
+
+                    <i class="fa-solid fa-palette"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>Appearance</h2>
+
+                    <p>
+                        Change how Bean & Brew looks.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <i class="fa-solid fa-moon"></i>
+
+
+                    <div>
+
+                        <h3>Dark Mode</h3>
+
+                        <p>
+                            Switch between light and dark theme.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="dark-mode"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= NOTIFICATIONS ================= -->
+
+        <section class="settings-card">
+
+            <div class="card-heading">
+
+                <div class="heading-icon">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>Notifications</h2>
+
+                    <p>
+                        Manage your notifications.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <i class="fa-solid fa-bell"></i>
+
+
+                    <div>
+
+                        <h3>Notifications</h3>
+
+                        <p>
+                            Receive updates and special offers.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="notifications"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= SHOPPING ================= -->
+
+        <section class="settings-card">
+
+            <div class="card-heading">
+
+                <div class="heading-icon">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>Shopping</h2>
+
+                    <p>
+                        Manage your shopping data.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <i class="fa-solid fa-trash"></i>
+
+
+                    <div>
+
+                        <h3>Clear Cart</h3>
+
+                        <p>
+                            Remove all items from your cart.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="action-btn"
+                    id="clear-cart"
+                >
+
+                    Clear
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ACCOUNT ================= -->
+
+        <section class="settings-card">
+
+            <div class="card-heading">
+
+                <div class="heading-icon">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>Account</h2>
+
+                    <p>
+                        Manage your account settings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="setting-row">
+
+                <div class="setting-info">
+
+                    <i class="fa-solid fa-user-gear"></i>
+
+
+                    <div>
+
+                        <h3>Account</h3>
+
+                        <p>
+                            Your personal account information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button class="action-btn">
+
+                    Manage
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= RESET ================= -->
+
+        <button
+            class="reset-btn"
+            id="reset-settings"
+        >
+
+            <i class="fa-solid fa-rotate-left"></i>
+
+            Reset Settings
+
+        </button>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        © 2026 Bean & Brew. Fresh coffee. Good moments.
+
+    </footer>
+
+
+
+    <script>
+
+
+        // ================= DARK MODE =================
+
+        const darkMode =
+            document.querySelector("#dark-mode");
+
+
+        darkMode.addEventListener("change", function () {
+
+            if (darkMode.checked) {
+
+                document.body.classList.add("dark");
+
+                localStorage.setItem(
+                    "darkMode",
+                    "true"
+                );
+
+            } else {
+
+                document.body.classList.remove("dark");
+
+                localStorage.setItem(
+                    "darkMode",
+                    "false"
+                );
+
+            }
+
+        });
+
+
+
+        // ================= LOAD DARK MODE =================
+
+        if (
+            localStorage.getItem("darkMode") === "true"
+        ) {
+
+            document.body.classList.add("dark");
+
+            darkMode.checked = true;
+
+        }
+
+
+
+        // ================= NOTIFICATIONS =================
+
+        const notifications =
+            document.querySelector("#notifications");
+
+
+        notifications.addEventListener("change", function () {
+
+            if (notifications.checked) {
+
+                localStorage.setItem(
+                    "notifications",
+                    "true"
+                );
+
+            } else {
+
+                localStorage.setItem(
+                    "notifications",
+                    "false"
+                );
+
+            }
+
+        });
+
+
+
+        // ================= LOAD NOTIFICATIONS =================
+
+        if (
+            localStorage.getItem("notifications") === "true"
+        ) {
+
+            notifications.checked = true;
+
+        }
+
+
+
+        // ================= CLEAR CART =================
+
+        const clearCart =
+            document.querySelector("#clear-cart");
+
+
+        clearCart.addEventListener("click", function () {
+
+            localStorage.removeItem("coffeeCart");
+
+            alert("Your cart has been cleared!");
+
+        });
+
+
+
+        // ================= RESET SETTINGS =================
+
+        const resetSettings =
+            document.querySelector("#reset-settings");
+
+
+        resetSettings.addEventListener("click", function () {
+
+            localStorage.removeItem("darkMode");
+
+            localStorage.removeItem("notifications");
+
+
+            document.body.classList.remove("dark");
+
+
+            darkMode.checked = false;
+
+            notifications.checked = false;
+
+
+            alert("Settings have been reset!");
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
